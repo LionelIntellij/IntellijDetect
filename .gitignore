@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+ToDelete/
+.idea/
+opencv4/
+lib/
+cmake-build-debug/
+documentation/
+test.cpp
