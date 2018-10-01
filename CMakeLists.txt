@@ -20,8 +20,7 @@ link_directories(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_include_directories(${PROJECT_NAME}  PRIVATE ${PROJECT_SOURCE_DIR}/
-        PUBLIC ${PROJECT_SOURCE_DIR}/opencv4/opencv2/)
+target_include_directories(${PROJECT_NAME}  PRIVATE ${PROJECT_SOURCE_DIR}/barcode/ PUBLIC ${PROJECT_SOURCE_DIR}/opencv4/)
 
 target_link_libraries(${PROJECT_NAME} opencv_core opencv_imgproc opencv_imgcodecs)
 
