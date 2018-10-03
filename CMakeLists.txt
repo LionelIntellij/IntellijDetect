@@ -10,7 +10,7 @@ message("-- Project name is ${PROJECT_NAME}")
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 message("-- CMake module path is ${CMAKE_MODULE_PATH}")
 
-file( GLOB SOURCES "barcode/*.cpp")
+file( GLOB SOURCES "*.cpp")
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -DSQLITE_THREADSAFE=1 -fexceptions")
 ### External library KListupDBHandler, add GLOBAL if the imported library is located in directories above the current.
@@ -20,7 +20,7 @@ link_directories(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/lib)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_include_directories(${PROJECT_NAME}  PRIVATE ${PROJECT_SOURCE_DIR}/barcode/ PUBLIC ${PROJECT_SOURCE_DIR}/opencv4/)
+target_include_directories(${PROJECT_NAME}  PRIVATE ${PROJECT_SOURCE_DIR}/ PUBLIC ${PROJECT_SOURCE_DIR}/opencv4/)
 
 target_link_libraries(${PROJECT_NAME} opencv_core opencv_imgproc opencv_imgcodecs)
 
