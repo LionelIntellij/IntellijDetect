@@ -1,0 +1,4 @@
+/home/lionel/IntellijDetect/build/CMakeFiles/rebuild_cache.dir
+/home/lionel/IntellijDetect/build/CMakeFiles/edit_cache.dir
+/home/lionel/IntellijDetect/build/CMakeFiles/IntelligDetect.dir
+/home/lionel/IntellijDetect/build/CMakeFiles/IntelligDetect_automoc.dir
