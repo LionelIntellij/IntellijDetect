@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+*.user
 # Compiled Object files
 *.slo
 *.lo
@@ -36,6 +36,7 @@ ToDelete/
 .idea/
 opencv4/
 lib/
+build/
 cmake-build-debug/
 documentation/
 test.cpp
