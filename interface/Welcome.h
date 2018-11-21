@@ -1,0 +1,30 @@
+#ifndef WELCOME_H
+#define WELCOME_H
+
+//QT include
+#include <QWidget>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include "CircularBar.h"
+
+namespace interface {
+
+class Welcome : public QWidget
+    {
+        Q_OBJECT
+
+public:
+     explicit Welcome(QWidget *parent =0);
+     ~ Welcome();
+
+private:
+    CircularBar * myCircularBarObjects = nullptr;
+    CircularBar * myCircularBarFoods = nullptr;
+    QHBoxLayout * myMainLayout = nullptr;
+    QVBoxLayout * myObjectsLayout = nullptr;
+    QVBoxLayout * myFoodsLayout = nullptr;
+
+};
+}
+
+#endif // WELCOME_H

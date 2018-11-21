@@ -1,17 +1,19 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+//QT include
 #include <QStackedWidget>
 #include <QtGui>
 #include <QMainWindow>
 #include <QPushButton>
-#include <QCheckBox>
 #include <QListWidget>
-#include <QLabel>
 #include <QVBoxLayout>
-#include <QGridLayout>
-#include "Detection.h"
 #include <QGroupBox>
+
+//class include
+#include "Detection.h"
+#include "Welcome.h"
+#include "ControlPanel.h"
 
 namespace interface {
 
@@ -27,32 +29,22 @@ public:
 protected:
     void createGuiControlComponents();
     void createMainLayout();
-    void createSubSlidingWidgets();
     void createConnections();
     void createStacked();
 
-
-    QStackedWidget *slidingStacked;
-    //QVBoxLayout *mainLayout;
     QHBoxLayout *mainLayout;
-
     QWidget *centralWidget;
     Detection *myDetectionWindow = nullptr;
-    QWidget *slideWidget2;
+    Welcome * myWelcomeWindow = nullptr;
 
     int myCurrentStacked= 0;
     int myNumberStacked = 0;
 
 private:
-     QGroupBox * myBoxPanel =nullptr;
-     QVBoxLayout * myControlPanel = nullptr;
-     QPushButton * myButtonParameters = nullptr;
-     QPushButton * myButtonSensors = nullptr;
-     QPushButton * myButtonDetection = nullptr;
-     QPushButton * myButtonObjects = nullptr;
-     QPushButton * myButtonFoods = nullptr;
+     QStackedWidget *myStack = nullptr;
+     ControlPanel * myPanel = nullptr;
 
-private slots:
+protected slots:
     void slideInNext();
     void slideInPrev();
     void slidePrincipal();

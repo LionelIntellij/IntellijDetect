@@ -1,7 +1,6 @@
 #include "MainWindow.h"
-#include "UtilsInterface.h"
 #include <QStyleFactory>
-
+#include <iostream>
 namespace interface {
 
 
@@ -10,13 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     createGuiControlComponents();
-    createSubSlidingWidgets();
-    createStacked();
-    createMainLayout();
-    createConnections();
-}
 
-MainWindow::~MainWindow() {
+    createStacked();
+
+    createMainLayout();
+
+    createConnections();
 }
 
 void MainWindow::createGuiControlComponents() {
@@ -37,76 +35,45 @@ void MainWindow::createGuiControlComponents() {
     darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
     darkPalette.setColor(QPalette::HighlightedText, Qt::black);
     setPalette(darkPalette);
-    myButtonParameters = new QPushButton(tr("Parameters"));
-    myButtonParameters->setMinimumSize(PANEL_BUTTON_WITDH,
-                                       PANEL_BUTTON_HEIGHT);
-    myButtonSensors = new QPushButton(tr("Sensors"));
-    myButtonSensors->setMinimumSize(PANEL_BUTTON_WITDH,
-                                    PANEL_BUTTON_HEIGHT);
-    myButtonDetection = new QPushButton(tr("Detect"));
-    myButtonDetection->setMinimumSize(PANEL_BUTTON_WITDH,
-                                      PANEL_BUTTON_HEIGHT);
-    myButtonObjects = new QPushButton(tr("Objects"));
-    myButtonObjects->setMinimumSize(PANEL_BUTTON_WITDH,
-                                    PANEL_BUTTON_HEIGHT);
-    myButtonFoods = new QPushButton(tr("Foods"));
-    myButtonFoods->setMinimumSize(PANEL_BUTTON_WITDH,
-                                  PANEL_BUTTON_HEIGHT);
+
 }
 
 
 void MainWindow::createMainLayout() {
     centralWidget=new QWidget(this);
     mainLayout=new QHBoxLayout();
-    //myBoxPanel = new QGroupBox(tr("&Push Buttons"));
     centralWidget->setLayout(mainLayout);
-    myControlPanel = new QVBoxLayout();
-    //myBoxPanel->setLayout(myControlPanel);
-    mainLayout->addLayout(myControlPanel);
-    mainLayout->addWidget(slidingStacked);
-
-    myControlPanel->addWidget(myButtonParameters);
-    myControlPanel->addWidget(myButtonSensors);
-    myControlPanel->addWidget(myButtonDetection);
-    myControlPanel->addWidget(myButtonFoods);
-    myControlPanel->addWidget(myButtonObjects);
-
-    this->setCentralWidget(centralWidget);
-}
-
-void MainWindow::createSubSlidingWidgets() {
-    myDetectionWindow = new Detection();
-    slideWidget2 = new QWidget();
-
-    QVBoxLayout *slideWidget2layout=new QVBoxLayout();
-    slideWidget2->setLayout(slideWidget2layout);
-    QPushButton *b21=new QPushButton("Cool");
-    slideWidget2layout->addWidget(b21);
-    QPushButton *b22=new QPushButton("is Qt !");
-    slideWidget2layout->addWidget(b22);
+    myPanel = new ControlPanel(this);
+    mainLayout->addWidget(myPanel);
+    mainLayout->addWidget(myStack);
+    setCentralWidget(centralWidget);
 }
 
 void MainWindow::createStacked() {
-    slidingStacked= new QStackedWidget(this);
-    slidingStacked->addWidget(myDetectionWindow);
-    slidingStacked->addWidget(slideWidget2);
+    myWelcomeWindow = new Welcome();
+    myDetectionWindow = new Detection();
 
 
-    myCurrentStacked = slidingStacked->currentIndex();
-    myNumberStacked = slidingStacked->count();
+    myStack= new QStackedWidget(this);
+    myStack->addWidget(myWelcomeWindow);
+    myStack->addWidget(myDetectionWindow);
+
+
+    myCurrentStacked = myStack->currentIndex();
+    myNumberStacked = myStack->count();
 }
 
 void MainWindow::createConnections() {
 
-    QObject::connect(myButtonDetection,SIGNAL(pressed()),this,SLOT(slideInNext()));
-    QObject::connect(myButtonFoods,SIGNAL(pressed()),this,SLOT(slideInPrev()));
+    //QObject::connect(myButtonDetection,SIGNAL(pressed()),this,SLOT(slideInNext()));
+    //QObject::connect(myButtonFoods,SIGNAL(pressed()),this,SLOT(slideInPrev()));
 }
 
 
 void MainWindow::slideInNext()
 {
  int currentStacked = (myCurrentStacked + 1)% myNumberStacked;
-  slidingStacked->setCurrentIndex(currentStacked);
+  myStack->setCurrentIndex(currentStacked);
   myCurrentStacked = currentStacked;
 }
 
@@ -116,20 +83,33 @@ void MainWindow::slideInPrev()
  int currentStacked = (myCurrentStacked - 1);
  if (currentStacked < 0)
  {
-      slidingStacked->setCurrentIndex(myNumberStacked);
+      myStack->setCurrentIndex(myNumberStacked);
       myCurrentStacked = myNumberStacked;
  }
  else
  {
-      slidingStacked->setCurrentIndex(currentStacked);
+      myStack->setCurrentIndex(currentStacked);
       myCurrentStacked = currentStacked;
  }
 }
 
 void MainWindow::slidePrincipal()
 {
-slidingStacked->setCurrentIndex(myNumberStacked);
+myStack->setCurrentIndex(myNumberStacked);
 }
+
+MainWindow::~MainWindow()
+{
+    delete myDetectionWindow;
+    delete myWelcomeWindow;
+    delete myStack;
+    delete myPanel;
+    //
+    delete centralWidget;
+    delete mainLayout;
+    //delete myMainLayout;
+}
+
 
 }
 

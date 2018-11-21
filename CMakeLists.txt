@@ -21,7 +21,7 @@ file(GLOB SOURCES "main.cpp"
                   "interface/*.cpp"
     )
 
-set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -fexceptions")
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -fexceptions")
 
 #qt5_wrap_ui(UI_FILES
 #         "interface/MainWindow.ui"
