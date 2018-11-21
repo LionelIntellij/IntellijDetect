@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lionel/IntellijDetect
+CMAKE_SOURCE_DIR = /home/lionel/Projets/IntellijDetect
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lionel/IntellijDetect/build
+CMAKE_BINARY_DIR = /home/lionel/Projets/IntellijDetect/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lionel/IntellijDetect/build/CMakeFiles /home/lionel/IntellijDetect/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lionel/Projets/IntellijDetect/build/CMakeFiles /home/lionel/Projets/IntellijDetect/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lionel/IntellijDetect/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lionel/Projets/IntellijDetect/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,111 +111,111 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named IntelligDetect
+# Target rules for targets named IntellijDetect
 
 # Build rule for target.
-IntelligDetect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IntelligDetect
-.PHONY : IntelligDetect
+IntellijDetect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IntellijDetect
+.PHONY : IntellijDetect
 
 # fast build rule for target.
-IntelligDetect/fast:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/build
-.PHONY : IntelligDetect/fast
+IntellijDetect/fast:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/build
+.PHONY : IntellijDetect/fast
 
 #=============================================================================
-# Target rules for targets named IntelligDetect_automoc
+# Target rules for targets named IntellijDetect_automoc
 
 # Build rule for target.
-IntelligDetect_automoc: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IntelligDetect_automoc
-.PHONY : IntelligDetect_automoc
+IntellijDetect_automoc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IntellijDetect_automoc
+.PHONY : IntellijDetect_automoc
 
 # fast build rule for target.
-IntelligDetect_automoc/fast:
-	$(MAKE) -f CMakeFiles/IntelligDetect_automoc.dir/build.make CMakeFiles/IntelligDetect_automoc.dir/build
-.PHONY : IntelligDetect_automoc/fast
+IntellijDetect_automoc/fast:
+	$(MAKE) -f CMakeFiles/IntellijDetect_automoc.dir/build.make CMakeFiles/IntellijDetect_automoc.dir/build
+.PHONY : IntellijDetect_automoc/fast
 
-IntelligDetect_automoc.o: IntelligDetect_automoc.cpp.o
+IntellijDetect_automoc.o: IntellijDetect_automoc.cpp.o
 
-.PHONY : IntelligDetect_automoc.o
-
-# target to build an object file
-IntelligDetect_automoc.cpp.o:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/IntelligDetect_automoc.cpp.o
-.PHONY : IntelligDetect_automoc.cpp.o
-
-IntelligDetect_automoc.i: IntelligDetect_automoc.cpp.i
-
-.PHONY : IntelligDetect_automoc.i
-
-# target to preprocess a source file
-IntelligDetect_automoc.cpp.i:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/IntelligDetect_automoc.cpp.i
-.PHONY : IntelligDetect_automoc.cpp.i
-
-IntelligDetect_automoc.s: IntelligDetect_automoc.cpp.s
-
-.PHONY : IntelligDetect_automoc.s
-
-# target to generate assembly for a file
-IntelligDetect_automoc.cpp.s:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/IntelligDetect_automoc.cpp.s
-.PHONY : IntelligDetect_automoc.cpp.s
-
-MainWindow.o: MainWindow.cpp.o
-
-.PHONY : MainWindow.o
+.PHONY : IntellijDetect_automoc.o
 
 # target to build an object file
-MainWindow.cpp.o:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/MainWindow.cpp.o
-.PHONY : MainWindow.cpp.o
+IntellijDetect_automoc.cpp.o:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/IntellijDetect_automoc.cpp.o
+.PHONY : IntellijDetect_automoc.cpp.o
 
-MainWindow.i: MainWindow.cpp.i
+IntellijDetect_automoc.i: IntellijDetect_automoc.cpp.i
 
-.PHONY : MainWindow.i
+.PHONY : IntellijDetect_automoc.i
 
 # target to preprocess a source file
-MainWindow.cpp.i:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/MainWindow.cpp.i
-.PHONY : MainWindow.cpp.i
+IntellijDetect_automoc.cpp.i:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/IntellijDetect_automoc.cpp.i
+.PHONY : IntellijDetect_automoc.cpp.i
 
-MainWindow.s: MainWindow.cpp.s
+IntellijDetect_automoc.s: IntellijDetect_automoc.cpp.s
 
-.PHONY : MainWindow.s
+.PHONY : IntellijDetect_automoc.s
 
 # target to generate assembly for a file
-MainWindow.cpp.s:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/MainWindow.cpp.s
-.PHONY : MainWindow.cpp.s
+IntellijDetect_automoc.cpp.s:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/IntellijDetect_automoc.cpp.s
+.PHONY : IntellijDetect_automoc.cpp.s
 
-QCircularBar.o: QCircularBar.cpp.o
+interface/Detection.o: interface/Detection.cpp.o
 
-.PHONY : QCircularBar.o
+.PHONY : interface/Detection.o
 
 # target to build an object file
-QCircularBar.cpp.o:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/QCircularBar.cpp.o
-.PHONY : QCircularBar.cpp.o
+interface/Detection.cpp.o:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/Detection.cpp.o
+.PHONY : interface/Detection.cpp.o
 
-QCircularBar.i: QCircularBar.cpp.i
+interface/Detection.i: interface/Detection.cpp.i
 
-.PHONY : QCircularBar.i
+.PHONY : interface/Detection.i
 
 # target to preprocess a source file
-QCircularBar.cpp.i:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/QCircularBar.cpp.i
-.PHONY : QCircularBar.cpp.i
+interface/Detection.cpp.i:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/Detection.cpp.i
+.PHONY : interface/Detection.cpp.i
 
-QCircularBar.s: QCircularBar.cpp.s
+interface/Detection.s: interface/Detection.cpp.s
 
-.PHONY : QCircularBar.s
+.PHONY : interface/Detection.s
 
 # target to generate assembly for a file
-QCircularBar.cpp.s:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/QCircularBar.cpp.s
-.PHONY : QCircularBar.cpp.s
+interface/Detection.cpp.s:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/Detection.cpp.s
+.PHONY : interface/Detection.cpp.s
+
+interface/MainWindow.o: interface/MainWindow.cpp.o
+
+.PHONY : interface/MainWindow.o
+
+# target to build an object file
+interface/MainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/MainWindow.cpp.o
+.PHONY : interface/MainWindow.cpp.o
+
+interface/MainWindow.i: interface/MainWindow.cpp.i
+
+.PHONY : interface/MainWindow.i
+
+# target to preprocess a source file
+interface/MainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/MainWindow.cpp.i
+.PHONY : interface/MainWindow.cpp.i
+
+interface/MainWindow.s: interface/MainWindow.cpp.s
+
+.PHONY : interface/MainWindow.s
+
+# target to generate assembly for a file
+interface/MainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/interface/MainWindow.cpp.s
+.PHONY : interface/MainWindow.cpp.s
 
 main.o: main.cpp.o
 
@@ -223,7 +223,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -232,7 +232,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -241,7 +241,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/IntelligDetect.dir/build.make CMakeFiles/IntelligDetect.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/IntellijDetect.dir/build.make CMakeFiles/IntellijDetect.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -252,17 +252,17 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... IntelligDetect"
-	@echo "... IntelligDetect_automoc"
-	@echo "... IntelligDetect_automoc.o"
-	@echo "... IntelligDetect_automoc.i"
-	@echo "... IntelligDetect_automoc.s"
-	@echo "... MainWindow.o"
-	@echo "... MainWindow.i"
-	@echo "... MainWindow.s"
-	@echo "... QCircularBar.o"
-	@echo "... QCircularBar.i"
-	@echo "... QCircularBar.s"
+	@echo "... IntellijDetect"
+	@echo "... IntellijDetect_automoc"
+	@echo "... IntellijDetect_automoc.o"
+	@echo "... IntellijDetect_automoc.i"
+	@echo "... IntellijDetect_automoc.s"
+	@echo "... interface/Detection.o"
+	@echo "... interface/Detection.i"
+	@echo "... interface/Detection.s"
+	@echo "... interface/MainWindow.o"
+	@echo "... interface/MainWindow.i"
+	@echo "... interface/MainWindow.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

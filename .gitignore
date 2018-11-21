@@ -31,7 +31,6 @@
 *.out
 *.app
 
-main.cpp
 ToDelete/
 .idea/
 opencv4/
@@ -40,3 +39,5 @@ build/
 cmake-build-debug/
 documentation/
 test.cpp
+interface/ToDelete/
+interface/ToDelete2/

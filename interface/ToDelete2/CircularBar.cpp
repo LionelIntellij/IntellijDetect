@@ -1,25 +1,26 @@
-#include "QCircularBar.h"
+#include "CircularBar.h"
 #include <QtGlobal>
 #include <QtGui>
 #include <QPainter>
 #include <QFont>
 
+namespace interface{
 
-QCircularBar::QCircularBar(QWidget *parent)
+CircularBar::CircularBar(QWidget *parent)
     : QWidget(parent)
 {
    //m_lcd = new QLCDNumber(this);
 }
 
 
-QCircularBar::~QCircularBar()
+CircularBar::~CircularBar()
 {
     //delete m_lcd;
 }
 
 
 
-void QCircularBar::paintEvent(QPaintEvent *event)
+void CircularBar::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
@@ -45,7 +46,7 @@ void QCircularBar::paintEvent(QPaintEvent *event)
 }
 
 
-void QCircularBar::drawBackground(QPainter *painter)
+void CircularBar::drawBackground(QPainter *p)
 {
     /*
     painter->save();
@@ -79,11 +80,11 @@ void QCircularBar::drawBackground(QPainter *painter)
        qreal pi = 0.26;
         qreal pd = pi * 360;
         qreal rd = 360 - pd;
-        QPainter p(this);
+       // QPainter p(this);
         QColor mColor(110,190,235);
         //p.fillRect(rect(),QColor(53,53,53));
-        p.translate(10, 10);
-        p.setRenderHint(QPainter::Antialiasing);
+        p->translate(10, 10);
+        p->setRenderHint(QPainter::Antialiasing);
         QPainterPath path, path2;
         path.moveTo(75, 0);
         path.arcTo(QRectF(0, 0, 150, 150), 90, -pd);
@@ -91,7 +92,7 @@ void QCircularBar::drawBackground(QPainter *painter)
         pen.setCapStyle(Qt::FlatCap);
         pen.setColor(QColor("#30b7e0"));
         pen.setWidth(8);
-        p.strokePath(path, pen);
+        p->strokePath(path, pen);
         path2.moveTo(75, 0);
         pen2.setWidth(8);
         pen2.setColor(QColor("#d7d7d7"));
@@ -99,8 +100,8 @@ void QCircularBar::drawBackground(QPainter *painter)
         pen2.setDashPattern(QVector<qreal>{0.5, 0.7});
         path2.arcTo(QRectF(0, 0, 150, 150), 90, rd);
         //pen2.setDashOffset(2.2);
-        p.strokePath(path2, pen2);
-        p.drawText(QRectF(0, 0, 150, 150),Qt::AlignCenter,QString::number(pi*100)+" %");
+        p->strokePath(path2, pen2);
+        p->drawText(QRectF(0, 0, 150, 150),Qt::AlignCenter,QString::number(pi*100)+" %");
 }
 
-
+}
