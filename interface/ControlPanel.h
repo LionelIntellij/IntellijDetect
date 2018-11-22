@@ -1,10 +1,11 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
-
+#include <QToolButton>
 #include <QWidget>
-#include <QPushButton>
 #include <QVBoxLayout>
 #include <QGroupBox>
+#include <QIcon>
+#include <QPixmap>
 
 namespace interface {
 
@@ -18,14 +19,16 @@ public:
 private:
     QGroupBox   * myBoxPanel =nullptr;
     QVBoxLayout * myControlPanel = nullptr;
-    QPushButton * myButtonParameters = nullptr;
-    QPushButton * myButtonSensors = nullptr;
-    QPushButton * myButtonDetection = nullptr;
-    QPushButton * myButtonObjects = nullptr;
-    QPushButton * myButtonFoods = nullptr;
+    QToolButton * myButtonParameters = nullptr;
+    QToolButton * myButtonSensors = nullptr;
+    QToolButton * myButtonDetection = nullptr;
+    QToolButton * myButtonStatistical = nullptr;
+    QToolButton * myButtonObjects = nullptr;
+    QToolButton * myButtonFoods = nullptr;
     QVBoxLayout * myMainBox =nullptr;
 
     void createGuiComponents();
+    void setIconButton();
 private slots:
 
 
