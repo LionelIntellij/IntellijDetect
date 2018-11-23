@@ -1,5 +1,6 @@
 #include "ControlPanel.h"
 #include "UtilsInterface.h"
+#include <iostream>
 namespace interface {
 
 ControlPanel::ControlPanel(QWidget *parent):QWidget(parent)
@@ -8,12 +9,13 @@ ControlPanel::ControlPanel(QWidget *parent):QWidget(parent)
 
     myButtonParameters->setMinimumSize(PANEL_BUTTON_WITDH,
                                        PANEL_BUTTON_HEIGHT);
-    myButtonSensors = new QToolButton();
-    myButtonSensors->setMinimumSize(PANEL_BUTTON_WITDH,
-                                    PANEL_BUTTON_HEIGHT);
+
     myButtonDetection = new QToolButton();
     myButtonDetection->setMinimumSize(PANEL_BUTTON_WITDH,
                                       PANEL_BUTTON_HEIGHT);
+    myButtonPerson = new QToolButton();
+    myButtonPerson->setMinimumSize(PANEL_BUTTON_WITDH,
+                                    PANEL_BUTTON_HEIGHT);
     myButtonObjects = new QToolButton();
     myButtonObjects->setMinimumSize(PANEL_BUTTON_WITDH,
                                     PANEL_BUTTON_HEIGHT);
@@ -33,8 +35,8 @@ void ControlPanel::createGuiComponents()
     myBoxPanel = new QGroupBox(tr("Menu"));
     myBoxPanel->setLayout(myControlPanel);
     myControlPanel->addWidget(myButtonParameters);
-    myControlPanel->addWidget(myButtonSensors);
     myControlPanel->addWidget(myButtonDetection);
+    myControlPanel->addWidget(myButtonPerson);
     myControlPanel->addWidget(myButtonFoods);
     myControlPanel->addWidget(myButtonObjects);
     myControlPanel->addWidget(myButtonStatistical);
@@ -45,35 +47,36 @@ void ControlPanel::createGuiComponents()
 
 void ControlPanel::setIconButton()
 {
-    myButtonParameters->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/parameters.png"));
+    std::cerr<<pathIntellij<<std::endl;
+    myButtonParameters->setIcon( QIcon(std::string(pathIcons+"parameters.png").c_str()));
     myButtonParameters->setIconSize(QSize(50, 50));
     myButtonParameters->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     myButtonParameters->setText("Parameters");
 
-    myButtonFoods->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/foods.png"));
+    myButtonFoods->setIcon( QIcon(std::string(pathIcons+"foods.png").c_str()));
     myButtonFoods->setIconSize(QSize(50, 50));
     myButtonFoods->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     myButtonFoods->setText("Foods");
 
-    myButtonSensors->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/sensors.png"));
-    myButtonSensors->setIconSize(QSize(50, 50));
-    myButtonSensors->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonSensors->setText("Sensors");
+    myButtonPerson->setIcon( QIcon(std::string(pathIcons+"person.png").c_str()));
+    myButtonPerson->setIconSize(QSize(50, 50));
+    myButtonPerson->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    myButtonPerson->setText("Person");
 
-    myButtonObjects->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/objects.png"));
+    myButtonObjects->setIcon( QIcon(std::string(pathIcons+"objects.png").c_str()));
     myButtonObjects->setIconSize(QSize(50, 50));
     myButtonObjects->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     myButtonObjects->setText("Objects");
 
-    myButtonDetection->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/search.png"));
+    myButtonDetection->setIcon( QIcon(std::string(pathIcons+"search.png").c_str()));
     myButtonDetection->setIconSize(QSize(50, 50));
     myButtonDetection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     myButtonDetection->setText("Search");
 
-    myButtonStatistical->setIcon( QIcon("/home/lionel/Projets/IntellijDetect/icons/statistical.png"));
+    myButtonStatistical->setIcon( QIcon(std::string(pathIcons+"statistical.png").c_str()));
     myButtonStatistical->setIconSize(QSize(50, 50));
     myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonStatistical->setText("statistics");
+    myButtonStatistical->setText("Statistics");
 
 }
 
@@ -83,7 +86,7 @@ void ControlPanel::setIconButton()
          delete myBoxPanel;
          delete myControlPanel;
          delete myButtonParameters ;
-         delete myButtonSensors ;
+         delete myButtonPerson ;
          delete myButtonDetection ;
          delete myButtonObjects;
          delete myButtonFoods ;

@@ -20,7 +20,7 @@ private:
     QGroupBox   * myBoxPanel =nullptr;
     QVBoxLayout * myControlPanel = nullptr;
     QToolButton * myButtonParameters = nullptr;
-    QToolButton * myButtonSensors = nullptr;
+    QToolButton * myButtonPerson = nullptr;
     QToolButton * myButtonDetection = nullptr;
     QToolButton * myButtonStatistical = nullptr;
     QToolButton * myButtonObjects = nullptr;
