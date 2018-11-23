@@ -5,6 +5,9 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QBoxLayout>
+#include <QGroupBox>
+
 #include "CircularBar.h"
 
 namespace interface {
@@ -22,7 +25,11 @@ private:
     CircularBar * myCircularBarFoods = nullptr;
     QHBoxLayout * myMainLayout = nullptr;
     QVBoxLayout * myObjectsLayout = nullptr;
-    QVBoxLayout * myFoodsLayout = nullptr;
+    QVBoxLayout * myFoodsLayout = nullptr;   
+    QVBoxLayout * myPersonsLayout = nullptr;
+    QGroupBox * myBoxPersons = nullptr;
+    QGroupBox * myBoxFoods = nullptr;
+    QGroupBox * myBoxObjects = nullptr;
 
 };
 }

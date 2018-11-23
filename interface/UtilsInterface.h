@@ -7,7 +7,7 @@
 namespace interface {
 enum sizeObject: int {
     PANEL_BUTTON_HEIGHT = 100,
-    PANEL_BUTTON_WITDH = 150
+    PANEL_BUTTON_WITDH = 180
 };
 //
 inline const std::string &pathFile(std::string const &envVariable) {

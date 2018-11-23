@@ -5,15 +5,27 @@ namespace interface {
 
 Welcome::Welcome(QWidget *parent):QWidget(parent)
 {
-    myCircularBarFoods = new CircularBar();
-    myFoodsLayout = new QVBoxLayout();
+    myCircularBarFoods = new CircularBar;
+    myFoodsLayout = new QVBoxLayout;
     myFoodsLayout->addWidget(myCircularBarFoods);
-    myCircularBarObjects = new CircularBar();
-    myObjectsLayout = new QVBoxLayout();
+    myBoxFoods = new QGroupBox(tr("Foods"));
+    myBoxFoods->setLayout(myFoodsLayout);
+
+    myCircularBarObjects = new CircularBar;
+    myObjectsLayout = new QVBoxLayout;
     myObjectsLayout->addWidget(myCircularBarObjects);
-    myMainLayout = new QHBoxLayout();
-    myMainLayout->addLayout(myFoodsLayout);
-    myMainLayout->addLayout(myObjectsLayout);
+    myBoxObjects = new QGroupBox(tr("Objects"));
+    myBoxObjects->setLayout(myObjectsLayout);
+
+    myPersonsLayout = new QVBoxLayout;
+    myBoxPersons = new QGroupBox(tr("Persons"));
+    myBoxPersons->setLayout(myPersonsLayout);
+
+    myMainLayout = new QHBoxLayout;
+    myMainLayout->addWidget(myBoxFoods);
+    myMainLayout->addWidget(myBoxObjects);
+    myMainLayout->addWidget(myBoxPersons);
+
     setLayout(myMainLayout);
 }
 
@@ -23,6 +35,10 @@ Welcome::~Welcome(){
     delete myFoodsLayout;
     delete myCircularBarObjects;
     delete myObjectsLayout;
+    delete myBoxPersons;
+    delete myBoxFoods;
+    delete myBoxObjects;
+    delete myPersonsLayout;
 
 }
 }
