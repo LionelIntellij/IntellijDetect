@@ -16,6 +16,13 @@ public:
     explicit ControlPanel(QWidget  * parent = 0);
     ~ControlPanel();
 
+    QToolButton * getButtonParameters();
+    QToolButton * getButtonPersons();
+    QToolButton * getButtonDetection();
+    QToolButton * getButtonObjects();
+    QToolButton * getButtonFoods();
+    QToolButton * getButtonWelcome();
+
 private:
     QGroupBox   * myBoxPanel =nullptr;
     QVBoxLayout * myControlPanel = nullptr;
@@ -29,8 +36,6 @@ private:
 
     void createGuiComponents();
     void setIconButton();
-private slots:
-
 
 };
 }

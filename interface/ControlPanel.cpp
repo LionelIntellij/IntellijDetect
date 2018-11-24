@@ -47,7 +47,7 @@ void ControlPanel::createGuiComponents()
 
 void ControlPanel::setIconButton()
 {
-    std::cerr<<pathIntellij<<std::endl;
+    //std::cerr<<pathIcons<<std::endl;
     myButtonParameters->setIcon( QIcon(std::string(pathIcons+"parameters.png").c_str()));
     myButtonParameters->setIconSize(QSize(50, 50));
     myButtonParameters->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -90,6 +90,38 @@ void ControlPanel::setIconButton()
          delete myButtonDetection ;
          delete myButtonObjects;
          delete myButtonFoods ;
+         delete myButtonStatistical ;
 
  }
+
+ QToolButton * ControlPanel::getButtonParameters()
+ {
+     return myButtonParameters;
+ }
+
+ QToolButton * ControlPanel::getButtonFoods()
+ {
+     return myButtonFoods;
+ }
+
+ QToolButton * ControlPanel::getButtonWelcome()
+ {
+     return myButtonStatistical;
+ }
+
+ QToolButton * ControlPanel::getButtonPersons()
+ {
+     return myButtonPerson;
+ }
+
+ QToolButton * ControlPanel::getButtonDetection()
+ {
+     return myButtonDetection;
+ }
+
+ QToolButton * ControlPanel::getButtonObjects()
+ {
+     return myButtonObjects;
+ }
+
 }

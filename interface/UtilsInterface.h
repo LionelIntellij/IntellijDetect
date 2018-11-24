@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 namespace interface {
 enum sizeObject: int {
@@ -11,8 +12,14 @@ enum sizeObject: int {
 };
 //
 inline const std::string &pathFile(std::string const &envVariable) {
-    try {
-        const static std::string path = std::getenv(envVariable.c_str());
+    std::cerr<<std::string(envVariable.c_str())<<std::endl;
+    const char * pat1 = std::getenv(envVariable.c_str());
+    std::cerr<<" scvsqvc "<<std::string(pat1)<<std::endl;
+   std::string pat = std::string(pat1);
+
+    std::cerr<<pat<<std::endl;
+   try {
+        const static std::string path(std::getenv(envVariable.c_str()));
         return path;
     }
     catch (std::exception &e) {
@@ -20,8 +27,8 @@ inline const std::string &pathFile(std::string const &envVariable) {
         throw e;
     }
 }
-static std::string pathIntellij(std::getenv("INTELLIJ_PATH"));
-
+//static std::string pathIntellij(std::getenv("INTELLIJ_PATH"));
+static std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
 static std::string pathIcons(pathIntellij+"/icons/");
 
 

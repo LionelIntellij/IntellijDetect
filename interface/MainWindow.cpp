@@ -55,8 +55,8 @@ void MainWindow::createStacked() {
 
 
     myStack= new QStackedWidget(this);
-    myStack->addWidget(myWelcomeWindow);
-    myStack->addWidget(myDetectionWindow);
+    myIndexWelcome = myStack->addWidget(myWelcomeWindow);
+    myIndexDetection = myStack->addWidget(myDetectionWindow);
 
 
     myCurrentStacked = myStack->currentIndex();
@@ -65,11 +65,24 @@ void MainWindow::createStacked() {
 
 void MainWindow::createConnections() {
 
-    //QObject::connect(myButtonDetection,SIGNAL(pressed()),this,SLOT(slideInNext()));
-    //QObject::connect(myButtonFoods,SIGNAL(pressed()),this,SLOT(slideInPrev()));
+    QObject::connect(myPanel->getButtonDetection(),SIGNAL(pressed()),this,SLOT(toolButtonDetection_on_clicked()));
+    //QObject::connect(myPanel->getButtonObject(),SIGNAL(pressed()),this,SLOT(slideInPrev()));
+    QObject::connect(myPanel->getButtonWelcome(),SIGNAL(pressed()),this,SLOT(toolButtonWelcome_on_clicked()));
+    //QObject::connect(myPanel->getButtonObject(),SIGNAL(pressed()),this,SLOT(slideInPrev()));
 }
 
+void MainWindow::toolButtonDetection_on_clicked()
+{
+    myStack->setCurrentIndex(myIndexDetection);
+    myStack->update();
+}
+void MainWindow::toolButtonWelcome_on_clicked()
+{
+myStack->setCurrentIndex(myIndexWelcome);
+myStack->update();
+}
 
+/*
 void MainWindow::slideInNext()
 {
  int currentStacked = (myCurrentStacked + 1)% myNumberStacked;
@@ -97,7 +110,7 @@ void MainWindow::slidePrincipal()
 {
 myStack->setCurrentIndex(myNumberStacked);
 }
-
+*/
 MainWindow::~MainWindow()
 {
     delete myDetectionWindow;
