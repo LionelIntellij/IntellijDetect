@@ -13,6 +13,7 @@
 //class include
 #include "Detection.h"
 #include "Welcome.h"
+#include "Parameters.h"
 #include "ControlPanel.h"
 
 namespace interface {
@@ -32,17 +33,16 @@ protected:
     void createConnections();
     void createStacked();
 
-    QHBoxLayout *mainLayout = nullptr;
-    QWidget *centralWidget = nullptr;
+
     Detection *myDetectionWindow = nullptr;
     Welcome * myWelcomeWindow = nullptr;
-
-    int myCurrentStacked= 0;
-    int myNumberStacked = 0;
+    Parameters * myParameterWindow =nullptr;
 
 private:
      QStackedWidget *myStack = nullptr;
      ControlPanel * myPanel = nullptr;
+     QHBoxLayout *mainLayout = nullptr;
+     QWidget *centralWidget = nullptr;
      int myIndexParameters = 0;
      int myIndexPersons = 0;
      int myIndexFoods = 0;
@@ -53,6 +53,7 @@ private:
 private slots:
      void toolButtonDetection_on_clicked();
      void toolButtonWelcome_on_clicked();
+     void toolButtonParameters_on_clicked();
 
 
 

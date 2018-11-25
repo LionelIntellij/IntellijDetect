@@ -1,24 +1,73 @@
 #include "Detection.h"
+#include <QPalette>
+
 namespace interface {
 
 
 
 Detection::Detection(QWidget *parent) :
     QWidget(parent)
-   // myUi(new Ui::Detection)
 {
-    slideWidget1layout=new QVBoxLayout();
-    this->setLayout(slideWidget1layout);
-    b11=new QPushButton("Qt");
-    slideWidget1layout->addWidget(b11);
-    b12=new QPushButton("is cool !");
-    slideWidget1layout->addWidget(b12);
-    //myUi->setupUi(this);
-    //myUi->setCentralWidget()
+    createGuiComponents();
+    myMainLayout=new QGridLayout;
+    myMainLayout->addLayout(myPanel,0,0 ,3 ,2 );
+    myMainLayout->addWidget(myGraphicsView,0,3,2,5);
+    setLayout(myMainLayout);
+    createConnection();
+}
+
+void Detection::createGuiComponents()
+{
+    QPalette palette;
+    palette.setColor(QPalette::Base,Qt::white);
+    palette.setColor(QPalette::Text,Qt::black);
+
+    myGraphicsView = new QGraphicsView;
+    myGraphicsView->setPalette(palette);
+
+    myTextSearch = new QLineEdit;
+    myTextSearch->setPalette(palette);
+
+    myTextInfo = new QTextEdit;
+    myTextInfo->setPalette(palette);
+
+    myButtonSearch = new QToolButton;
+    myButtonSearch->setMinimumSize(100,80);
+    myButtonSearch->setText("Search");
+
+    myPanel = new QVBoxLayout;
+    myPanel->addStretch();
+    myPanel->addWidget(myButtonSearch);
+    myPanel->addWidget(myTextSearch);
+    myPanel->addStretch();
+    myPanel->addWidget(myTextInfo);
+    myPanel->addStretch();
+}
+
+void Detection::setListCompleter()
+{
+
+}
+
+void Detection::createConnection()
+{
+
+}
+
+
+void Detection::setTextInfo(const QString & info)
+{
+    myTextInfo->setText(info);
 }
 
 Detection::~Detection()
 {
-    //delete myUi;
+ delete myButtonSearch;
+ delete myPanel;
+ delete myGraphicsView;
+ delete myTextSearch;
+ delete myTextInfo;
+ delete myMainLayout;
 }
 }
+

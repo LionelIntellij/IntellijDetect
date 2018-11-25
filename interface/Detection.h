@@ -1,9 +1,15 @@
 #ifndef DETECTION_H
 #define DETECTION_H
-//#include "ui_Detection.h"
 #include <QWidget>
+#include <QFormLayout>
+#include <QTextEdit>
+#include <QtWidgets/QGraphicsView>
+#include <QLineEdit>
+#include <QCompleter>
+#include <QTextEdit>
+#include <QToolButton>
 #include <QVBoxLayout>
-#include <QPushButton>
+#include <QGridLayout>
 
 namespace interface {
 
@@ -16,12 +22,25 @@ public:
     explicit Detection(QWidget *parent =0);
     ~Detection();
 
-private:
-  QVBoxLayout *slideWidget1layout = nullptr;
-  QPushButton *b11 = nullptr;
-  QPushButton *b12 = nullptr;
+    void setTextInfo(const QString & info);
+    void setListCompleter();
 
-    //Ui::Detection *myUi;
+
+
+private:
+  QToolButton * myButtonSearch = nullptr;
+  QGridLayout * myMainLayout = nullptr;
+  QLineEdit * myTextSearch = nullptr;
+  QTextEdit * myTextInfo = nullptr;
+  QCompleter * myCompleter = nullptr;
+  QStringList wordList;
+  QVBoxLayout * myPanel;
+  QGraphicsView * myGraphicsView = nullptr;
+
+  void createConnection();
+
+  void createGuiComponents();
+
 };
 }
 #endif // QDETECTION_H

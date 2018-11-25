@@ -33,7 +33,7 @@ void MainWindow::createGuiControlComponents() {
     darkPalette.setColor(QPalette::BrightText, Qt::red);
     darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
     darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-    darkPalette.setColor(QPalette::HighlightedText, Qt::black);
+    darkPalette.setColor(QPalette::HighlightedText, Qt::white);
     setPalette(darkPalette);
 
 }
@@ -50,23 +50,21 @@ void MainWindow::createMainLayout() {
 }
 
 void MainWindow::createStacked() {
-    myWelcomeWindow = new Welcome();
-    myDetectionWindow = new Detection();
+    myWelcomeWindow = new Welcome;
+    myDetectionWindow = new Detection;
+    myParameterWindow = new Parameters;
 
 
     myStack= new QStackedWidget(this);
     myIndexWelcome = myStack->addWidget(myWelcomeWindow);
     myIndexDetection = myStack->addWidget(myDetectionWindow);
-
-
-    myCurrentStacked = myStack->currentIndex();
-    myNumberStacked = myStack->count();
+    myIndexParameters = myStack->addWidget(myParameterWindow);
 }
 
 void MainWindow::createConnections() {
 
     QObject::connect(myPanel->getButtonDetection(),SIGNAL(pressed()),this,SLOT(toolButtonDetection_on_clicked()));
-    //QObject::connect(myPanel->getButtonObject(),SIGNAL(pressed()),this,SLOT(slideInPrev()));
+    QObject::connect(myPanel->getButtonParameters(),SIGNAL(pressed()),this,SLOT(toolButtonParameters_on_clicked()));
     QObject::connect(myPanel->getButtonWelcome(),SIGNAL(pressed()),this,SLOT(toolButtonWelcome_on_clicked()));
     //QObject::connect(myPanel->getButtonObject(),SIGNAL(pressed()),this,SLOT(slideInPrev()));
 }
@@ -76,6 +74,13 @@ void MainWindow::toolButtonDetection_on_clicked()
     myStack->setCurrentIndex(myIndexDetection);
     myStack->update();
 }
+
+void MainWindow::toolButtonParameters_on_clicked()
+{
+    myStack->setCurrentIndex(myIndexParameters);
+    myStack->update();
+}
+
 void MainWindow::toolButtonWelcome_on_clicked()
 {
 myStack->setCurrentIndex(myIndexWelcome);
@@ -115,6 +120,7 @@ MainWindow::~MainWindow()
 {
     delete myDetectionWindow;
     delete myWelcomeWindow;
+    delete myParameterWindow;
     delete myStack;
     delete myPanel;
     //
