@@ -16,19 +16,18 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-
 file(GLOB SOURCES "main.cpp"
                   "interface/*.cpp"
+                  "object/*.cpp"
+                  "food/*.cpp"
+                  "sensor/*.cpp"
+                  "utils/*.cpp"
+                  "person/*.cpp"
+                  "parameters/*.cpp"
+                  "detection/*.cpp"
     )
 
-set(CMAKE_CXX_FLAGS "-std=c++17 -Wall -Wextra -fexceptions")
-
-#qt5_wrap_ui(UI_FILES
-#         "interface/MainWindow.ui"
-#		 "interface/Panel.ui"
-#         "interface/Detection.ui")
-#         "interface/WelcomeWindow.ui")
-	#    "interface/QSensor.ui")
+set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -fexceptions")
 
 
 
@@ -38,6 +37,13 @@ add_executable(IntellijDetect ${UI_FILES}
 
 target_include_directories(IntellijDetect PRIVATE
 	            ${PROJECT_SOURCE_DIR}/interface
+                    ${PROJECT_SOURCE_DIR}/parameters
+                    ${PROJECT_SOURCE_DIR}/object
+                    ${PROJECT_SOURCE_DIR}/utils
+                    ${PROJECT_SOURCE_DIR}/person
+                    ${PROJECT_SOURCE_DIR}/food
+                    ${PROJECT_SOURCE_DIR}/sensor
+                    ${PROJECT_SOURCE_DIR}/detection
 		    )
 
 target_link_libraries(IntellijDetect

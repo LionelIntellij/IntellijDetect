@@ -7,10 +7,10 @@
 #include <QToolButton>
 #include "Control.h"
 #include "Sensor.h"
-#include "AddPicture.h"
-#include "StatisticalFood.h"
+#include "Picture.h"
+#include "Statistical.h"
 
-namespace interface {
+namespace food {
 
 
 class Food : public QWidget

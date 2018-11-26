@@ -2,7 +2,8 @@
 #include <QGridLayout>
 
 
-namespace interface {
+namespace object
+{
 
 class StatisticalObject : public QWidget
 {

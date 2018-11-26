@@ -41,21 +41,21 @@ void MainWindow::createGuiControlComponents() {
 
 void MainWindow::createMainLayout() {
     centralWidget=new QWidget(this);
-    mainLayout=new QHBoxLayout();
+    myMainLayout=new QHBoxLayout();
     centralWidget->setLayout(mainLayout);
     myPanel = new ControlPanel(this);
-    mainLayout->addWidget(myPanel);
-    mainLayout->addWidget(myStack);
+    myMainLayout->addWidget(myPanel);
+    myMainLayout->addWidget(myStack);
     setCentralWidget(centralWidget);
 }
 
 void MainWindow::createStacked() {
     myWelcomeWindow = new Welcome;
-    myDetectionWindow = new Detection;
-    myParameterWindow = new Parameters;
-    myObjectWindow = new Object;
-    myFoodWindow = new Food;
-    myPersonWindow = new Person;
+    myDetectionWindow = new detection::Detection;
+    myParameterWindow = new parameters::Parameters;
+    myObjectWindow = new object::Object;
+    myFoodWindow = new food::Food;
+    myPersonWindow = new person::Person;
 
 
     myStack= new QStackedWidget(this);
@@ -69,48 +69,18 @@ void MainWindow::createStacked() {
 
 void MainWindow::createConnections() {
 
-    QObject::connect(myPanel->getButtonDetection(),SIGNAL(pressed()),this,SLOT(toolButtonDetection_on_clicked()));
-    QObject::connect(myPanel->getButtonParameters(),SIGNAL(pressed()),this,SLOT(toolButtonParameters_on_clicked()));
-    QObject::connect(myPanel->getButtonWelcome(),SIGNAL(pressed()),this,SLOT(toolButtonWelcome_on_clicked()));
-    QObject::connect(myPanel->getButtonFoods(),SIGNAL(pressed()),this,SLOT(toolButtonFood_on_clicked()));
-    QObject::connect(myPanel->getButtonObjects(),SIGNAL(pressed()),this,SLOT(toolButtonObject_on_clicked()));
-    QObject::connect(myPanel->getButtonPersons(),SIGNAL(pressed()),this,SLOT(toolButtonPerson_on_clicked()));
+    QObject::connect(myPanel->getButtonDetection(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexDetection)));
+    QObject::connect(myPanel->getButtonParameters(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexParameters)));
+    QObject::connect(myPanel->getButtonWelcome(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexWelcome)));
+    QObject::connect(myPanel->getButtonFoods(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexFoods)));
+    QObject::connect(myPanel->getButtonObjects(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexObjects)));
+    QObject::connect(myPanel->getButtonPersons(),SIGNAL(pressed()),this,SLOT(toolButton_on_clicked(myIndexPersons)));
 }
 
-void MainWindow::toolButtonDetection_on_clicked()
+void MainWindow::toolButton_on_clicked(const int index)
 {
-    myStack->setCurrentIndex(myIndexDetection);
+    myStack->setCurrentIndex(index);
     myStack->update();
-}
-
-void MainWindow::toolButtonParameters_on_clicked()
-{
-    myStack->setCurrentIndex(myIndexParameters);
-    myStack->update();
-}
-
-void MainWindow::toolButtonWelcome_on_clicked()
-{
-myStack->setCurrentIndex(myIndexWelcome);
-myStack->update();
-}
-
-void MainWindow::toolButtonFood_on_clicked()
-{
-    myStack->setCurrentIndex(myIndexFoods);
-    myStack->update();
-}
-
-void MainWindow::toolButtonObject_on_clicked()
-{
-    myStack->setCurrentIndex(myIndexObjects);
-    myStack->update();
-}
-
-void MainWindow::toolButtonPerson_on_clicked()
-{
-myStack->setCurrentIndex(myIndexPersons);
-myStack->update();
 }
 
 MainWindow::~MainWindow()
@@ -124,8 +94,7 @@ MainWindow::~MainWindow()
     delete myStack;
     delete myPanel;
     delete centralWidget;
-    delete mainLayout;
-    //delete myMainLayout;
+    delete myMainLayout;
 }
 
 

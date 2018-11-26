@@ -1,7 +1,7 @@
 #include "Object.h"
 #include "UtilsInterface.h"
 
-namespace interface {
+namespace object {
 
 Object::Object(QWidget *parent):QWidget(parent){
    myTable= new QTabWidget;

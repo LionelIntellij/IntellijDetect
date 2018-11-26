@@ -37,17 +37,17 @@ protected:
     void createStacked();
 
 
-    Detection *myDetectionWindow = nullptr;
+    detection::Detection *myDetectionWindow = nullptr;
     Welcome * myWelcomeWindow = nullptr;
-    Parameters * myParameterWindow =nullptr;
-    Object * myObjectWindow = nullptr;
-    Person * myPersonWindow = nullptr;
-    Food * myFoodWindow = nullptr;
+    parameters::Parameters * myParameterWindow =nullptr;
+    object::Object * myObjectWindow = nullptr;
+    person::Person * myPersonWindow = nullptr;
+    food::Food * myFoodWindow = nullptr;
 
 private:
      QStackedWidget *myStack = nullptr;
      ControlPanel * myPanel = nullptr;
-     QHBoxLayout *mainLayout = nullptr;
+     QHBoxLayout *myMainLayout = nullptr;
      QWidget *centralWidget = nullptr;
      int myIndexParameters = 0;
      int myIndexPersons = 0;
@@ -57,14 +57,7 @@ private:
      int myIndexDetection = 0;
 
 private slots:
-     void toolButtonDetection_on_clicked();
-     void toolButtonWelcome_on_clicked();
-     void toolButtonParameters_on_clicked();
-     void toolButtonFood_on_clicked();
-     void toolButtonObject_on_clicked();
-     void toolButtonPerson_on_clicked();
-
-
+     void toolButton_on_clicked();
 
 };
 }

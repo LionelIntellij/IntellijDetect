@@ -1,7 +1,8 @@
 
-#include "StatisticalObject.h"
+#include "Statistical.h"
 
-namespace interface {
+namespace object
+{
 
 StatisticalObject::StatisticalObject(QWidget * parent):QWidget(parent)
 {

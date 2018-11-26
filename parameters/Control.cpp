@@ -1,5 +1,5 @@
 #include "Control.h"
-namespace interface {
+namespace parameters {
 
 Control::Control(QWidget * parent):QWidget(parent)
 {

@@ -1,14 +1,14 @@
-#include "Parameters.h"
+#include "Person.h"
 #include "UtilsInterface.h"
 
-namespace interface {
+namespace person {
 
-Parameters::Parameters(QWidget *parent):QWidget(parent){
+Person::Person(QWidget *parent):QWidget(parent){
    myTable= new QTabWidget;
-   myControlWindow = new Control;
-   mySensorWindow = new Sensor;
-   myTable->addTab(mySensorWindow ,tr("Sensors"));
-   myTable->addTab(myControlWindow , tr("Control"));
+   myPictureWindow = new AddPicture;
+   myStatsPersonWindow = new StatisticalPerson ;
+   myTable->addTab(myPictureWindow ,tr("Picture"));
+   myTable->addTab(myStatisticalWindow , tr("Statistical"));
    myCurrentIndex = myTable->currentIndex();
    myCountIndex = myTable->count();
 
@@ -37,13 +37,13 @@ Parameters::Parameters(QWidget *parent):QWidget(parent){
    createConnections();
 }
 
-void Parameters::createConnections()
+void Person::createConnections()
 {
     QObject::connect(myNextButton,SIGNAL(pressed()),this,SLOT(toolButtonNext_on_clicked()));
     QObject::connect(myPreviousButton,SIGNAL(pressed()),this,SLOT(toolButtonPrevious_on_clicked()));
 }
 
-void Parameters::toolButtonNext_on_clicked()
+void Person::toolButtonNext_on_clicked()
 {
    if (myCurrentIndex == myCountIndex)
    {
@@ -55,7 +55,7 @@ void Parameters::toolButtonNext_on_clicked()
    }
 }
 
-void Parameters::toolButtonPrevious_on_clicked()
+void Person::toolButtonPrevious_on_clicked()
 {
     if (myCurrentIndex == 0)
     {
@@ -67,10 +67,10 @@ void Parameters::toolButtonPrevious_on_clicked()
     }
 }
 
-Parameters::~Parameters()
+Person::~Parameters()
 {
-  delete mySensorWindow;
-  delete myControlWindow;
+  delete myPictureWindow;
+  delete myStatsPersonWindow;
   delete myTable;
   delete myMainLayout;
   delete myPanelLayout;

@@ -11,7 +11,7 @@
 #include <QVBoxLayout>
 #include <QGridLayout>
 
-namespace interface {
+namespace detection {
 
 
 class Detection : public QWidget

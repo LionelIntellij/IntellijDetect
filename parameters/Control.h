@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
-namespace interface {
+namespace parameters {
 
 class Control : public QWidget
 {

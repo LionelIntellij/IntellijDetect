@@ -2,13 +2,13 @@
 #include <QGridLayout>
 
 
-namespace interface {
+namespace food {
 
-class StatisticalFood : public QWidget
+class Statistical : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatisticalFood(QWidget * parent = 0);
+    explicit Statistical(QWidget * parent = 0);
     ~StatisticalFood();
 
 private:

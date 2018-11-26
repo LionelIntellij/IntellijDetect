@@ -1,20 +1,22 @@
+#ifndef PICTURE_H
+#define PICTURE_H
 #include <QWidget>
 #include <QGridLayout>
 
-
 namespace interface {
 
-class StatisticalPerson : public QWidget
+
+class AddPicture : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatisticalPerson(QWidget * parent = 0);
-    ~StatisticalPerson();
+ explicit AddPicture(Qwidget * parent = 0);
+  ~AddPicture();
 
 private:
     QGridLayout * myMainLayout = nullptr;
 
-
 };
 
 }
+#endif

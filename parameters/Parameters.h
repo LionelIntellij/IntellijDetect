@@ -1,30 +1,30 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef PARAMETERS_H
+#define PARAMETERS_H
 
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "AddPicture.h"
-#include "StatisticalObject.h"
+#include "Control.h"
+#include "Sensor.h"
 
-namespace interface {
+namespace parameters {
 
 
-class Object : public QWidget
+class Parameters : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Object(QWidget *parent =0);
-    ~Person();
+    explicit Parameters(QWidget *parent =0);
+    ~Parameters();
 
 private:
    //Attribute
   QTabWidget * myTable = nullptr;
   QVBoxLayout *  myMainLayout = nullptr;
-  AddPicture * myPictureWindow = nullptr;
-  StaticticalObject * myStatisticalWindow = nullptr;
+  Control * myControlWindow = nullptr;
+  Sensor * mySensorWindow = nullptr;
   QHBoxLayout * myPanelLayout = nullptr;
   QToolButton * myPreviousButton = nullptr;
   QToolButton * myNextButton = nullptr;
@@ -40,4 +40,4 @@ private slots:
 
 };
 }
-#endif // QOJECT
+#endif // QPARAMETERS

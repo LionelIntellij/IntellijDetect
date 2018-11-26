@@ -5,10 +5,10 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "AddPicture.h"
-#include "StatisticalPerson.h"
+#include "Picture.h"
+#include "Statistical.h"
 
-namespace interface {
+namespace person {
 
 
 class Person : public QWidget
@@ -24,7 +24,7 @@ private:
   QTabWidget * myTable = nullptr;
   QVBoxLayout *  myMainLayout = nullptr;
   AddPicture * myPictureWindow = nullptr;
-  StaticticalPerson * myStatisticalWindow = nullptr;
+  Statictical * myStatistical = nullptr;
   QHBoxLayout * myPanelLayout = nullptr;
   QToolButton * myPreviousButton = nullptr;
   QToolButton * myNextButton = nullptr;

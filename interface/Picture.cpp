@@ -1,4 +1,4 @@
-#include "AddPicture.h"
+#include "Picture.h"
 
 
 namespace interface {

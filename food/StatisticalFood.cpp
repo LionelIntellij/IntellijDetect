@@ -1,9 +1,9 @@
 
-#include "StatisticalFood.h"
+#include "Statistical.h"
 
-namespace interface {
+namespace food {
 
-StatisticalFood::StatisticalFood(QWidget * parent):QWidget(parent)
+Statistical::Statistical(QWidget * parent):QWidget(parent)
 {
 
     myMainLayout = new QGridLayout;
