@@ -1,22 +1,22 @@
-#ifndef PERSON_H
-#define PERSON_H
+#ifndef OBJECT_H
+#define OBJECT_H
 
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
 #include "AddPicture.h"
-#include "StatisticalPerson.h"
+#include "StatisticalObject.h"
 
 namespace interface {
 
 
-class Person : public QWidget
+class Object : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Person(QWidget *parent =0);
+    explicit Object(QWidget *parent =0);
     ~Person();
 
 private:
@@ -24,7 +24,7 @@ private:
   QTabWidget * myTable = nullptr;
   QVBoxLayout *  myMainLayout = nullptr;
   AddPicture * myPictureWindow = nullptr;
-  StaticticalPerson * myStatisticalWindow = nullptr;
+  StaticticalObject * myStatisticalWindow = nullptr;
   QHBoxLayout * myPanelLayout = nullptr;
   QToolButton * myPreviousButton = nullptr;
   QToolButton * myNextButton = nullptr;
@@ -40,4 +40,4 @@ private slots:
 
 };
 }
-#endif // QPERSON
+#endif // QOJECT

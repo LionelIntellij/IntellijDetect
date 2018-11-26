@@ -15,6 +15,9 @@
 #include "Welcome.h"
 #include "Parameters.h"
 #include "ControlPanel.h"
+#include "Object.h"
+#include "Person.h"
+#include "Food.h"
 
 namespace interface {
 
@@ -37,6 +40,9 @@ protected:
     Detection *myDetectionWindow = nullptr;
     Welcome * myWelcomeWindow = nullptr;
     Parameters * myParameterWindow =nullptr;
+    Object * myObjectWindow = nullptr;
+    Person * myPersonWindow = nullptr;
+    Food * myFoodWindow = nullptr;
 
 private:
      QStackedWidget *myStack = nullptr;
@@ -54,6 +60,9 @@ private slots:
      void toolButtonDetection_on_clicked();
      void toolButtonWelcome_on_clicked();
      void toolButtonParameters_on_clicked();
+     void toolButtonFood_on_clicked();
+     void toolButtonObject_on_clicked();
+     void toolButtonPerson_on_clicked();
 
 
 

@@ -4,12 +4,12 @@
 
 namespace interface {
 
-class StatisticalPerson : public QWidget
+class StatisticalFood : public QWidget
 {
     Q_OBJECT
 public:
-    explicit StatisticalPerson(QWidget * parent = 0);
-    ~StatisticalPerson();
+    explicit StatisticalFood(QWidget * parent = 0);
+    ~StatisticalFood();
 
 private:
     QGridLayout * myMainLayout = nullptr;

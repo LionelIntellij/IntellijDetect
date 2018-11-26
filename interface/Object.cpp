@@ -1,12 +1,12 @@
-#include "Person.h"
+#include "Object.h"
 #include "UtilsInterface.h"
 
 namespace interface {
 
-Person::Person(QWidget *parent):QWidget(parent){
+Object::Object(QWidget *parent):QWidget(parent){
    myTable= new QTabWidget;
    myPictureWindow = new AddPicture;
-   myStatsPersonWindow = new StatisticalPerson ;
+   myStatsPersonWindow = new StatisticalObject ;
    myTable->addTab(myPictureWindow ,tr("Picture"));
    myTable->addTab(myStatisticalWindow , tr("Statistical"));
    myCurrentIndex = myTable->currentIndex();
@@ -37,13 +37,13 @@ Person::Person(QWidget *parent):QWidget(parent){
    createConnections();
 }
 
-void Person::createConnections()
+void Object::createConnections()
 {
     QObject::connect(myNextButton,SIGNAL(pressed()),this,SLOT(toolButtonNext_on_clicked()));
     QObject::connect(myPreviousButton,SIGNAL(pressed()),this,SLOT(toolButtonPrevious_on_clicked()));
 }
 
-void Person::toolButtonNext_on_clicked()
+void Object::toolButtonNext_on_clicked()
 {
    if (myCurrentIndex == myCountIndex)
    {
@@ -55,7 +55,7 @@ void Person::toolButtonNext_on_clicked()
    }
 }
 
-void Person::toolButtonPrevious_on_clicked()
+void Object::toolButtonPrevious_on_clicked()
 {
     if (myCurrentIndex == 0)
     {
@@ -67,7 +67,7 @@ void Person::toolButtonPrevious_on_clicked()
     }
 }
 
-Person::~Parameters()
+Object::~Parameters()
 {
   delete myPictureWindow;
   delete myStatsPersonWindow;

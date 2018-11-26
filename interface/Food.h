@@ -1,30 +1,32 @@
-#ifndef PERSON_H
-#define PERSON_H
+#ifndef FOOD_H
+#define FOOD_H
 
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
+#include "Control.h"
+#include "Sensor.h"
 #include "AddPicture.h"
-#include "StatisticalPerson.h"
+#include "StatisticalFood.h"
 
 namespace interface {
 
 
-class Person : public QWidget
+class Food : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Person(QWidget *parent =0);
-    ~Person();
+    explicit Food(QWidget *parent =0);
+    ~Foods();
 
 private:
    //Attribute
   QTabWidget * myTable = nullptr;
   QVBoxLayout *  myMainLayout = nullptr;
   AddPicture * myPictureWindow = nullptr;
-  StaticticalPerson * myStatisticalWindow = nullptr;
+  StatisticalFoods * myStatisticalWindow = nullptr;
   QHBoxLayout * myPanelLayout = nullptr;
   QToolButton * myPreviousButton = nullptr;
   QToolButton * myNextButton = nullptr;
@@ -40,4 +42,4 @@ private slots:
 
 };
 }
-#endif // QPERSON
+#endif

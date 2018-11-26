@@ -32,9 +32,7 @@ private:
   QGridLayout * myMainLayout = nullptr;
   QLineEdit * myTextSearch = nullptr;
   QTextEdit * myTextInfo = nullptr;
-  QCompleter * myCompleter = nullptr;
-  QStringList wordList;
-  QVBoxLayout * myPanel;
+  QVBoxLayout * myPanel = nullptr;
   QGraphicsView * myGraphicsView = nullptr;
 
   void createConnection();

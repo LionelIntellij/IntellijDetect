@@ -10,8 +10,8 @@ Detection::Detection(QWidget *parent) :
 {
     createGuiComponents();
     myMainLayout=new QGridLayout;
-    myMainLayout->addLayout(myPanel,0,0 ,3 ,2 );
-    myMainLayout->addWidget(myGraphicsView,0,3,2,5);
+    myMainLayout->addLayout(myPanel,0,0 ,4 ,2 );
+    myMainLayout->addWidget(myGraphicsView,0,3,3,5);
     setLayout(myMainLayout);
     createConnection();
 }
@@ -39,6 +39,7 @@ void Detection::createGuiComponents()
     myPanel->addStretch();
     myPanel->addWidget(myButtonSearch);
     myPanel->addWidget(myTextSearch);
+    myPanel->addStretch();
     myPanel->addStretch();
     myPanel->addWidget(myTextInfo);
     myPanel->addStretch();

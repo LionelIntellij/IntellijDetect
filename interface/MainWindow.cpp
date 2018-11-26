@@ -53,12 +53,18 @@ void MainWindow::createStacked() {
     myWelcomeWindow = new Welcome;
     myDetectionWindow = new Detection;
     myParameterWindow = new Parameters;
+    myObjectWindow = new Object;
+    myFoodWindow = new Food;
+    myPersonWindow = new Person;
 
 
     myStack= new QStackedWidget(this);
     myIndexWelcome = myStack->addWidget(myWelcomeWindow);
     myIndexDetection = myStack->addWidget(myDetectionWindow);
     myIndexParameters = myStack->addWidget(myParameterWindow);
+    myIndexObjects = myStack->addWidget(myObjectWindow);
+    myIndexFoods = myStack->addWidget(myFoodWindow);
+    myIndexPersons = myStack->addWidget(myPersonWindow);
 }
 
 void MainWindow::createConnections() {
@@ -66,7 +72,9 @@ void MainWindow::createConnections() {
     QObject::connect(myPanel->getButtonDetection(),SIGNAL(pressed()),this,SLOT(toolButtonDetection_on_clicked()));
     QObject::connect(myPanel->getButtonParameters(),SIGNAL(pressed()),this,SLOT(toolButtonParameters_on_clicked()));
     QObject::connect(myPanel->getButtonWelcome(),SIGNAL(pressed()),this,SLOT(toolButtonWelcome_on_clicked()));
-    //QObject::connect(myPanel->getButtonObject(),SIGNAL(pressed()),this,SLOT(slideInPrev()));
+    QObject::connect(myPanel->getButtonFoods(),SIGNAL(pressed()),this,SLOT(toolButtonFood_on_clicked()));
+    QObject::connect(myPanel->getButtonObjects(),SIGNAL(pressed()),this,SLOT(toolButtonObject_on_clicked()));
+    QObject::connect(myPanel->getButtonPersons(),SIGNAL(pressed()),this,SLOT(toolButtonPerson_on_clicked()));
 }
 
 void MainWindow::toolButtonDetection_on_clicked()
@@ -87,43 +95,34 @@ myStack->setCurrentIndex(myIndexWelcome);
 myStack->update();
 }
 
-/*
-void MainWindow::slideInNext()
+void MainWindow::toolButtonFood_on_clicked()
 {
- int currentStacked = (myCurrentStacked + 1)% myNumberStacked;
-  myStack->setCurrentIndex(currentStacked);
-  myCurrentStacked = currentStacked;
+    myStack->setCurrentIndex(myIndexFoods);
+    myStack->update();
 }
 
-
-void MainWindow::slideInPrev()
+void MainWindow::toolButtonObject_on_clicked()
 {
- int currentStacked = (myCurrentStacked - 1);
- if (currentStacked < 0)
- {
-      myStack->setCurrentIndex(myNumberStacked);
-      myCurrentStacked = myNumberStacked;
- }
- else
- {
-      myStack->setCurrentIndex(currentStacked);
-      myCurrentStacked = currentStacked;
- }
+    myStack->setCurrentIndex(myIndexObjects);
+    myStack->update();
 }
 
-void MainWindow::slidePrincipal()
+void MainWindow::toolButtonPerson_on_clicked()
 {
-myStack->setCurrentIndex(myNumberStacked);
+myStack->setCurrentIndex(myIndexPersons);
+myStack->update();
 }
-*/
+
 MainWindow::~MainWindow()
 {
     delete myDetectionWindow;
     delete myWelcomeWindow;
     delete myParameterWindow;
+    delete myFoodWindow;
+    delete myObjectWindow;
+    delete myPersonWindow;
     delete myStack;
     delete myPanel;
-    //
     delete centralWidget;
     delete mainLayout;
     //delete myMainLayout;
