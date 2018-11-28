@@ -9,7 +9,7 @@ class Statistical : public QWidget
     Q_OBJECT
 public:
     explicit Statistical(QWidget * parent = 0);
-    ~StatisticalFood();
+    ~Statistical();
 
 private:
     QGridLayout * myMainLayout = nullptr;

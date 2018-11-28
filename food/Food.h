@@ -5,41 +5,27 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "Control.h"
-#include "Sensor.h"
 #include "Picture.h"
 #include "Statistical.h"
+#include "TableWidget.h"
 
 namespace food {
 
 
-class Food : public QWidget
-{
+    class Food : public interface::TableWidget {
     Q_OBJECT
 
-public:
-    explicit Food(QWidget *parent =0);
-    ~Foods();
+    public:
+        explicit Food();
 
-private:
-   //Attribute
-  QTabWidget * myTable = nullptr;
-  QVBoxLayout *  myMainLayout = nullptr;
-  AddPicture * myPictureWindow = nullptr;
-  StatisticalFoods * myStatisticalWindow = nullptr;
-  QHBoxLayout * myPanelLayout = nullptr;
-  QToolButton * myPreviousButton = nullptr;
-  QToolButton * myNextButton = nullptr;
-  int myCurrentIndex = 0;
-  int myCountIndex = 0;
+        ~Food() final;
 
-  //Methods
-  void createConnections();
+    private:
+        //Attribute
 
-private slots:
-  void toolButtonNext_on_clicked();
-  void toolButtonPrevious_on_clicked();
+        Picture *myPictureWindow = nullptr;
+        Statistical *myStatisticalWindow = nullptr;
 
-};
+    };
 }
 #endif

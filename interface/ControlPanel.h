@@ -14,7 +14,7 @@ class ControlPanel :public QWidget
         Q_OBJECT
 public:
     explicit ControlPanel(QWidget  * parent = 0);
-    ~ControlPanel();
+    ~ControlPanel() override;
 
     QToolButton * getButtonParameters();
     QToolButton * getButtonPersons();

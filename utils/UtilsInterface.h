@@ -5,7 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 
-namespace interface {
+namespace utils {
 enum sizeObject: int {
     PANEL_BUTTON_HEIGHT = 100,
     PANEL_BUTTON_WITDH = 180,
@@ -14,25 +14,10 @@ enum sizeObject: int {
     ICONS_SIZE = 50
 };
 //
-inline const std::string &pathFile(std::string const &envVariable) {
-    std::cerr<<std::string(envVariable.c_str())<<std::endl;
-    const char * pat1 = std::getenv(envVariable.c_str());
-    std::cerr<<" scvsqvc "<<std::string(pat1)<<std::endl;
-   std::string pat = std::string(pat1);
 
-    std::cerr<<pat<<std::endl;
-   try {
-        const static std::string path(std::getenv(envVariable.c_str()));
-        return path;
-    }
-    catch (std::exception &e) {
-        std::cerr << envVariable + " not found " << std::endl;
-        throw e;
-    }
-}
 //static std::string pathIntellij(std::getenv("INTELLIJ_PATH"));
-static std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
-static std::string pathIcons(pathIntellij+"/icons/");
+extern std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
+extern std::string pathIcons(pathIntellij+"/icons/");
 
 
 }

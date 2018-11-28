@@ -7,24 +7,24 @@ ControlPanel::ControlPanel(QWidget *parent):QWidget(parent)
 {
     myButtonParameters = new QToolButton;
 
-    myButtonParameters->setMinimumSize(PANEL_BUTTON_WITDH,
-                                       PANEL_BUTTON_HEIGHT);
+    myButtonParameters->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                       utils::Panel_BUTTON_HEIGHT);
 
     myButtonDetection = new QToolButton;
-    myButtonDetection->setMinimumSize(PANEL_BUTTON_WITDH,
-                                      PANEL_BUTTON_HEIGHT);
+    myButtonDetection->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                      utils::Panel_BUTTON_HEIGHT);
     myButtonPerson = new QToolButton;
-    myButtonPerson->setMinimumSize(PANEL_BUTTON_WITDH,
-                                    PANEL_BUTTON_HEIGHT);
+    myButtonPerson->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                    utils::Panel_BUTTON_HEIGHT);
     myButtonObjects = new QToolButton;
-    myButtonObjects->setMinimumSize(PANEL_BUTTON_WITDH,
-                                    PANEL_BUTTON_HEIGHT);
+    myButtonObjects->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                    utils::Panel_BUTTON_HEIGHT);
     myButtonFoods = new QToolButton;
-    myButtonFoods->setMinimumSize(PANEL_BUTTON_WITDH,
-                                  PANEL_BUTTON_HEIGHT);
+    myButtonFoods->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                  utils::Panel_BUTTON_HEIGHT);
     myButtonStatistical= new QToolButton;
-    myButtonStatistical->setMinimumSize(PANEL_BUTTON_WITDH,
-                                      PANEL_BUTTON_HEIGHT);
+    myButtonStatistical->setMinimumSize(utils::Panel_BUTTON_WITDH,
+                                      utils::Panel_BUTTON_HEIGHT);
     createGuiComponents();
     setIconButton();
 }

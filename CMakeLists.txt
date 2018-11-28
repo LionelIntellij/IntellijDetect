@@ -25,6 +25,7 @@ file(GLOB SOURCES "main.cpp"
                   "person/*.cpp"
                   "parameters/*.cpp"
                   "detection/*.cpp"
+		  "picture/*.cpp"
     )
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -fexceptions")
@@ -44,6 +45,7 @@ target_include_directories(IntellijDetect PRIVATE
                     ${PROJECT_SOURCE_DIR}/food
                     ${PROJECT_SOURCE_DIR}/sensor
                     ${PROJECT_SOURCE_DIR}/detection
+                    ${PROJECT_SOURCE_DIR}/picture
 		    )
 
 target_link_libraries(IntellijDetect

@@ -10,7 +10,7 @@ Statistical::Statistical(QWidget * parent):QWidget(parent)
     setLayout(myMainLayout);
 }
 
-StatisticalFood::~StatisticalObject()
+Statistical::~Statistical()
 {
 delete myMainLayout;
 

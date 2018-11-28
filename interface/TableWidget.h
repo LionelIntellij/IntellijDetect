@@ -1,5 +1,6 @@
 #ifndef TABLE_WIDGET_H
 #define TABLE_WIDGET_H
+
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QTableWidget>
@@ -7,31 +8,35 @@
 
 namespace interface {
 
-class TableWidget : public QWidget
-{
+    class TableWidget : public QWidget {
     Q_OBJECT
 
-public:
-  explicit TableWidget(QWidget * parent);
-    ~TableWidget();
-private:
-    QTabWidget * myTable = nullptr;
-    QVBoxLayout *  myMainLayout = nullptr;
-    QHBoxLayout * myPanelLayout = nullptr;
-    QToolButton * myPreviousButton = nullptr;
-    QToolButton * myNextButton = nullptr;
-    int myCurrentIndex = 0;
-    int myCountIndex = 0;
+    public:
+        explicit TableWidget(QWidget *parent);
 
-    //Methods
-    void createConnections();
+        ~TableWidget() override;
+    private:
+        QToolButton *myPreviousButton = nullptr;
+        QToolButton *myNextButton = nullptr;
+        int myCurrentIndex = 0;
+        int myCountIndex = 0;
+        QHBoxLayout *myPanelLayout = nullptr;
 
-  private slots:
-    void toolButtonNext_on_clicked();
-    void toolButtonPrevious_on_clicked();
+    protected:
+        QTabWidget *myTable = nullptr;
+        QVBoxLayout *myMainLayout = nullptr;
+
+        //Methods
+        void createConnections();
+
+    private slots:
+
+        void toolButtonNext_on_clicked();
+
+        void toolButtonPrevious_on_clicked();
 
 
-};
+    };
 }
 #endif // QOJECT
 

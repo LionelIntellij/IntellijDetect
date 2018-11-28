@@ -7,37 +7,25 @@
 #include <QToolButton>
 #include "Picture.h"
 #include "Statistical.h"
+#include "TableWidget.h"
 
 namespace person {
 
 
-class Person : public QWidget
-{
+    class Person : public interface::TableWidget {
     Q_OBJECT
 
-public:
-    explicit Person(QWidget *parent =0);
-    ~Person();
+    public:
+        explicit Person();
 
-private:
-   //Attribute
-  QTabWidget * myTable = nullptr;
-  QVBoxLayout *  myMainLayout = nullptr;
-  AddPicture * myPictureWindow = nullptr;
-  Statictical * myStatistical = nullptr;
-  QHBoxLayout * myPanelLayout = nullptr;
-  QToolButton * myPreviousButton = nullptr;
-  QToolButton * myNextButton = nullptr;
-  int myCurrentIndex = 0;
-  int myCountIndex = 0;
+        ~Person() final;
 
-  //Methods
-  void createConnections();
+    private:
+        //Attribute
+        Picture *myPictureWindow = nullptr;
+        Statistical *myStatisticalWindow = nullptr;
 
-private slots:
-  void toolButtonNext_on_clicked();
-  void toolButtonPrevious_on_clicked();
 
-};
+    };
 }
 #endif // QPERSON

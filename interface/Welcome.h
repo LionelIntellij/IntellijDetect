@@ -12,26 +12,26 @@
 
 namespace interface {
 
-class Welcome : public QWidget
-    {
-        Q_OBJECT
+    class Welcome : public QWidget {
+    Q_OBJECT
 
-public:
-     explicit Welcome(QWidget *parent =0);
-     ~ Welcome();
+    public:
+        explicit Welcome(QWidget *parent = nullptr);
 
-private:
-    CircularBar * myCircularBarObjects = nullptr;
-    CircularBar * myCircularBarFoods = nullptr;
-    QHBoxLayout * myMainLayout = nullptr;
-    QVBoxLayout * myObjectsLayout = nullptr;
-    QVBoxLayout * myFoodsLayout = nullptr;   
-    QVBoxLayout * myPersonsLayout = nullptr;
-    QGroupBox * myBoxPersons = nullptr;
-    QGroupBox * myBoxFoods = nullptr;
-    QGroupBox * myBoxObjects = nullptr;
+        ~ Welcome() override;
 
-};
+    private:
+        CircularBar *myCircularBarObjects = nullptr;
+        CircularBar *myCircularBarFoods = nullptr;
+        QHBoxLayout *myMainLayout = nullptr;
+        QVBoxLayout *myObjectsLayout = nullptr;
+        QVBoxLayout *myFoodsLayout = nullptr;
+        QVBoxLayout *myPersonsLayout = nullptr;
+        QGroupBox *myBoxPersons = nullptr;
+        QGroupBox *myBoxFoods = nullptr;
+        QGroupBox *myBoxObjects = nullptr;
+
+    };
 }
 
 #endif // WELCOME_H

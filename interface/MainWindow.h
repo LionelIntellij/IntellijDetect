@@ -22,44 +22,48 @@
 namespace interface {
 
 
-class MainWindow : public QMainWindow
-{
+    class MainWindow : public QMainWindow {
     Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    public:
+        explicit MainWindow(QWidget *parent = nullptr);
 
-protected:
-    void createGuiControlComponents();
-    void createMainLayout();
-    void createConnections();
-    void createStacked();
+        ~MainWindow() final;
+
+    protected:
+        void createGuiControlComponents();
+
+        void createMainLayout();
+
+        void createConnections();
+
+        void createStacked();
 
 
-    detection::Detection *myDetectionWindow = nullptr;
-    Welcome * myWelcomeWindow = nullptr;
-    parameters::Parameters * myParameterWindow =nullptr;
-    object::Object * myObjectWindow = nullptr;
-    person::Person * myPersonWindow = nullptr;
-    food::Food * myFoodWindow = nullptr;
+        detection::Detection *myDetectionWindow = nullptr;
+        Welcome *myWelcomeWindow = nullptr;
+        parameters::Parameters *myParameterWindow = nullptr;
+        object::Object *myObjectWindow = nullptr;
+        person::Person *myPersonWindow = nullptr;
+        food::Food *myFoodWindow = nullptr;
 
-private:
-     QStackedWidget *myStack = nullptr;
-     ControlPanel * myPanel = nullptr;
-     QHBoxLayout *myMainLayout = nullptr;
-     QWidget *centralWidget = nullptr;
-     int myIndexParameters = 0;
-     int myIndexPersons = 0;
-     int myIndexFoods = 0;
-     int myIndexObjects = 0;
-     int myIndexWelcome = 0;
-     int myIndexDetection = 0;
+    private:
+        QStackedWidget *myStack = nullptr;
+        ControlPanel *myPanel = nullptr;
+        QHBoxLayout *myMainLayout = nullptr;
+        QWidget *centralWidget = nullptr;
+        int myIndexParameters = 0;
+        int myIndexPersons = 0;
+        int myIndexFoods = 0;
+        int myIndexObjects = 0;
+        int myIndexWelcome = 0;
+        int myIndexDetection = 0;
 
-private slots:
-     void toolButton_on_clicked();
+    private slots:
 
-};
+        void toolButton_on_clicked(int index);
+
+    };
 }
 
 #endif // MAINWINDOW_H

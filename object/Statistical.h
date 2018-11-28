@@ -2,20 +2,19 @@
 #include <QGridLayout>
 
 
-namespace object
-{
+namespace object {
 
-class StatisticalObject : public QWidget
-{
+    class Statistical : public QWidget {
     Q_OBJECT
-public:
-    explicit StatisticalObject(QWidget * parent = 0);
-    ~StatisticalObject();
+    public:
+        explicit Statistical(QWidget *parent = nullptr);
 
-private:
-    QGridLayout * myMainLayout = nullptr;
+        ~Statistical();
+
+    private:
+        QGridLayout *myMainLayout = nullptr;
 
 
-};
+    };
 
 }

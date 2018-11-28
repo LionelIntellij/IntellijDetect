@@ -3,79 +3,20 @@
 
 namespace person {
 
-Person::Person(QWidget *parent):QWidget(parent){
-   myTable= new QTabWidget;
-   myPictureWindow = new AddPicture;
-   myStatsPersonWindow = new StatisticalPerson ;
-   myTable->addTab(myPictureWindow ,tr("Picture"));
-   myTable->addTab(myStatisticalWindow , tr("Statistical"));
-   myCurrentIndex = myTable->currentIndex();
-   myCountIndex = myTable->count();
+Person::Person():TableWidget(this){
 
-   myPreviousButton = new QToolButton;
-   myPreviousButton->setMinimumSize(CONTROL_BUTTON_WITDH ,CONTROL_BUTTON_HEIGHT );
-   myPreviousButton->setIcon( QIcon(std::string(pathIcons+"left.png").c_str()));
-   myPreviousButton->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
+    myPictureWindow = new Picture;
+    myStatisticalWindow = new Statistical ;
+    myTable->addTab(myPictureWindow ,tr("Picture"));
+    myTable->addTab(myStatisticalWindow , tr("Statistical"));
 
-   myNextButton = new QToolButton;
-   myNextButton->setMinimumSize(CONTROL_BUTTON_WITDH ,CONTROL_BUTTON_HEIGHT);
-   myNextButton->setIcon( QIcon(std::string(pathIcons+"right.png").c_str()));
-   myNextButton->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-
-   myPanelLayout = new QHBoxLayout;
-   myPanelLayout->addStretch();
-   myPanelLayout->addWidget(myPreviousButton);
-   myPanelLayout->addStretch();
-   myPanelLayout->addWidget(myNextButton);
-   myPanelLayout->addStretch();
-
-   myMainLayout =new QVBoxLayout;
-   myMainLayout->addWidget(myTable);
-   myMainLayout->addLayout(myPanelLayout);
-
-   setLayout(myMainLayout);
-   createConnections();
 }
 
-void Person::createConnections()
-{
-    QObject::connect(myNextButton,SIGNAL(pressed()),this,SLOT(toolButtonNext_on_clicked()));
-    QObject::connect(myPreviousButton,SIGNAL(pressed()),this,SLOT(toolButtonPrevious_on_clicked()));
-}
 
-void Person::toolButtonNext_on_clicked()
-{
-   if (myCurrentIndex == myCountIndex)
-   {
-      myTable->setCurrentIndex(myCurrentIndex);
-   }
-   else
-   {
-      myTable->setCurrentIndex(myCurrentIndex+1);
-   }
-}
+Person::~Person() {
+    delete myPictureWindow;
+    delete myStatisticalWindow;
 
-void Person::toolButtonPrevious_on_clicked()
-{
-    if (myCurrentIndex == 0)
-    {
-       myTable->setCurrentIndex(myCurrentIndex);
-    }
-    else
-    {
-       myTable->setCurrentIndex(myCurrentIndex-1);
-    }
-}
-
-Person::~Parameters()
-{
-  delete myPictureWindow;
-  delete myStatsPersonWindow;
-  delete myTable;
-  delete myMainLayout;
-  delete myPanelLayout;
-  delete myPreviousButton;
-  delete myNextButton;
 }
 
 }
