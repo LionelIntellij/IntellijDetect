@@ -3,7 +3,7 @@
 
 namespace person {
 
-    Picture::Picture() : PictureWidget(this) {
+    Picture::Picture() : PictureWidget() {
 
     }
 

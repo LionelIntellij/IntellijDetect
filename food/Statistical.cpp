@@ -3,16 +3,14 @@
 
 namespace food {
 
-Statistical::Statistical(QWidget * parent):QWidget(parent)
-{
+    Statistical::Statistical(QWidget *parent) : QWidget(parent) {
 
-    myMainLayout = new QGridLayout;
-    setLayout(myMainLayout);
-}
+        myMainLayout = new QGridLayout;
+        setLayout(myMainLayout);
+    }
 
-Statistical::~Statistical()
-{
-delete myMainLayout;
+    Statistical::~Statistical() {
+        delete myMainLayout;
 
-}
+    }
 }

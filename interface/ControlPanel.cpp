@@ -1,127 +1,119 @@
 #include "ControlPanel.h"
 #include "UtilsInterface.h"
 #include <iostream>
+
 namespace interface {
 
-ControlPanel::ControlPanel(QWidget *parent):QWidget(parent)
-{
-    myButtonParameters = new QToolButton;
+    ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent) {
+        myButtonParameter = new QToolButton;
 
-    myButtonParameters->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                       utils::Panel_BUTTON_HEIGHT);
+        myButtonParameter->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                           utils::PANEL_BUTTON_HEIGHT);
 
-    myButtonDetection = new QToolButton;
-    myButtonDetection->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                      utils::Panel_BUTTON_HEIGHT);
-    myButtonPerson = new QToolButton;
-    myButtonPerson->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                    utils::Panel_BUTTON_HEIGHT);
-    myButtonObjects = new QToolButton;
-    myButtonObjects->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                    utils::Panel_BUTTON_HEIGHT);
-    myButtonFoods = new QToolButton;
-    myButtonFoods->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                  utils::Panel_BUTTON_HEIGHT);
-    myButtonStatistical= new QToolButton;
-    myButtonStatistical->setMinimumSize(utils::Panel_BUTTON_WITDH,
-                                      utils::Panel_BUTTON_HEIGHT);
-    createGuiComponents();
-    setIconButton();
-}
+        myButtonDetection = new QToolButton;
+        myButtonDetection->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                          utils::PANEL_BUTTON_HEIGHT);
+        myButtonPerson = new QToolButton;
+        myButtonPerson->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                       utils::PANEL_BUTTON_HEIGHT);
+        myButtonObject = new QToolButton;
+        myButtonObject->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                        utils::PANEL_BUTTON_HEIGHT);
+        myButtonFood = new QToolButton;
+        myButtonFood->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                      utils::PANEL_BUTTON_HEIGHT);
+        myButtonStatistical = new QToolButton;
+        myButtonStatistical->setMinimumSize(utils::PANEL_BUTTON_WITDH,
+                                            utils::PANEL_BUTTON_HEIGHT);
+        createGuiComponents();
+        setIconButton();
+    }
 
-void ControlPanel::createGuiComponents()
-{
-    myControlPanel = new QVBoxLayout();
-    myBoxPanel = new QGroupBox(tr("Menu"));
-    myBoxPanel->setLayout(myControlPanel);
-    myControlPanel->addWidget(myButtonParameters);
-    myControlPanel->addWidget(myButtonDetection);
-    myControlPanel->addWidget(myButtonPerson);
-    myControlPanel->addWidget(myButtonFoods);
-    myControlPanel->addWidget(myButtonObjects);
-    myControlPanel->addWidget(myButtonStatistical);
-    myMainBox = new QVBoxLayout;
-    myMainBox->addWidget(myBoxPanel);
-    setLayout(myMainBox);
-}
+    void ControlPanel::createGuiComponents() {
+        myControlPanel = new QVBoxLayout();
+        myBoxPanel = new QGroupBox(tr("Menu"));
+        myBoxPanel->setLayout(myControlPanel);
+        myControlPanel->addWidget(myButtonParameter);
+        myControlPanel->addWidget(myButtonDetection);
+        myControlPanel->addWidget(myButtonPerson);
+        myControlPanel->addWidget(myButtonFood);
+        myControlPanel->addWidget(myButtonObject);
+        myControlPanel->addWidget(myButtonStatistical);
+        myMainBox = new QVBoxLayout;
+        myMainBox->addWidget(myBoxPanel);
+        setLayout(myMainBox);
+    }
 
-void ControlPanel::setIconButton()
-{
-    //std::cerr<<pathIcons<<std::endl;
-    myButtonParameters->setIcon( QIcon(std::string(pathIcons+"parameters.png").c_str()));
-    myButtonParameters->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
-    myButtonParameters->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonParameters->setText("Parameters");
+    void ControlPanel::setIconButton() {
+        //std::cerr<<pathIcons<<std::endl;
+        myButtonParameter->setIcon(QIcon(std::string(utils::pathIcons + "parameters.png").c_str()));
+        myButtonParameter->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonParameter->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonParameter->setText("Parameters");
 
-    myButtonFoods->setIcon( QIcon(std::string(pathIcons+"foods.png").c_str()));
-    myButtonFoods->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-    myButtonFoods->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonFoods->setText("Foods");
+        myButtonFood->setIcon(QIcon(std::string(utils::pathIcons + "foods.png").c_str()));
+        myButtonFood->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonFood->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonFood->setText("Foods");
 
-    myButtonPerson->setIcon( QIcon(std::string(pathIcons+"person.png").c_str()));
-    myButtonPerson->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-    myButtonPerson->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonPerson->setText("Person");
+        myButtonPerson->setIcon(QIcon(std::string(utils::pathIcons + "person.png").c_str()));
+        myButtonPerson->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonPerson->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonPerson->setText("Person");
 
-    myButtonObjects->setIcon( QIcon(std::string(pathIcons+"objects.png").c_str()));
-    myButtonObjects->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-    myButtonObjects->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonObjects->setText("Objects");
+        myButtonObject->setIcon(QIcon(std::string(utils::pathIcons + "objects.png").c_str()));
+        myButtonObject->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonObject->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonObject->setText("Objects");
 
-    myButtonDetection->setIcon( QIcon(std::string(pathIcons+"search.png").c_str()));
-    myButtonDetection->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-    myButtonDetection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonDetection->setText("Search");
+        myButtonDetection->setIcon(QIcon(std::string(utils::pathIcons + "search.png").c_str()));
+        myButtonDetection->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonDetection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonDetection->setText("Search");
 
-    myButtonStatistical->setIcon( QIcon(std::string(pathIcons+"statistical.png").c_str()));
-    myButtonStatistical->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
-    myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonStatistical->setText("Statistics");
+        myButtonStatistical->setIcon(QIcon(std::string(utils::pathIcons + "statistical.png").c_str()));
+        myButtonStatistical->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonStatistical->setText("Statistics");
 
-}
+    }
 
- ControlPanel::~ControlPanel(){
+    ControlPanel::~ControlPanel() {
 
-         delete myMainBox;
-         delete myBoxPanel;
-         delete myControlPanel;
-         delete myButtonParameters ;
-         delete myButtonPerson ;
-         delete myButtonDetection ;
-         delete myButtonObjects;
-         delete myButtonFoods ;
-         delete myButtonStatistical ;
+        delete myMainBox;
+        delete myBoxPanel;
+        delete myControlPanel;
+        delete myButtonParameter;
+        delete myButtonPerson;
+        delete myButtonDetection;
+        delete myButtonObject;
+        delete myButtonFood;
+        delete myButtonStatistical;
 
- }
+    }
 
- QToolButton * ControlPanel::getButtonParameters()
- {
-     return myButtonParameters;
- }
+    QToolButton *ControlPanel::getButtonParameter() {
+        return myButtonParameter;
+    }
 
- QToolButton * ControlPanel::getButtonFoods()
- {
-     return myButtonFoods;
- }
+    QToolButton *ControlPanel::getButtonFood() {
+        return myButtonFood;
+    }
 
- QToolButton * ControlPanel::getButtonWelcome()
- {
-     return myButtonStatistical;
- }
+    QToolButton *ControlPanel::getButtonWelcome() {
+        return myButtonStatistical;
+    }
 
- QToolButton * ControlPanel::getButtonPersons()
- {
-     return myButtonPerson;
- }
+    QToolButton *ControlPanel::getButtonPerson() {
+        return myButtonPerson;
+    }
 
- QToolButton * ControlPanel::getButtonDetection()
- {
-     return myButtonDetection;
- }
+    QToolButton *ControlPanel::getButtonDetection() {
+        return myButtonDetection;
+    }
 
- QToolButton * ControlPanel::getButtonObjects()
- {
-     return myButtonObjects;
- }
+    QToolButton *ControlPanel::getButtonObject() {
+        return myButtonObject;
+    }
 
 }

@@ -3,20 +3,21 @@
 
 namespace person {
 
-Person::Person():TableWidget(this){
+    Person::Person() : TableWidget() {
 
-    myPictureWindow = new Picture;
-    myStatisticalWindow = new Statistical ;
-    myTable->addTab(myPictureWindow ,tr("Picture"));
-    myTable->addTab(myStatisticalWindow , tr("Statistical"));
+        myPictureWindow = new Picture;
+        myStatisticalWindow = new Statistical;
+        myTable->addTab(myPictureWindow, tr("Picture"));
+        myTable->addTab(myStatisticalWindow, tr("Statistical"));
+        myCountIndex = myTable->count();
+        myCurrentIndex = myTable->currentIndex();
+    }
 
-}
 
+    Person::~Person() {
+        delete myPictureWindow;
+        delete myStatisticalWindow;
 
-Person::~Person() {
-    delete myPictureWindow;
-    delete myStatisticalWindow;
-
-}
+    }
 
 }

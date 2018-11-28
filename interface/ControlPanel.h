@@ -1,5 +1,6 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
+
 #include <QToolButton>
 #include <QWidget>
 #include <QVBoxLayout>
@@ -9,34 +10,40 @@
 
 namespace interface {
 
-class ControlPanel :public QWidget
-{
-        Q_OBJECT
-public:
-    explicit ControlPanel(QWidget  * parent = 0);
-    ~ControlPanel() override;
+    class ControlPanel : public QWidget {
+    Q_OBJECT
+    public:
+        explicit ControlPanel(QWidget *parent = nullptr);
 
-    QToolButton * getButtonParameters();
-    QToolButton * getButtonPersons();
-    QToolButton * getButtonDetection();
-    QToolButton * getButtonObjects();
-    QToolButton * getButtonFoods();
-    QToolButton * getButtonWelcome();
+        ~ControlPanel() override;
 
-private:
-    QGroupBox   * myBoxPanel =nullptr;
-    QVBoxLayout * myControlPanel = nullptr;
-    QToolButton * myButtonParameters = nullptr;
-    QToolButton * myButtonPerson = nullptr;
-    QToolButton * myButtonDetection = nullptr;
-    QToolButton * myButtonStatistical = nullptr;
-    QToolButton * myButtonObjects = nullptr;
-    QToolButton * myButtonFoods = nullptr;
-    QVBoxLayout * myMainBox =nullptr;
+        QToolButton *getButtonParameter();
 
-    void createGuiComponents();
-    void setIconButton();
+        QToolButton *getButtonPerson();
 
-};
+        QToolButton *getButtonDetection();
+
+        QToolButton *getButtonObject();
+
+        QToolButton *getButtonFood();
+
+        QToolButton *getButtonWelcome();
+
+    private:
+        QGroupBox *myBoxPanel = nullptr;
+        QVBoxLayout *myControlPanel = nullptr;
+        QToolButton *myButtonParameter = nullptr;
+        QToolButton *myButtonPerson = nullptr;
+        QToolButton *myButtonDetection = nullptr;
+        QToolButton *myButtonStatistical = nullptr;
+        QToolButton *myButtonObject = nullptr;
+        QToolButton *myButtonFood = nullptr;
+        QVBoxLayout *myMainBox = nullptr;
+
+        void createGuiComponents();
+
+        void setIconButton();
+
+    };
 }
 #endif // CONTROLPANEL_H

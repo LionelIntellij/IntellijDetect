@@ -52,16 +52,21 @@ namespace interface {
         ControlPanel *myPanel = nullptr;
         QHBoxLayout *myMainLayout = nullptr;
         QWidget *centralWidget = nullptr;
-        int myIndexParameters = 0;
-        int myIndexPersons = 0;
-        int myIndexFoods = 0;
-        int myIndexObjects = 0;
+        int myIndexParameter = 0;
+        int myIndexPerson = 0;
+        int myIndexFood = 0;
+        int myIndexObject = 0;
         int myIndexWelcome = 0;
         int myIndexDetection = 0;
 
     private slots:
 
-        void toolButton_on_clicked(int index);
+        void toolButtonParameter_on_clicked();
+        void toolButtonDetection_on_clicked();
+        void toolButtonPerson_on_clicked();
+        void toolButtonObject_on_clicked();
+        void toolButtonWelcome_on_clicked();
+        void toolButtonFood_on_clicked();
 
     };
 }

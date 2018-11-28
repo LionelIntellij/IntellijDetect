@@ -14,8 +14,6 @@ namespace food {
         explicit Picture();
 
         ~Picture() final;
-
-
     };
 
 }

@@ -12,17 +12,17 @@ namespace interface {
     Q_OBJECT
 
     public:
-        explicit TableWidget(QWidget *parent);
+        explicit TableWidget(QWidget *parent = nullptr);
 
         ~TableWidget() override;
     private:
         QToolButton *myPreviousButton = nullptr;
         QToolButton *myNextButton = nullptr;
-        int myCurrentIndex = 0;
-        int myCountIndex = 0;
         QHBoxLayout *myPanelLayout = nullptr;
 
     protected:
+        int myCurrentIndex = 0;
+        int myCountIndex = 0;
         QTabWidget *myTable = nullptr;
         QVBoxLayout *myMainLayout = nullptr;
 

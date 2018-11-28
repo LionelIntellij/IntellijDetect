@@ -1,3 +1,6 @@
+#ifndef STATISTICAL_OBJECT
+#define STATISTICAL_OBJECT
+
 #include <QWidget>
 #include <QGridLayout>
 
@@ -9,7 +12,7 @@ namespace object {
     public:
         explicit Statistical(QWidget *parent = nullptr);
 
-        ~Statistical();
+        ~Statistical() final;
 
     private:
         QGridLayout *myMainLayout = nullptr;
@@ -18,3 +21,4 @@ namespace object {
     };
 
 }
+#endif

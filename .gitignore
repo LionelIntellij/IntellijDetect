@@ -38,6 +38,3 @@ lib/
 build/
 cmake-build-debug/
 documentation/
-test.cpp
-interface/ToDelete/
-interface/ToDelete2/

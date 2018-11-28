@@ -1,5 +1,6 @@
 #ifndef DETECTION_H
 #define DETECTION_H
+
 #include <QWidget>
 #include <QFormLayout>
 #include <QTextEdit>
@@ -14,31 +15,31 @@
 namespace detection {
 
 
-class Detection : public QWidget
-{
+    class Detection : public QWidget {
     Q_OBJECT
 
-public:
-    explicit Detection(QWidget *parent =0);
-    ~Detection();
+    public:
+        explicit Detection(QWidget *parent = 0);
 
-    void setTextInfo(const QString & info);
-    void setListCompleter();
+        ~Detection();
+
+        void setTextInfo(const QString &info);
+
+        void setListCompleter();
 
 
+    private:
+        QToolButton *myButtonSearch = nullptr;
+        QGridLayout *myMainLayout = nullptr;
+        QLineEdit *myTextSearch = nullptr;
+        QTextEdit *myTextInfo = nullptr;
+        QVBoxLayout *myPanel = nullptr;
+        QGraphicsView *myGraphicsView = nullptr;
 
-private:
-  QToolButton * myButtonSearch = nullptr;
-  QGridLayout * myMainLayout = nullptr;
-  QLineEdit * myTextSearch = nullptr;
-  QTextEdit * myTextInfo = nullptr;
-  QVBoxLayout * myPanel = nullptr;
-  QGraphicsView * myGraphicsView = nullptr;
+        void createConnection();
 
-  void createConnection();
+        void createGuiComponents();
 
-  void createGuiComponents();
-
-};
+    };
 }
 #endif // QDETECTION_H

@@ -7,37 +7,24 @@
 #include <QToolButton>
 #include "Control.h"
 #include "Sensor.h"
+#include "TableWidget.h"
 
 namespace parameters {
 
 
-class Parameters : public QWidget
-{
+    class Parameters : public interface::TableWidget {
     Q_OBJECT
 
-public:
-    explicit Parameters(QWidget *parent =0);
-    ~Parameters();
+    public:
+        explicit Parameters();
 
-private:
-   //Attribute
-  QTabWidget * myTable = nullptr;
-  QVBoxLayout *  myMainLayout = nullptr;
-  Control * myControlWindow = nullptr;
-  Sensor * mySensorWindow = nullptr;
-  QHBoxLayout * myPanelLayout = nullptr;
-  QToolButton * myPreviousButton = nullptr;
-  QToolButton * myNextButton = nullptr;
-  int myCurrentIndex = 0;
-  int myCountIndex = 0;
+        ~Parameters() final;
 
-  //Methods
-  void createConnections();
-
-private slots:
-  void toolButtonNext_on_clicked();
-  void toolButtonPrevious_on_clicked();
-
-};
+    private:
+        //Attribute
+        Sensor *mySensorWindow = nullptr;
+        Control *myControlWindow = nullptr;
+    };
 }
+
 #endif // QPARAMETERS
