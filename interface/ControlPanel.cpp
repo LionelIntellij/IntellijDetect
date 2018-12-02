@@ -46,32 +46,32 @@ namespace interface {
 
     void ControlPanel::setIconButton() {
         //std::cerr<<pathIcons<<std::endl;
-        myButtonParameter->setIcon(QIcon(std::string(utils::pathIcons + "parameters.png").c_str()));
+        myButtonParameter->setIcon(QIcon((utils::pathIcons + "parameters.png").c_str()));
         myButtonParameter->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonParameter->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonParameter->setText("Parameters");
 
-        myButtonFood->setIcon(QIcon(std::string(utils::pathIcons + "foods.png").c_str()));
+        myButtonFood->setIcon(QIcon((utils::pathIcons + "foods.png").c_str()));
         myButtonFood->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonFood->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonFood->setText("Foods");
 
-        myButtonPerson->setIcon(QIcon(std::string(utils::pathIcons + "person.png").c_str()));
+        myButtonPerson->setIcon(QIcon((utils::pathIcons + "person.png").c_str()));
         myButtonPerson->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonPerson->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonPerson->setText("Person");
 
-        myButtonObject->setIcon(QIcon(std::string(utils::pathIcons + "objects.png").c_str()));
+        myButtonObject->setIcon(QIcon((utils::pathIcons + "objects.png").c_str()));
         myButtonObject->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonObject->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonObject->setText("Objects");
 
-        myButtonDetection->setIcon(QIcon(std::string(utils::pathIcons + "search.png").c_str()));
+        myButtonDetection->setIcon(QIcon((utils::pathIcons + "search.png").c_str()));
         myButtonDetection->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonDetection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonDetection->setText("Search");
 
-        myButtonStatistical->setIcon(QIcon(std::string(utils::pathIcons + "statistical.png").c_str()));
+        myButtonStatistical->setIcon(QIcon((utils::pathIcons + "statistical.png").c_str()));
         myButtonStatistical->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonStatistical->setText("Statistics");

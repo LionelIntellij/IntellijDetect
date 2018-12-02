@@ -3,6 +3,12 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QToolButton>
+#include <QBoxLayout>
+#include <QGroupBox>
+#include <QTextEdit>
 
 namespace picture {
 
@@ -15,8 +21,18 @@ namespace picture {
         ~PictureWidget() override;
 
     private:
-        QGridLayout *myMainLayout = nullptr;
+        QGridLayout * myMainLayout = nullptr;
+        QGraphicsScene * myScene = nullptr;
+        QGraphicsView * myView = nullptr;
+        QVBoxLayout * myControlBox = nullptr;
+        QToolButton * myButtonSelect = nullptr;
+        QToolButton * myButtonCamera = nullptr;
+        QToolButton * myButtonSave = nullptr;
+        QVBoxLayout * mySelectLayout = nullptr;
+        QGroupBox * myBoxSelect = nullptr;
 
+
+        void createGuiComponents();
     };
 
 }
