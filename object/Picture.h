@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QGridLayout>
 #include "PictureWidget.h"
-
+#include <QToolButton>
 namespace object {
 
 
@@ -15,7 +15,8 @@ class Picture : public picture::PictureWidget{
 
         ~Picture() final;
         
-
+    private:
+      QToolButton * myButtonManualSelect = nullptr; 
     };
 
 }

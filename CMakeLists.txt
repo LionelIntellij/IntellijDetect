@@ -30,10 +30,11 @@ file(GLOB SOURCES "main.cpp"
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -fexceptions")
 
+#SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Linux/${LSB_DISTRIBUTOR_ID}/${LSB_RELEASE}/bin)
+#SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Linux/${LSB_DISTRIBUTOR_ID}/${LSB_RELEASE}/lib)
+#SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Linux/${LSB_DISTRIBUTOR_ID}/${LSB_RELEASE}/lib)
 
-
-add_executable(IntellijDetect ${UI_FILES}
-                              ${SOURCES})
+add_executable(IntellijDetect ${SOURCES})
 
 
 target_include_directories(IntellijDetect PRIVATE
