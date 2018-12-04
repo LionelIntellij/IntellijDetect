@@ -1,11 +1,11 @@
 
 #include "Picture.h"
 
-namespace food {
+namespace object {
 
     Picture::Picture() : PictureWidget() {
 
     }
 
-    Picture::~Picture() = default;
+ Picture::~Picture() = default;
 }
