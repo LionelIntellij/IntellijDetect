@@ -1,5 +1,5 @@
 
-#include "Picture.h"
+#include "interface/PicturePerson.h"
 
 namespace person {
 

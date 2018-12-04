@@ -1,5 +1,5 @@
 #include "PictureWidget.h"
-#include "UtilsInterface.h"
+#include "utils/UtilsInterface.h"
 #include <QIcon>
 #include <QSize>
 #include <QString>

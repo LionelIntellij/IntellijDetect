@@ -1,5 +1,5 @@
-#include "Object.h"
-#include "UtilsInterface.h"
+#include "interface/Object.h"
+#include "utils/UtilsInterface.h"
 
 namespace object {
 

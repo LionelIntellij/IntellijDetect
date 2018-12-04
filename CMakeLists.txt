@@ -20,12 +20,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_BINARY_DIR}/bin)
 
 
-add_subdirectory(sources/detection)
+add_subdirectory(sources/search)
 add_subdirectory(sources/person)
 add_subdirectory(sources/food)
 add_subdirectory(sources/interface)
 add_subdirectory(sources/picture)
-add_subdirectory(sources/parameters)
+add_subdirectory(sources/sensor)
 add_subdirectory(sources/intellij)
 
 

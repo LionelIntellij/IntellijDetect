@@ -1,5 +1,5 @@
 
-#include "Picture.h"
+#include "interface/PictureObject.h"
 
 namespace object {
 
