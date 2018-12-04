@@ -1,5 +1,5 @@
 #include "Food.h"
-#include "utils/UtilsInterface.h"
+#include "UtilsInterface.h"
 
 namespace food {
 

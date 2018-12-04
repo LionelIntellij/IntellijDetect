@@ -1,15 +1,13 @@
 
 
 file(GLOB SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp )
-file(GLOB HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.h )
 
-add_executable(IntellijApp ${SOURCES} 
-                           ${HEADERS})
+include_directories( ${CMAKE_SOURCE_DIR}/include/interface )
+
+add_executable(IntellijApp ${SOURCES}) 
 
 target_link_libraries(IntellijApp 
-                      Detection
-                      Parameter
-                      Interface
-                      Object
-                      Picture
-                      Food )
+                      Interface)
+		      #Object
+		      #Picture
+		      #Food )

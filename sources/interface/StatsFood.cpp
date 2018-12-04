@@ -1,5 +1,5 @@
 
-#include "interface/StatsFood.h"
+#include "StatsFood.h"
 
 namespace food {
 

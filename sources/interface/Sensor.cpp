@@ -1,4 +1,4 @@
-#include "interface/Sensor.h"
+#include "Sensor.h"
 
 namespace parameters {
 

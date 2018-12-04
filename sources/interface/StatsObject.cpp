@@ -1,5 +1,5 @@
 
-#include "interface/StatsObject.h"
+#include "StatsObject.h"
 
 namespace object {
 

@@ -5,8 +5,8 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "Picture.h"
-#include "Statistical.h"
+#include "PicturePerson.h"
+#include "StatsPerson.h"
 #include "TableWidget.h"
 
 namespace person {

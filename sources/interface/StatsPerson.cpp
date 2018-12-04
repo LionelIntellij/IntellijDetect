@@ -1,5 +1,5 @@
 
-#include "interface/StatsPerson.h"
+#include "StatsPerson.h"
 
 namespace person {
 

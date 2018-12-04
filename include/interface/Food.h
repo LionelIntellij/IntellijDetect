@@ -5,8 +5,8 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "Picture.h"
-#include "Statistical.h"
+#include "PictureFood.h"
+#include "StatsFood.h"
 #include "TableWidget.h"
 
 namespace food {

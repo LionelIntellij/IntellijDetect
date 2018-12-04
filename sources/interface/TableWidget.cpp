@@ -1,5 +1,5 @@
 #include "TableWidget.h"
-#include "utils/UtilsInterface.h"
+#include "UtilsInterface.h"
 
 namespace interface {
 

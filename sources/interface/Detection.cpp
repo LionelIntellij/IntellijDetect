@@ -1,4 +1,4 @@
-#include "interface/Detection.h"
+#include "Detection.h"
 #include <QPalette>
 
 namespace detection {

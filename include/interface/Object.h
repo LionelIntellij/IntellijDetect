@@ -2,8 +2,8 @@
 #define OBJECT_H
 
 #include <QToolButton>
-#include "Picture.h"
-#include "Statistical.h"
+#include "PictureObject.h"
+#include "StatsObject.h"
 #include "TableWidget.h"
 
 namespace object {
