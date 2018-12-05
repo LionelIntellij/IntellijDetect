@@ -9,10 +9,10 @@
 #include "StatsPerson.h"
 #include "TableWidget.h"
 
-namespace person {
+namespace interface {
 
 
-    class Person : public interface::TableWidget {
+    class Person : public TableWidget {
     Q_OBJECT
 
     public:
@@ -22,8 +22,8 @@ namespace person {
 
     private:
         //Attribute
-        Picture *myPictureWindow = nullptr;
-        Statistical *myStatisticalWindow = nullptr;
+        PicturePerson *myPictureWindow = nullptr;
+        StatsPerson *myStatisticalWindow = nullptr;
 
 
     };

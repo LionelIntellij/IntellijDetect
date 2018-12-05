@@ -1,16 +1,16 @@
 
 #include "StatsObject.h"
 
-namespace object {
+namespace interface {
 
-    Statistical::Statistical(QWidget *parent) : QWidget(parent) {
+    StatsObject::StatsObject(QWidget *parent) : QWidget(parent) {
 
         myMainLayout = new QGridLayout;
         setLayout(myMainLayout);
     }
 
 
-    Statistical::~Statistical() {
+    StatsObject::~StatsObject() {
         delete myMainLayout;
 
     }

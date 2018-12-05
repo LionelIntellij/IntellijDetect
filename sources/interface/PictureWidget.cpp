@@ -4,7 +4,7 @@
 #include <QSize>
 #include <QString>
 
-namespace picture {
+namespace interface {
     PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
         createGuiComponents();
         myMainLayout = new QGridLayout;

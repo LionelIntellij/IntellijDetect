@@ -9,10 +9,10 @@
 #include "StatsFood.h"
 #include "TableWidget.h"
 
-namespace food {
+namespace interface {
 
 
-    class Food : public interface::TableWidget {
+    class Food : public TableWidget {
     Q_OBJECT
 
     public:
@@ -23,8 +23,8 @@ namespace food {
     private:
         //Attribute
 
-        Picture *myPictureWindow = nullptr;
-        Statistical *myStatisticalWindow = nullptr;
+        PictureFood *myPictureWindow = nullptr;
+        StatsFood *myStatisticalWindow = nullptr;
 
     };
 }

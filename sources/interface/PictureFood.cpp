@@ -1,11 +1,11 @@
 
 #include "PictureFood.h"
 
-namespace food {
+namespace interface {
 
-    Picture::Picture() : PictureWidget() {
+    PictureFood::PictureFood() : PictureWidget() {
 
     }
 
-    Picture::~Picture() = default;
+    PictureFood::~PictureFood() = default;
 }

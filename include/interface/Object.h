@@ -6,7 +6,7 @@
 #include "StatsObject.h"
 #include "TableWidget.h"
 
-namespace object {
+namespace interface {
 
 
     class Object : public interface::TableWidget {
@@ -20,8 +20,8 @@ namespace object {
     private:
         //Attribute
 
-        Picture *myPictureWindow = nullptr;
-        Statistical *myStatisticalWindow = nullptr;
+        PictureObject *myPictureWindow = nullptr;
+        StatsObject *myStatisticalWindow = nullptr;
 
 
     };

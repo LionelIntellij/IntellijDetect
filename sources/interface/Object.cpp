@@ -1,12 +1,12 @@
 #include "Object.h"
 #include "UtilsInterface.h"
 
-namespace object {
+namespace interface {
 
     Object::Object() : TableWidget() {
 
-        myPictureWindow = new Picture;
-        myStatisticalWindow = new Statistical;
+        myPictureWindow = new PictureObject;
+        myStatisticalWindow = new StatsObject;
         myTable->addTab(myPictureWindow, tr("Picture"));
         myTable->addTab(myStatisticalWindow, tr("Statistical"));
         myCountIndex = myTable->count();

@@ -5,15 +5,15 @@
 #include <QGridLayout>
 #include "PictureWidget.h"
 
-namespace food {
+namespace interface {
 
 
-    class Picture : public picture::PictureWidget{
+    class PictureFood : public PictureWidget{
     Q_OBJECT
     public:
-        explicit Picture();
+        explicit PictureFood();
 
-        ~Picture() final;
+        ~PictureFood() final;
     };
 
 }

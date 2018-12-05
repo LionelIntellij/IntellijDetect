@@ -40,12 +40,12 @@ namespace interface {
         void createStacked();
 
 
-        detection::Detection *myDetectionWindow = nullptr;
+        Detection *myDetectionWindow = nullptr;
         Welcome *myWelcomeWindow = nullptr;
-        parameters::Parameters *myParameterWindow = nullptr;
-        object::Object *myObjectWindow = nullptr;
-        person::Person *myPersonWindow = nullptr;
-        food::Food *myFoodWindow = nullptr;
+        Parameters *myParameterWindow = nullptr;
+        Object *myObjectWindow = nullptr;
+        Person *myPersonWindow = nullptr;
+        Food *myFoodWindow = nullptr;
 
     private:
         QStackedWidget *myStack = nullptr;

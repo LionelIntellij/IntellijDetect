@@ -52,11 +52,11 @@ namespace interface {
     void MainWindow::createStacked() {
 
         myWelcomeWindow = new Welcome;
-        myDetectionWindow = new detection::Detection;
-        myParameterWindow = new parameters::Parameters;
-        myObjectWindow = new object::Object;
-        myFoodWindow = new food::Food;
-        myPersonWindow = new person::Person;
+        myDetectionWindow = new Detection;
+        myParameterWindow = new Parameters;
+        myObjectWindow = new Object;
+        myFoodWindow = new Food;
+        myPersonWindow = new Person;
 
 
         myStack = new QStackedWidget(this);

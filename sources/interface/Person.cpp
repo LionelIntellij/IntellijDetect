@@ -1,12 +1,12 @@
 #include "Person.h"
 #include "UtilsInterface.h"
 
-namespace person {
+namespace interface {
 
     Person::Person() : TableWidget() {
 
-        myPictureWindow = new Picture;
-        myStatisticalWindow = new Statistical;
+        myPictureWindow = new PicturePerson;
+        myStatisticalWindow = new StatsPerson;
         myTable->addTab(myPictureWindow, tr("Picture"));
         myTable->addTab(myStatisticalWindow, tr("Statistical"));
         myCountIndex = myTable->count();

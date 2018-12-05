@@ -10,7 +10,7 @@
 #include <QGroupBox>
 #include <QTextEdit>
 
-namespace picture {
+namespace interface {
 
 
     class PictureWidget : public QWidget {

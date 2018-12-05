@@ -1,15 +1,15 @@
 
 #include "StatsFood.h"
 
-namespace food {
+namespace interface {
 
-    Statistical::Statistical(QWidget *parent) : QWidget(parent) {
+    StatsFood::StatsFood(QWidget *parent) : QWidget(parent) {
 
         myMainLayout = new QGridLayout;
         setLayout(myMainLayout);
     }
 
-    Statistical::~Statistical() {
+    StatsFood::~StatsFood() {
         delete myMainLayout;
 
     }

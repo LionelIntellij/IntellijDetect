@@ -5,13 +5,13 @@
 #include <QGridLayout>
 #include "PictureWidget.h"
 
-namespace person {
+namespace interface {
 
-    class Picture : public picture::PictureWidget {
+    class PicturePerson : public PictureWidget {
     public:
-        explicit Picture();
+        explicit PicturePerson();
 
-        ~Picture() final;
+        ~PicturePerson() final;
 
 
     };

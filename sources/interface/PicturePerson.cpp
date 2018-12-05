@@ -1,11 +1,11 @@
 
 #include "PicturePerson.h"
 
-namespace person {
+namespace interface {
 
-    Picture::Picture() : PictureWidget() {
+    PicturePerson::PicturePerson() : PictureWidget() {
 
     }
 
-    Picture::~Picture() = default;
+    PicturePerson::~PicturePerson() = default;
 }

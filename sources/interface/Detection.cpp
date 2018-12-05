@@ -1,7 +1,7 @@
 #include "Detection.h"
 #include <QPalette>
 
-namespace detection {
+namespace interface {
 
 
     Detection::Detection(QWidget *parent) :

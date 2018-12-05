@@ -1,11 +1,11 @@
 
 #include "PictureObject.h"
 
-namespace object {
+namespace interface {
 
-    Picture::Picture() : PictureWidget() {
+    PictureObject::PictureObject() : PictureWidget() {
 
     }
 
- Picture::~Picture() = default;
+ PictureObject::~PictureObject() = default;
 }

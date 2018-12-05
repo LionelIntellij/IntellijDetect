@@ -1,15 +1,15 @@
 
 #include "StatsPerson.h"
 
-namespace person {
+namespace interface {
 
-Statistical::Statistical(QWidget * parent):QWidget(parent)
+StatsPerson::StatsPerson(QWidget * parent):QWidget(parent)
 {
     myMainLayout = new QGridLayout;
     setLayout(myMainLayout);
 }
 
-Statistical::~Statistical()
+StatsPerson::~StatsPerson()
 {
 delete myMainLayout;
 

@@ -1,12 +1,12 @@
 #include "Food.h"
 #include "UtilsInterface.h"
 
-namespace food {
+namespace interface {
 
     Food::Food():TableWidget(){
 
-        myPictureWindow = new Picture;
-        myStatisticalWindow = new Statistical ;
+        myPictureWindow = new PictureFood;
+        myStatisticalWindow = new StatsFood ;
         myTable->addTab(myPictureWindow ,tr("Picture"));
         myTable->addTab(myStatisticalWindow , tr("Statistical"));
         myCountIndex = myTable->count();

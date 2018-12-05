@@ -5,15 +5,15 @@
 #include <QGridLayout>
 #include "PictureWidget.h"
 #include <QToolButton>
-namespace object {
+namespace interface {
 
 
-class Picture : public picture::PictureWidget{
+class PictureObject : public PictureWidget{
     Q_OBJECT
     public:
-        explicit Picture();
+        explicit PictureObject();
 
-        ~Picture() final;
+        ~PictureObject() final;
         
     private:
       QToolButton * myButtonManualSelect = nullptr; 

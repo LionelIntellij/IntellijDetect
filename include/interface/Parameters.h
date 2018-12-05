@@ -9,10 +9,10 @@
 #include "Sensor.h"
 #include "TableWidget.h"
 
-namespace parameters {
+namespace interface {
 
 
-    class Parameters : public interface::TableWidget {
+    class Parameters : public TableWidget {
     Q_OBJECT
 
     public:

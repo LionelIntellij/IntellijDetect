@@ -5,14 +5,14 @@
 #include <QGridLayout>
 
 
-namespace person {
+namespace interface {
 
-    class Statistical : public QWidget {
+    class StatsPerson : public QWidget {
     Q_OBJECT
     public:
-        explicit Statistical(QWidget *parent = 0);
+        explicit StatsPerson(QWidget *parent = 0);
 
-        ~Statistical() final;
+        ~StatsPerson() final;
 
     private:
         QGridLayout *myMainLayout = nullptr;

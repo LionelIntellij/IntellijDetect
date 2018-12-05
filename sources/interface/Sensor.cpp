@@ -1,6 +1,6 @@
 #include "Sensor.h"
 
-namespace parameters {
+namespace interface {
 
 Sensor::Sensor(QWidget * parent):QWidget(parent)
 {

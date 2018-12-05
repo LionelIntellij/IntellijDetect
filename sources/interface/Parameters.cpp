@@ -1,9 +1,9 @@
 #include "Parameters.h"
 #include "UtilsInterface.h"
 
-namespace parameters {
+namespace interface {
 
-    Parameters::Parameters() : interface::TableWidget() {
+    Parameters::Parameters() : TableWidget() {
 
         myControlWindow = new Control;
         mySensorWindow = new Sensor;
