@@ -45,7 +45,6 @@ namespace interface {
     }
 
     void ControlPanel::setIconButton() {
-        //std::cerr<<pathIcons<<std::endl;
         myButtonParameter->setIcon(QIcon((utils::pathIcons + "parameters.png").c_str()));
         myButtonParameter->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonParameter->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -75,7 +74,6 @@ namespace interface {
         myButtonStatistical->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonStatistical->setText("Statistics");
-
     }
 
     ControlPanel::~ControlPanel() {

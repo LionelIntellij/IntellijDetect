@@ -13,11 +13,22 @@ namespace utils {
         CONTROL_BUTTON_WITDH = 100,
         ICONS_SIZE = 50
     };
-//
+inline const std::string &pathFile(const char * envVariable) {
+        try {
+            const static std::string path = std::getenv(envVariable);
+            std::cerr<<path<<std::endl;
+            return path;
+        }
+        catch (std::exception &e) {
+            std::cerr << envVariable << " not found " << std::endl;
+            throw e;
+        }
+    }
 
-//static std::string pathIntellij(std::getenv("INTELLIJ_PATH"));
-  const  static std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
-  const  static std::string pathIcons(pathIntellij + "/icons/");
+
+  const std::string pathIntellij(pathFile("INTELLIJ_PATH"));
+  //const  static std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
+  const  static std::string pathIcons(pathIntellij + "/data/icons/");
 
 
 }
