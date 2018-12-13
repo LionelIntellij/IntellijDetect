@@ -14,7 +14,7 @@ public:
     ~Sensor();
 
 private:
-   QVBoxLayout * myMainLayout = nullptr;
+   QVBoxLayout * myMainLayout;
 };
 }
 #endif // SENSOR_H

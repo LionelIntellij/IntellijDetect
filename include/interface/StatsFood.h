@@ -15,7 +15,7 @@ namespace interface {
         ~StatsFood() final;
 
     private:
-        QGridLayout *myMainLayout = nullptr;
+        QGridLayout *myMainLayout;
 
 
     };

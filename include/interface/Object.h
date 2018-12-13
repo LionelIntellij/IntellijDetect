@@ -20,8 +20,8 @@ namespace interface {
     private:
         //Attribute
 
-        PictureObject *myPictureWindow = nullptr;
-        StatsObject *myStatisticalWindow = nullptr;
+        PictureObject *myPictureWindow;
+        StatsObject *myStatisticalWindow;
 
 
     };

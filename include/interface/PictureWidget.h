@@ -21,15 +21,15 @@ namespace interface {
         ~PictureWidget() override;
 
     private:
-        QGridLayout * myMainLayout = nullptr;
-        QGraphicsScene * myScene = nullptr;
-        QGraphicsView * myView = nullptr;
-        QVBoxLayout * myControlBox = nullptr;
-        QToolButton * myButtonSelect = nullptr;
-        QToolButton * myButtonCamera = nullptr;
-        QToolButton * myButtonSave = nullptr;
-        QVBoxLayout * mySelectLayout = nullptr;
-        QGroupBox * myBoxSelect = nullptr;
+        QGridLayout * myMainLayout;
+        QGraphicsScene * myScene;
+        QGraphicsView * myView;
+        QVBoxLayout * myControlBox;
+        QToolButton * myButtonSelect;
+        QToolButton * myButtonCamera;
+        QToolButton * myButtonSave;
+        QVBoxLayout * mySelectLayout;
+        QGroupBox * myBoxSelect;
 
 
         void createGuiComponents();

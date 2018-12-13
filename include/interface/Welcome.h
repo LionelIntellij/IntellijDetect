@@ -16,20 +16,20 @@ namespace interface {
     Q_OBJECT
 
     public:
-        explicit Welcome(QWidget *parent = nullptr);
+        explicit Welcome(QWidget *parent);
 
         ~ Welcome() override;
 
     private:
-        CircularBar *myCircularBarObjects = nullptr;
-        CircularBar *myCircularBarFoods = nullptr;
-        QHBoxLayout *myMainLayout = nullptr;
-        QVBoxLayout *myObjectsLayout = nullptr;
-        QVBoxLayout *myFoodsLayout = nullptr;
-        QVBoxLayout *myPersonsLayout = nullptr;
-        QGroupBox *myBoxPersons = nullptr;
-        QGroupBox *myBoxFoods = nullptr;
-        QGroupBox *myBoxObjects = nullptr;
+        CircularBar *myCircularBarObjects;
+        CircularBar *myCircularBarFoods;
+        QHBoxLayout *myMainLayout;
+        QVBoxLayout *myObjectsLayout;
+        QVBoxLayout *myFoodsLayout;
+        QVBoxLayout *myPersonsLayout;
+        QGroupBox *myBoxPersons;
+        QGroupBox *myBoxFoods;
+        QGroupBox *myBoxObjects;
 
     };
 }

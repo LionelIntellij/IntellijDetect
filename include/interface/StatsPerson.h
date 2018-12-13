@@ -15,7 +15,7 @@ namespace interface {
         ~StatsPerson() final;
 
     private:
-        QGridLayout *myMainLayout = nullptr;
+        QGridLayout *myMainLayout;
 
     };
 }

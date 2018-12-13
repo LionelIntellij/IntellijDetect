@@ -10,12 +10,12 @@ namespace interface {
     class StatsObject : public QWidget {
     Q_OBJECT
     public:
-        explicit StatsObject(QWidget *parent = nullptr);
+        explicit StatsObject(QWidget *parent);
 
         ~StatsObject() final;
 
     private:
-        QGridLayout *myMainLayout = nullptr;
+        QGridLayout *myMainLayout;
 
 
     };

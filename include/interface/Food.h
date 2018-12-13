@@ -23,8 +23,8 @@ namespace interface {
     private:
         //Attribute
 
-        PictureFood *myPictureWindow = nullptr;
-        StatsFood *myStatisticalWindow = nullptr;
+        PictureFood *myPictureWindow;
+        StatsFood *myStatisticalWindow;
 
     };
 }

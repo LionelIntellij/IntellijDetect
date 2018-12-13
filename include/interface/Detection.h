@@ -29,12 +29,12 @@ namespace interface {
 
 
     private:
-        QToolButton *myButtonSearch = nullptr;
-        QGridLayout *myMainLayout = nullptr;
-        QLineEdit *myTextSearch = nullptr;
-        QTextEdit *myTextInfo = nullptr;
-        QVBoxLayout *myPanel = nullptr;
-        QGraphicsView *myGraphicsView = nullptr;
+        QToolButton *myButtonSearch;
+        QGridLayout *myMainLayout;
+        QLineEdit *myTextSearch;
+        QTextEdit *myTextInfo;
+        QVBoxLayout *myPanel;
+        QGraphicsView *myGraphicsView;
 
         void createConnection();
 

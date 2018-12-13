@@ -22,8 +22,8 @@ namespace interface {
 
     private:
         //Attribute
-        Sensor *mySensorWindow = nullptr;
-        Control *myControlWindow = nullptr;
+        Sensor *mySensorWindow;
+        Control *myControlWindow;
     };
 }
 

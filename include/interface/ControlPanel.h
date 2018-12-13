@@ -30,15 +30,15 @@ namespace interface {
         QToolButton *getButtonWelcome();
 
     private:
-        QGroupBox *myBoxPanel = nullptr;
-        QVBoxLayout *myControlPanel = nullptr;
-        QToolButton *myButtonParameter = nullptr;
-        QToolButton *myButtonPerson = nullptr;
-        QToolButton *myButtonDetection = nullptr;
-        QToolButton *myButtonStatistical = nullptr;
-        QToolButton *myButtonObject = nullptr;
-        QToolButton *myButtonFood = nullptr;
-        QVBoxLayout *myMainBox = nullptr;
+        QGroupBox *myBoxPanel;
+        QVBoxLayout *myControlPanel ;
+        QToolButton *myButtonParameter ;
+        QToolButton *myButtonPerson ;
+        QToolButton *myButtonDetection ;
+        QToolButton *myButtonStatistical ;
+        QToolButton *myButtonObject ;
+        QToolButton *myButtonFood ;
+        QVBoxLayout *myMainBox ;
 
         void createGuiComponents();
 

@@ -14,7 +14,7 @@ public:
     explicit Control(QWidget *parent = 0);
     ~Control();
 private:
-    QVBoxLayout * myMainLayout = nullptr;
+    QVBoxLayout * myMainLayout;
 };
 }
 #endif // CONTROL_H
