@@ -52,7 +52,6 @@ namespace interface {
     void MainWindow::createStacked() {
 
         myWelcomeWindow = new Welcome;
-        myDetectionWindow = new Detection;
         myParameterWindow = new Parameters;
         myObjectWindow = new Object;
         myFoodWindow = new Food;
@@ -61,7 +60,6 @@ namespace interface {
 
         myStack = new QStackedWidget(this);
         myIndexWelcome = myStack->addWidget(myWelcomeWindow);
-        myIndexDetection = myStack->addWidget(myDetectionWindow);
         myIndexParameter = myStack->addWidget(myParameterWindow);
         myIndexObject = myStack->addWidget(myObjectWindow);
         myIndexFood = myStack->addWidget(myFoodWindow);
@@ -70,8 +68,6 @@ namespace interface {
 
     void MainWindow::createConnections() {
 
-        QObject::connect(myPanel->getButtonDetection(), SIGNAL(pressed()), this,
-                         SLOT(toolButtonDetection_on_clicked()));
         QObject::connect(myPanel->getButtonParameter(), SIGNAL(pressed()), this,
                          SLOT(toolButtonParameter_on_clicked()));
         QObject::connect(myPanel->getButtonWelcome(), SIGNAL(pressed()), this,

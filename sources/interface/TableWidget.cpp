@@ -40,7 +40,8 @@ namespace interface {
         if (myCurrentIndex == myCountIndex) {
             myTable->setCurrentIndex(myCurrentIndex);
         } else {
-            myTable->setCurrentIndex(myCurrentIndex + 1);
+            myCurrentIndex +=1;
+            myTable->setCurrentIndex(myCurrentIndex);
         }
     }
 
@@ -48,7 +49,8 @@ namespace interface {
         if (myCurrentIndex == 0) {
             myTable->setCurrentIndex(myCurrentIndex);
         } else {
-            myTable->setCurrentIndex(myCurrentIndex - 1);
+            myCurrentIndex-=1;
+            myTable->setCurrentIndex(myCurrentIndex);
         }
     }
 

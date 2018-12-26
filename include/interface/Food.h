@@ -8,6 +8,7 @@
 #include "PictureFood.h"
 #include "StatsFood.h"
 #include "TableWidget.h"
+#include "Detection.h"
 
 namespace interface {
 
@@ -25,6 +26,7 @@ namespace interface {
 
         PictureFood *myPictureWindow;
         StatsFood *myStatisticalWindow;
+        Detection *mySearchWindow;
 
     };
 }

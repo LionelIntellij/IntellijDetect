@@ -7,8 +7,10 @@ namespace interface {
 
         myPictureWindow = new PicturePerson;
         myStatisticalWindow = new StatsPerson;
+        mySearchWindow = new Detection;
         myTable->addTab(myPictureWindow, tr("Picture"));
         myTable->addTab(myStatisticalWindow, tr("Statistical"));
+        myTable->addTab(mySearchWindow ,tr("Search"));
         myCountIndex = myTable->count();
         myCurrentIndex = myTable->currentIndex();
     }
@@ -17,6 +19,7 @@ namespace interface {
     Person::~Person() {
         delete myPictureWindow;
         delete myStatisticalWindow;
+        delete mySearchWindow;
 
     }
 

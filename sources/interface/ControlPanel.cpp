@@ -9,10 +9,6 @@ namespace interface {
 
         myButtonParameter->setMinimumSize(utils::PANEL_BUTTON_WITDH,
                                            utils::PANEL_BUTTON_HEIGHT);
-
-        myButtonDetection = new QToolButton;
-        myButtonDetection->setMinimumSize(utils::PANEL_BUTTON_WITDH,
-                                          utils::PANEL_BUTTON_HEIGHT);
         myButtonPerson = new QToolButton;
         myButtonPerson->setMinimumSize(utils::PANEL_BUTTON_WITDH,
                                        utils::PANEL_BUTTON_HEIGHT);
@@ -34,7 +30,6 @@ namespace interface {
         myBoxPanel = new QGroupBox(tr("Menu"));
         myBoxPanel->setLayout(myControlPanel);
         myControlPanel->addWidget(myButtonParameter);
-        myControlPanel->addWidget(myButtonDetection);
         myControlPanel->addWidget(myButtonPerson);
         myControlPanel->addWidget(myButtonFood);
         myControlPanel->addWidget(myButtonObject);
@@ -65,11 +60,6 @@ namespace interface {
         myButtonObject->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
         myButtonObject->setText("Objects");
 
-        myButtonDetection->setIcon(QIcon((utils::pathIcons + "search.png").c_str()));
-        myButtonDetection->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-        myButtonDetection->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        myButtonDetection->setText("Search");
-
         myButtonStatistical->setIcon(QIcon((utils::pathIcons + "statistical.png").c_str()));
         myButtonStatistical->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
         myButtonStatistical->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -83,7 +73,6 @@ namespace interface {
         delete myControlPanel;
         delete myButtonParameter;
         delete myButtonPerson;
-        delete myButtonDetection;
         delete myButtonObject;
         delete myButtonFood;
         delete myButtonStatistical;
@@ -104,10 +93,6 @@ namespace interface {
 
     QToolButton *ControlPanel::getButtonPerson() {
         return myButtonPerson;
-    }
-
-    QToolButton *ControlPanel::getButtonDetection() {
-        return myButtonDetection;
     }
 
     QToolButton *ControlPanel::getButtonObject() {

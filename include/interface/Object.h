@@ -5,6 +5,7 @@
 #include "PictureObject.h"
 #include "StatsObject.h"
 #include "TableWidget.h"
+#include "Detection.h"
 
 namespace interface {
 
@@ -22,6 +23,8 @@ namespace interface {
 
         PictureObject *myPictureWindow;
         StatsObject *myStatisticalWindow;
+        Detection * mySearchWindow;
+
 
 
     };

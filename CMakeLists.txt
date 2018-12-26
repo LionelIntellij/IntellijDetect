@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION ${CMAKE_VERSION})
 
 set(CMAKE_MODULE_PATH ${PROJET_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
-
+project(Intellij)
 # Tell CMake to run moc when necessary:
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)

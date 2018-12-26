@@ -8,7 +8,7 @@
 #include "PicturePerson.h"
 #include "StatsPerson.h"
 #include "TableWidget.h"
-
+#include "Detection.h"
 namespace interface {
 
 
@@ -24,6 +24,7 @@ namespace interface {
         //Attribute
         PicturePerson *myPictureWindow;
         StatsPerson *myStatisticalWindow;
+        Detection * mySearchWindow;
 
 
     };

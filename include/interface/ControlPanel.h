@@ -21,8 +21,6 @@ namespace interface {
 
         QToolButton *getButtonPerson();
 
-        QToolButton *getButtonDetection();
-
         QToolButton *getButtonObject();
 
         QToolButton *getButtonFood();
@@ -34,7 +32,6 @@ namespace interface {
         QVBoxLayout *myControlPanel ;
         QToolButton *myButtonParameter ;
         QToolButton *myButtonPerson ;
-        QToolButton *myButtonDetection ;
         QToolButton *myButtonStatistical ;
         QToolButton *myButtonObject ;
         QToolButton *myButtonFood ;
