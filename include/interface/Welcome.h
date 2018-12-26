@@ -16,7 +16,7 @@ namespace interface {
     Q_OBJECT
 
     public:
-        explicit Welcome(QWidget *parent);
+        explicit Welcome(QWidget *parent = 0);
 
         ~ Welcome() override;
 

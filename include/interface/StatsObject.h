@@ -10,7 +10,7 @@ namespace interface {
     class StatsObject : public QWidget {
     Q_OBJECT
     public:
-        explicit StatsObject(QWidget *parent);
+        explicit StatsObject(QWidget *parent = 0);
 
         ~StatsObject() final;
 

@@ -12,8 +12,8 @@ namespace interface {
     Q_OBJECT
 
     public:
-        explicit TableWidget(QWidget *parent);
-
+        explicit TableWidget(QWidget *parent = 0);
+ 
         ~TableWidget() override;
     private:
         QToolButton *myPreviousButton;

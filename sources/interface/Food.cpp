@@ -3,7 +3,7 @@
 
 namespace interface {
 
-    Food::Food():TableWidget(){
+    Food::Food() : TableWidget(){
 
         myPictureWindow = new PictureFood;
         myStatisticalWindow = new StatsFood ;
