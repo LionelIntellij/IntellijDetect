@@ -1,9 +1,9 @@
-#include "Welcome.h"
+#include "Statistics.h"
 
 
 namespace interface {
 
-    Welcome::Welcome(QWidget *parent) : QWidget(parent) {
+    Statistics::Statistics(QWidget *parent) : QWidget(parent) {
         myCircularBarFoods = new CircularBar;
         myFoodsLayout = new QVBoxLayout;
         myFoodsLayout->addWidget(myCircularBarFoods);
@@ -28,7 +28,7 @@ namespace interface {
         setLayout(myMainLayout);
     }
 
-    Welcome::~Welcome() {
+    Statistics::~Statistics() {
         delete myMainLayout;
         delete myCircularBarFoods;
         delete myFoodsLayout;

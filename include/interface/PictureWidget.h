@@ -9,6 +9,11 @@
 #include <QBoxLayout>
 #include <QGroupBox>
 #include <QTextEdit>
+#include <QtMultimedia/QCameraInfo>
+#include <QtMultimedia/QMediaMetaData>
+#include <QtMultimediaWidgets/QCameraViewfinder>
+#include <QtWidgets/QGraphicsPixmapItem>
+
 
 namespace interface {
 
@@ -18,12 +23,17 @@ namespace interface {
     public:
         explicit PictureWidget(QWidget *parent = nullptr);
 
+        //virtual void segmentPicture()=0;
+
         ~PictureWidget() override;
 
+    protected:
+
+
     private:
+        QCameraViewfinder * myView;
         QGridLayout * myMainLayout;
         QGraphicsScene * myScene;
-        QGraphicsView * myView;
         QVBoxLayout * myControlBox;
         QToolButton * myButtonSelect;
         QToolButton * myButtonCamera;
@@ -33,6 +43,8 @@ namespace interface {
 
 
         void createGuiComponents();
+        //void setScene(const QString & filenamePicture);
+
     };
 
 }

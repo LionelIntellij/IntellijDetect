@@ -35,8 +35,8 @@ namespace interface {
         myPanel = new QVBoxLayout;
         myPanel->addStretch();
         myPanel->addWidget(myButtonSearch);
-        myPanel->addWidget(myTextSearch);
         myPanel->addStretch();
+        myPanel->addWidget(myTextSearch);
         myPanel->addStretch();
         myPanel->addWidget(myTextInfo);
         myPanel->addStretch();

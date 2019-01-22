@@ -1,5 +1,5 @@
-#ifndef WELCOME_H
-#define WELCOME_H
+#ifndef STATICTICS_H
+#define STATICTICS_H
 
 //QT include
 #include <QWidget>
@@ -12,13 +12,13 @@
 
 namespace interface {
 
-    class Welcome : public QWidget {
+    class Statistics : public QWidget {
     Q_OBJECT
 
     public:
-        explicit Welcome(QWidget *parent = 0);
+        explicit Statistics(QWidget *parent = 0);
 
-        ~ Welcome() override;
+        ~ Statistics() override;
 
     private:
         CircularBar *myCircularBarObjects;

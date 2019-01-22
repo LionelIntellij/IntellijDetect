@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/lionel/91a6e2ef-7032-49c5-bf80-b87f14f940ad/home/lionel/Projects/IntellijDetect/sources/person/ExtractPerson.cpp
+
+/media/lionel/91a6e2ef-7032-49c5-bf80-b87f14f940ad/home/lionel/Projects/IntellijDetect/sources/sources/person/Person_automoc.cpp
+

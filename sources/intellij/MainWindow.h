@@ -12,7 +12,7 @@
 
 //class include
 #include "Detection.h"
-#include "Welcome.h"
+#include "Statistics.h"
 #include "Parameters.h"
 #include "ControlPanel.h"
 #include "Object.h"
@@ -41,7 +41,7 @@ namespace interface {
 
 
         Detection *myDetectionWindow = nullptr;
-        Welcome *myWelcomeWindow = nullptr;
+        Statistics *myStatisticsWindow = nullptr;
         Parameters *myParameterWindow = nullptr;
         Object *myObjectWindow = nullptr;
         Person *myPersonWindow = nullptr;

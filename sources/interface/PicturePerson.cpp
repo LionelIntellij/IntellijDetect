@@ -3,7 +3,13 @@
 
 namespace interface {
 
-    PicturePerson::PicturePerson() : PictureWidget() {
+    PicturePerson::PicturePerson() : PictureWidget()
+    {
+
+    }
+
+    void segmentPicture()
+    {
 
     }
 

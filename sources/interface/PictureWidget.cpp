@@ -3,6 +3,8 @@
 #include <QIcon>
 #include <QSize>
 #include <QString>
+#include <QMessageBox>
+
 
 namespace interface {
     PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
@@ -15,8 +17,7 @@ namespace interface {
 
     void PictureWidget::createGuiComponents()
     {
-        myScene = new QGraphicsScene;
-        myView = new QGraphicsView(myScene);
+        myView = new QCameraViewfinder;
 
         myButtonCamera = new QToolButton;
         myButtonCamera->setText(tr("Camera"));
@@ -49,7 +50,26 @@ namespace interface {
         myBoxSelect = new QGroupBox(tr("Selection"));
         myBoxSelect->setLayout(mySelectLayout);
     }
+/*
+    void PictureWidget::setScene(const QString & fileNamePicture)
+    {
+        if(!fileNamePicture.isEmpty())
+        {
+            QImage image(fileNamePicture);
 
+            if(image.isNull())
+            {
+                QMessageBox::information(this,"Image Viewer","Error Displaying image");
+                return;
+            }
+            QGraphicsPixmapItem item(QPixmap::fromImage(image));
+            myScene->addItem(&item);
+
+          //  ui->graphicsView->setScene(&scene);
+           // ui->graphicsView->show();
+        }
+    }
+    */
     PictureWidget::~PictureWidget() {
         delete myMainLayout;
         delete myView;

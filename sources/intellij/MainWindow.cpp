@@ -51,7 +51,7 @@ namespace interface {
 
     void MainWindow::createStacked() {
 
-        myWelcomeWindow = new Welcome;
+        myStatisticsWindow = new Statistics;
         myParameterWindow = new Parameters;
         myObjectWindow = new Object;
         myFoodWindow = new Food;
@@ -59,7 +59,7 @@ namespace interface {
 
 
         myStack = new QStackedWidget(this);
-        myIndexWelcome = myStack->addWidget(myWelcomeWindow);
+        myIndexWelcome = myStack->addWidget(myStatisticsWindow);
         myIndexParameter = myStack->addWidget(myParameterWindow);
         myIndexObject = myStack->addWidget(myObjectWindow);
         myIndexFood = myStack->addWidget(myFoodWindow);
@@ -117,7 +117,7 @@ namespace interface {
 
     MainWindow::~MainWindow() {
         delete myDetectionWindow;
-        delete myWelcomeWindow;
+        delete myStatisticsWindow;
         delete myParameterWindow;
         delete myFoodWindow;
         delete myObjectWindow;

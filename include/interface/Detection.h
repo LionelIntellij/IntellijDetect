@@ -21,7 +21,7 @@ namespace interface {
     public:
         explicit Detection(QWidget *parent = 0);
 
-        ~Detection();
+        ~Detection() override;
 
         void setTextInfo(const QString &info);
 
