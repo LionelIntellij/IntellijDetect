@@ -1,18 +1,16 @@
 #ifndef PICTURE_WIDGET_H
 #define PICTURE_WIDGET_H
 
+//Qt
 #include <QWidget>
 #include <QGridLayout>
-#include <QGraphicsScene>
-#include <QGraphicsView>
 #include <QToolButton>
 #include <QBoxLayout>
-#include <QGroupBox>
 #include <QTextEdit>
+#include <QTableWidget>
 #include <QtMultimedia/QCameraInfo>
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>
-#include <QtWidgets/QGraphicsPixmapItem>
 
 
 namespace interface {
@@ -31,18 +29,22 @@ namespace interface {
 
 
     private:
-        QCameraViewfinder * myView;
+
         QGridLayout * myMainLayout;
-        QGraphicsScene * myScene;
-        QVBoxLayout * myControlBox;
-        QToolButton * myButtonSelect;
-        QToolButton * myButtonCamera;
-        QToolButton * myButtonSave;
         QVBoxLayout * mySelectLayout;
-        QGroupBox * myBoxSelect;
+        QVBoxLayout * myCameraLayout;
 
+        QCameraViewfinder * myView;
+        QTabWidget * myTable;
+        QWidget * myPicture;
+        QWidget * myCamera;
 
-        void createGuiComponents();
+        //Buttons
+        QToolButton * myButtonSelect;
+        QToolButton * myButtonCapture;
+        QToolButton * myButtonSave;
+
+        void createTable();
         //void setScene(const QString & filenamePicture);
 
     };

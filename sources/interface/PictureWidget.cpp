@@ -8,23 +8,33 @@
 
 namespace interface {
     PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
-        createGuiComponents();
-        myMainLayout = new QGridLayout;
+        createTable();
+        myTable =new QTabWidget;
+        myTable->addTab(myCamera,tr("Camera"));
+        myTable->addTab(myPicture,tr("Picture"));
+
+        myView = new QCameraViewfinder;
+        myMainLayout= new QGridLayout;
         myMainLayout->addWidget(myView,0,0,4,6);
-        myMainLayout->addWidget(myBoxSelect ,0,6,4,1);
+        myMainLayout->addWidget(myTable ,0,6,4,1);
         setLayout(myMainLayout);
     }
 
-    void PictureWidget::createGuiComponents()
-    {
-        myView = new QCameraViewfinder;
 
-        myButtonCamera = new QToolButton;
-        myButtonCamera->setText(tr("Camera"));
-        myButtonCamera->setMinimumSize(utils::CONTROL_BUTTON_WITDH,utils::CONTROL_BUTTON_HEIGHT);
-        myButtonCamera->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        myButtonCamera->setIconSize(QSize(utils::ICONS_SIZE,utils::ICONS_SIZE));
-        myButtonCamera->setIcon(QIcon((utils::pathIcons + "camera.png").c_str()));
+    void PictureWidget::createTable()
+    {
+        myButtonCapture = new QToolButton;
+        myButtonCapture->setText(tr("Photo Capture"));
+        myButtonCapture->setMinimumSize(utils::CONTROL_BUTTON_WITDH,utils::CONTROL_BUTTON_HEIGHT);
+        myButtonCapture->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        myButtonCapture->setIconSize(QSize(utils::ICONS_SIZE,utils::ICONS_SIZE));
+        myButtonCapture->setIcon(QIcon((utils::pathIcons + "camera.png").c_str()));
+
+        myCameraLayout = new QVBoxLayout;
+        myCameraLayout->addWidget(myButtonCapture);
+
+        myCamera = new QWidget;
+        myCamera->setLayout(myCameraLayout);
 
 
         myButtonSelect = new QToolButton;
@@ -43,13 +53,14 @@ namespace interface {
 
         mySelectLayout = new QVBoxLayout;
         mySelectLayout->addWidget(myButtonSelect);
-        mySelectLayout->addWidget(myButtonCamera);
         mySelectLayout->addWidget(myButtonSave);
 
+        myPicture = new QWidget;
+        myPicture->setLayout(mySelectLayout);
 
-        myBoxSelect = new QGroupBox(tr("Selection"));
-        myBoxSelect->setLayout(mySelectLayout);
+
     }
+
 /*
     void PictureWidget::setScene(const QString & fileNamePicture)
     {
@@ -73,12 +84,13 @@ namespace interface {
     PictureWidget::~PictureWidget() {
         delete myMainLayout;
         delete myView;
-        delete myScene;
-        delete myBoxSelect;
+        delete myCameraLayout;
+        delete myPicture;
+        delete myTable;
+        delete myCamera;
         delete myButtonSelect;
-        delete myButtonCamera;
+        delete myButtonCapture;
         delete myButtonSave;
-        delete myControlBox;
     }
 
 }

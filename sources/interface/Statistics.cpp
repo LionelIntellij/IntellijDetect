@@ -11,13 +11,16 @@ namespace interface {
         myBoxFoods->setLayout(myFoodsLayout);
 
         myCircularBarObjects = new CircularBar;
+
         myObjectsLayout = new QVBoxLayout;
         myObjectsLayout->addWidget(myCircularBarObjects);
+
         myBoxObjects = new QGroupBox(tr("Objects"));
         myBoxObjects->setLayout(myObjectsLayout);
 
         myPersonsLayout = new QVBoxLayout;
         myBoxPersons = new QGroupBox(tr("Persons"));
+
         myBoxPersons->setLayout(myPersonsLayout);
 
         myMainLayout = new QHBoxLayout;
@@ -29,15 +32,17 @@ namespace interface {
     }
 
     Statistics::~Statistics() {
-        delete myMainLayout;
-        delete myCircularBarFoods;
-        delete myFoodsLayout;
         delete myCircularBarObjects;
+        delete myCircularBarFoods;
+
+        delete myMainLayout;
+        delete myPersonsLayout;
+        delete myFoodsLayout;
         delete myObjectsLayout;
+
         delete myBoxPersons;
         delete myBoxFoods;
         delete myBoxObjects;
-        delete myPersonsLayout;
 
     }
 }

@@ -23,10 +23,12 @@ namespace interface {
     private:
         CircularBar *myCircularBarObjects;
         CircularBar *myCircularBarFoods;
+
         QHBoxLayout *myMainLayout;
         QVBoxLayout *myObjectsLayout;
         QVBoxLayout *myFoodsLayout;
         QVBoxLayout *myPersonsLayout;
+
         QGroupBox *myBoxPersons;
         QGroupBox *myBoxFoods;
         QGroupBox *myBoxObjects;
