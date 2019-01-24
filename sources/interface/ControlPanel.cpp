@@ -67,16 +67,14 @@ namespace interface {
     }
 
     ControlPanel::~ControlPanel() {
-
-        delete myMainBox;
-        delete myBoxPanel;
-        delete myControlPanel;
         delete myButtonParameter;
         delete myButtonPerson;
         delete myButtonObject;
         delete myButtonFood;
         delete myButtonStatistical;
-
+        delete myControlPanel;
+        delete myBoxPanel;
+        delete myMainBox;
     }
 
     QToolButton *ControlPanel::getButtonParameter() {

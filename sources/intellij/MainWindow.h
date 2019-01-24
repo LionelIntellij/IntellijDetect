@@ -39,8 +39,6 @@ namespace interface {
 
         void createStacked();
 
-
-        Detection *myDetectionWindow = nullptr;
         Statistics *myStatisticsWindow = nullptr;
         Parameters *myParameterWindow = nullptr;
         Object *myObjectWindow = nullptr;
@@ -57,12 +55,10 @@ namespace interface {
         int myIndexFood = 0;
         int myIndexObject = 0;
         int myIndexWelcome = 0;
-        int myIndexDetection = 0;
 
     private slots:
 
         void toolButtonParameter_on_clicked();
-        void toolButtonDetection_on_clicked();
         void toolButtonPerson_on_clicked();
         void toolButtonObject_on_clicked();
         void toolButtonWelcome_on_clicked();

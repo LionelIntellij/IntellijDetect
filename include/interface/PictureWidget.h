@@ -42,8 +42,8 @@ namespace interface {
         int myIndexCamera;
         int myIndexPicture;
         QTabWidget * myTable;
-        QWidget * myPicture;
-        QWidget * myCamera;
+        QWidget * myPictureWidget;
+        QWidget * myCameraWidget;
 
         //Buttons
         QToolButton * myButtonSelect;

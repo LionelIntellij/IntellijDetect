@@ -38,8 +38,8 @@ namespace interface {
         myCameraLayout = new QVBoxLayout;
         myCameraLayout->addWidget(myButtonCapture);
 
-        myCamera = new QWidget;
-        myCamera->setLayout(myCameraLayout);
+        myCameraWidget = new QWidget;
+        myCameraWidget->setLayout(myCameraLayout);
 
 
         myButtonSelect = new QToolButton;
@@ -60,12 +60,12 @@ namespace interface {
         mySelectLayout->addWidget(myButtonSelect);
         mySelectLayout->addWidget(myButtonSave);
 
-        myPicture = new QWidget;
-        myPicture->setLayout(mySelectLayout);
+        myPictureWidget = new QWidget;
+        myPictureWidget->setLayout(mySelectLayout);
 
         myTable =new QTabWidget;
-        myTable->addTab(myCamera,tr("Camera"));
-        myTable->addTab(myPicture,tr("Picture"));
+        myTable->addTab(myCameraWidget,tr("Camera"));
+        myTable->addTab(myPictureWidget,tr("Picture"));
 
 
     }
@@ -95,13 +95,16 @@ namespace interface {
         delete myButtonSelect;
         delete myButtonCapture;
         delete myButtonSave;
-        delete myCamera;
-        delete myPicture;
-        delete myTable;
+
         delete myViewCamera;
         delete myLabelPicture;
+
         delete myCameraLayout;
         delete mySelectLayout;
+
+        delete myCameraWidget;
+        delete myPictureWidget;
+        delete myTable;
         delete myStack;
         delete myMainLayout;
     }

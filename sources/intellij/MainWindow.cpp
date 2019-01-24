@@ -80,11 +80,6 @@ namespace interface {
                          SLOT(toolButtonPerson_on_clicked()));
     }
 
-    void MainWindow::toolButtonDetection_on_clicked() {
-        myStack->setCurrentIndex(myIndexDetection);
-        myStack->update();
-    }
-
 
     void MainWindow::toolButtonParameter_on_clicked() {
         myStack->setCurrentIndex(myIndexParameter);
@@ -116,7 +111,6 @@ namespace interface {
     }
 
     MainWindow::~MainWindow() {
-        delete myDetectionWindow;
         delete myStatisticsWindow;
         delete myParameterWindow;
         delete myFoodWindow;
@@ -124,8 +118,8 @@ namespace interface {
         delete myPersonWindow;
         delete myStack;
         delete myPanel;
-        delete centralWidget;
         delete myMainLayout;
+        delete centralWidget;
     }
 
 
