@@ -12,7 +12,7 @@ namespace interface {
     Q_OBJECT
 
     public:
-        explicit TableWidget(QWidget *parent = 0);
+        explicit TableWidget(QWidget *parent = nullptr);
  
         ~TableWidget() override;
     private:

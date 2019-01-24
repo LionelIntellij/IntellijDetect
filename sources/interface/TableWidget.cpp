@@ -55,11 +55,11 @@ namespace interface {
     }
 
     TableWidget::~TableWidget() {
-        delete myTable;
-        delete myMainLayout;
-        delete myPanelLayout;
         delete myPreviousButton;
         delete myNextButton;
+        delete myPanelLayout;
+        delete myMainLayout;
+        delete myTable;
     }
 
 }

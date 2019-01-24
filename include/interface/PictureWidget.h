@@ -8,6 +8,8 @@
 #include <QBoxLayout>
 #include <QTextEdit>
 #include <QTableWidget>
+#include <QStackedWidget>
+#include <QLabel>
 #include <QtMultimedia/QCameraInfo>
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>
@@ -34,7 +36,11 @@ namespace interface {
         QVBoxLayout * mySelectLayout;
         QVBoxLayout * myCameraLayout;
 
-        QCameraViewfinder * myView;
+        QStackedWidget * myStack;
+        QCameraViewfinder * myViewCamera;
+        QLabel * myLabelPicture;
+        int myIndexCamera;
+        int myIndexPicture;
         QTabWidget * myTable;
         QWidget * myPicture;
         QWidget * myCamera;
@@ -45,6 +51,7 @@ namespace interface {
         QToolButton * myButtonSave;
 
         void createTable();
+        void createStacked();
         //void setScene(const QString & filenamePicture);
 
     };

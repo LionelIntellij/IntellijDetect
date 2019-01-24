@@ -9,17 +9,22 @@
 namespace interface {
     PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
         createTable();
-        myTable =new QTabWidget;
-        myTable->addTab(myCamera,tr("Camera"));
-        myTable->addTab(myPicture,tr("Picture"));
-
-        myView = new QCameraViewfinder;
+        createStacked();
         myMainLayout= new QGridLayout;
-        myMainLayout->addWidget(myView,0,0,4,6);
-        myMainLayout->addWidget(myTable ,0,6,4,1);
+        myMainLayout->addWidget(myStack,0,0,1,5);
+        myMainLayout->addWidget(myTable ,0,5,1,2);
         setLayout(myMainLayout);
+
     }
 
+    void PictureWidget::createStacked()
+    {
+        myViewCamera = new QCameraViewfinder;
+        myLabelPicture = new QLabel;
+        myStack = new QStackedWidget;
+        myIndexCamera = myStack->addWidget(myViewCamera);
+        myIndexPicture = myStack->addWidget(myLabelPicture);
+    }
 
     void PictureWidget::createTable()
     {
@@ -58,6 +63,10 @@ namespace interface {
         myPicture = new QWidget;
         myPicture->setLayout(mySelectLayout);
 
+        myTable =new QTabWidget;
+        myTable->addTab(myCamera,tr("Camera"));
+        myTable->addTab(myPicture,tr("Picture"));
+
 
     }
 
@@ -81,16 +90,20 @@ namespace interface {
         }
     }
     */
-    PictureWidget::~PictureWidget() {
-        delete myMainLayout;
-        delete myView;
-        delete myCameraLayout;
-        delete myPicture;
-        delete myTable;
-        delete myCamera;
+    PictureWidget::~PictureWidget()
+    {
         delete myButtonSelect;
         delete myButtonCapture;
         delete myButtonSave;
+        delete myCamera;
+        delete myPicture;
+        delete myTable;
+        delete myViewCamera;
+        delete myLabelPicture;
+        delete myCameraLayout;
+        delete mySelectLayout;
+        delete myStack;
+        delete myMainLayout;
     }
 
 }
