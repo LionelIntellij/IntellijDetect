@@ -1,7 +1,6 @@
 #include "TableWidget.h"
 #include "UtilsInterface.h"
 
-namespace interface {
 
 
     TableWidget::TableWidget(QWidget *parent) : QWidget(parent) {
@@ -62,4 +61,3 @@ namespace interface {
         delete myTable;
     }
 
-}

@@ -15,7 +15,6 @@
 #include <QtMultimediaWidgets/QCameraViewfinder>
 
 
-namespace interface {
 
 
     class PictureWidget : public QWidget {
@@ -56,5 +55,4 @@ namespace interface {
 
     };
 
-}
 #endif

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../../lib/libPerson.a  CMakeFiles/Person.dir/ExtractPerson.cpp.o CMakeFiles/Person.dir/Person_automoc.cpp.o
-/usr/bin/ranlib ../../../lib/libPerson.a

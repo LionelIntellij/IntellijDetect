@@ -4,7 +4,6 @@
 #include <QPainter>
 #include <QFont>
 
-namespace interface{
 
 CircularBar::CircularBar(QWidget *parent)
     : QWidget(parent)
@@ -104,4 +103,4 @@ void CircularBar::drawBackground(QPainter *p)
         p->drawText(QRectF(0, 0, 150, 150),Qt::AlignCenter,QString::number(pi*100)+" %");
 }
 
-}
+

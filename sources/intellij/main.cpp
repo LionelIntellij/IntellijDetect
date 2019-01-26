@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    interface::MainWindow w;
+    MainWindow w;
 
 #ifdef Q_OS_SYMBIAN
     w.showMaximized();

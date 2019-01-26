@@ -6,7 +6,6 @@
 #include <QLCDNumber>
 #include <QPropertyAnimation>
 
-namespace interface{
 class CircularBar : public QWidget
 {
  Q_OBJECT
@@ -48,5 +47,4 @@ private:
     QLCDNumber* m_lcd;*/
 };
 
-}
 #endif // QCIRCULARBAR_H

@@ -6,7 +6,6 @@
 #include <QMessageBox>
 
 
-namespace interface {
     PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
         createTable();
         createStacked();
@@ -109,4 +108,3 @@ namespace interface {
         delete myMainLayout;
     }
 
-}

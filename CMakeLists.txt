@@ -32,12 +32,11 @@ link_directories(${EXTERNAL_PATH}/caffe/lib)
 
 
 
-add_subdirectory(sources/search)
 add_subdirectory(sources/person)
 add_subdirectory(sources/food)
+add_subdirectory(sources/settings)
+add_subdirectory(sources/object)
 add_subdirectory(sources/interface)
-add_subdirectory(sources/picture)
-add_subdirectory(sources/sensor)
 add_subdirectory(sources/intellij)
 
 

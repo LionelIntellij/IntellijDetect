@@ -1,7 +1,6 @@
 #include "Statistics.h"
 
 
-namespace interface {
 
     Statistics::Statistics(QWidget *parent) : QWidget(parent) {
         myCircularBarFoods = new CircularBar;
@@ -45,4 +44,3 @@ namespace interface {
         delete myBoxObjects;
 
     }
-}

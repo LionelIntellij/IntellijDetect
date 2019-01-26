@@ -10,7 +10,6 @@
 
 #include "CircularBar.h"
 
-namespace interface {
 
     class Statistics : public QWidget {
     Q_OBJECT
@@ -34,6 +33,5 @@ namespace interface {
         QGroupBox *myBoxObjects;
 
     };
-}
 
 #endif // WELCOME_H

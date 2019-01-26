@@ -6,7 +6,6 @@
 #include <QTableWidget>
 #include <QToolButton>
 
-namespace interface {
 
     class TableWidget : public QWidget {
     Q_OBJECT
@@ -37,6 +36,5 @@ namespace interface {
 
 
     };
-}
 #endif // QOJECT
 

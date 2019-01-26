@@ -2,7 +2,6 @@
 #include "UtilsInterface.h"
 #include <iostream>
 
-namespace interface {
 
     ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent) {
         myButtonParameter = new QToolButton;
@@ -97,4 +96,3 @@ namespace interface {
         return myButtonObject;
     }
 
-}

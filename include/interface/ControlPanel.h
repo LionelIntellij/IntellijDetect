@@ -8,7 +8,6 @@
 #include <QIcon>
 #include <QPixmap>
 
-namespace interface {
 
     class ControlPanel : public QWidget {
     Q_OBJECT
@@ -42,5 +41,4 @@ namespace interface {
         void setIconButton();
 
     };
-}
 #endif // CONTROLPANEL_H

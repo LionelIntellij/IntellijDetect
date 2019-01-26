@@ -11,15 +11,13 @@
 #include <QGroupBox>
 
 //class include
-#include "Detection.h"
 #include "Statistics.h"
-#include "Parameters.h"
+#include "Settings.h"
 #include "ControlPanel.h"
 #include "Object.h"
 #include "Person.h"
 #include "Food.h"
 
-namespace interface {
 
 
     class MainWindow : public QMainWindow {
@@ -40,7 +38,7 @@ namespace interface {
         void createStacked();
 
         Statistics *myStatisticsWindow = nullptr;
-        Parameters *myParameterWindow = nullptr;
+        Settings *mySettingWindow = nullptr;
         Object *myObjectWindow = nullptr;
         Person *myPersonWindow = nullptr;
         Food *myFoodWindow = nullptr;
@@ -65,6 +63,5 @@ namespace interface {
         void toolButtonFood_on_clicked();
 
     };
-}
 
 #endif // MAINWINDOW_H

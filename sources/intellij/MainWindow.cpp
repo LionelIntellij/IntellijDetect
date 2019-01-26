@@ -2,7 +2,6 @@
 #include <QStyleFactory>
 #include <iostream>
 
-namespace interface {
 
 
 /* The Constructor calls the subfunctions for creation of the sample application */
@@ -52,7 +51,7 @@ namespace interface {
     void MainWindow::createStacked() {
 
         myStatisticsWindow = new Statistics;
-        myParameterWindow = new Parameters;
+        mySettingWindow = new Settings;
         myObjectWindow = new Object;
         myFoodWindow = new Food;
         myPersonWindow = new Person;
@@ -60,7 +59,7 @@ namespace interface {
 
         myStack = new QStackedWidget(this);
         myIndexWelcome = myStack->addWidget(myStatisticsWindow);
-        myIndexParameter = myStack->addWidget(myParameterWindow);
+        myIndexParameter = myStack->addWidget(mySettingWindow);
         myIndexObject = myStack->addWidget(myObjectWindow);
         myIndexFood = myStack->addWidget(myFoodWindow);
         myIndexPerson = myStack->addWidget(myPersonWindow);
@@ -112,7 +111,7 @@ namespace interface {
 
     MainWindow::~MainWindow() {
         delete myStatisticsWindow;
-        delete myParameterWindow;
+        delete mySettingWindow;
         delete myFoodWindow;
         delete myObjectWindow;
         delete myPersonWindow;
@@ -123,5 +122,4 @@ namespace interface {
     }
 
 
-}
 
