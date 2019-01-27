@@ -13,11 +13,10 @@
 #include <QtMultimedia/QCameraInfo>
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>
+#include "DialogFileSystem.h"
+#include "../../sources/interface/DialogFileSystem.h"
 
-
-
-
-    class PictureWidget : public QWidget {
+class PictureWidget : public QWidget {
     Q_OBJECT
     public:
         explicit PictureWidget(QWidget *parent = nullptr);
@@ -32,25 +31,36 @@
     private:
 
         QGridLayout * myMainLayout;
-        QVBoxLayout * mySelectLayout;
-        QVBoxLayout * myCameraLayout;
+        QGridLayout * mySelectLayout;
+        QGridLayout * myCameraLayout;
 
         QStackedWidget * myStack;
         QCameraViewfinder * myViewCamera;
         QLabel * myLabelPicture;
         int myIndexCamera;
         int myIndexPicture;
+
         QTabWidget * myTable;
         QWidget * myPictureWidget;
         QWidget * myCameraWidget;
 
-        //Buttons
-        QToolButton * myButtonSelect;
+        //Buttons Camera
         QToolButton * myButtonCapture;
+        QToolButton * myButtonStart;
+        QToolButton * myButtonStop;
+
+        //Buttons Photo
+        QToolButton * myButtonSelect;
+        QToolButton * myButtonOpen;
         QToolButton * myButtonSave;
 
-        void createTable();
+        DialogFileSystem * myDialogWindow;
+
+        void createTableCamera();
+        void createTablePhoto();
         void createStacked();
+        void openPicture_on_clicked();
+
         //void setScene(const QString & filenamePicture);
 
     };
