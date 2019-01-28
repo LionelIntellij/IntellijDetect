@@ -13,8 +13,6 @@
 #include <QtMultimedia/QCameraInfo>
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>
-#include "DialogFileSystem.h"
-#include "../../sources/interface/DialogFileSystem.h"
 
 class PictureWidget : public QWidget {
     Q_OBJECT
@@ -25,7 +23,6 @@ class PictureWidget : public QWidget {
 
         ~PictureWidget() override;
 
-    protected:
 
 
     private:
@@ -53,12 +50,20 @@ class PictureWidget : public QWidget {
         QToolButton * myButtonSelect;
         QToolButton * myButtonOpen;
         QToolButton * myButtonSave;
+        QToolButton * myButtonCancel;
 
-        DialogFileSystem * myDialogWindow;
+        //picture
+        QString myPathPicture;
 
         void createTableCamera();
         void createTablePhoto();
         void createStacked();
+
+        void setPathPicture(QString pathPicture);
+        const QString & getPathPicture();
+        void displayPicture();
+
+    private slots:
         void openPicture_on_clicked();
 
         //void setScene(const QString & filenamePicture);

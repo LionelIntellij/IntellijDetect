@@ -27,7 +27,6 @@ inline const std::string &pathFile(const char * envVariable) {
 
 
   const std::string pathIntellij(pathFile("INTELLIJ_PATH"));
-  //const  static std::string pathIntellij("/home/lionel/Projects/IntellijDetect");
   const  static std::string pathIcons(pathIntellij + "/data/icons/");
 
 

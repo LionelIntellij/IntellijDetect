@@ -3,7 +3,7 @@
 #include <QIcon>
 #include <QSize>
 #include <QString>
-#include <QMessageBox>
+#include <QFileDialog>
 
 PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
   createTableCamera();
@@ -58,6 +58,10 @@ void PictureWidget::createTablePhoto() {
   myPictureWidget = new QWidget;
   myPictureWidget->setLayout(mySelectLayout);
 
+  QObject::connect(myButtonOpen, SIGNAL(pressed()), this,
+                     SLOT(openPicture_on_clicked()));
+
+
 }
 
 void PictureWidget::createTableCamera() {
@@ -91,32 +95,35 @@ void PictureWidget::createTableCamera() {
   myCameraWidget->setLayout(myCameraLayout);
 
 }
+void PictureWidget::setPathPicture(QString pathPicture)
+{
+   myPathPicture = pathPicture;
+}
+
+const QString & PictureWidget::getPathPicture()
+{
+   return myPathPicture;
+}
+
+void PictureWidget::displayPicture()
+{
+    QPixmap picture(getPathPicture());
+    myLabelPicture->setPixmap(picture);
+    myLabelPicture->show();
+}
 
 void PictureWidget::openPicture_on_clicked() {
 
-
-
+    QString pathPicture = QFileDialog::getOpenFileName(this,
+        tr("Open Image"), QDir::homePath().toStdString().c_str(), tr("Image Files (*.png *.jpg *.bmp)"));
+    if (!pathPicture.isEmpty())
+    {
+    setPathPicture(pathPicture);
+    displayPicture();
+    }
 }
 
-/*
-      {
-        if(!fileNamePicture.isEmpty())
-        {
-            QImage image(fileNamePicture);
 
-            if(image.isNull())
-            {
-                QMessageBox::information(this,"Image Viewer","Error Displaying image");
-                return;
-            }
-            QGraphicsPixmapItem item(QPixmap::fromImage(image));
-            myScene->addItem(&item);
-
-          //  ui->graphicsView->setScene(&scene);
-           // ui->graphicsView->show();
-        }
-    }
-    */
 PictureWidget::~PictureWidget() {
   delete myButtonStart;
   delete myButtonStop;
