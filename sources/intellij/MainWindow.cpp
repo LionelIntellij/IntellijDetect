@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include <QStyleFactory>
+#include <QDesktopWidget>
 #include <iostream>
 
 
@@ -34,6 +35,7 @@
         darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
         darkPalette.setColor(QPalette::HighlightedText, Qt::white);
         setPalette(darkPalette);
+        resize(QDesktopWidget().availableGeometry(this).size() * 0.7);
 
     }
 

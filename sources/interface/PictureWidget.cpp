@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "PictureWidget.h"
 #include "UtilsInterface.h"
 #include <QIcon>
@@ -9,8 +11,8 @@ PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
   createTableCamera();
   createTablePhoto();
   myTable = new QTabWidget;
-  myTable->addTab(myCameraWidget, tr("Camera"));
-  myTable->addTab(myPictureWidget, tr("Picture"));
+  myIndexBarCamera = myTable->addTab(myCameraWidget, tr("Camera"));
+  myIndexBarPicture = myTable->addTab(myPictureWidget, tr("Picture"));
 
   createStacked();
   myMainLayout = new QGridLayout;
@@ -18,6 +20,8 @@ PictureWidget::PictureWidget(QWidget *parent) : QWidget(parent) {
   myMainLayout->addWidget(myTable, 0, 5, 1, 2);
   setLayout(myMainLayout);
 
+  QObject::connect(myTable, SIGNAL(currentChanged(int)), this,
+				   SLOT(tabMenu_on_clicked()));
 }
 
 void PictureWidget::createStacked() {
@@ -26,6 +30,7 @@ void PictureWidget::createStacked() {
   myStack = new QStackedWidget;
   myIndexCamera = myStack->addWidget(myViewCamera);
   myIndexPicture = myStack->addWidget(myLabelPicture);
+
 }
 
 void PictureWidget::createTablePhoto() {
@@ -59,8 +64,7 @@ void PictureWidget::createTablePhoto() {
   myPictureWidget->setLayout(mySelectLayout);
 
   QObject::connect(myButtonOpen, SIGNAL(pressed()), this,
-                     SLOT(openPicture_on_clicked()));
-
+				   SLOT(openPicture_on_clicked()));
 
 }
 
@@ -95,34 +99,44 @@ void PictureWidget::createTableCamera() {
   myCameraWidget->setLayout(myCameraLayout);
 
 }
-void PictureWidget::setPathPicture(QString pathPicture)
-{
-   myPathPicture = pathPicture;
+void PictureWidget::setPathPicture(QString pathPicture) {
+  myPathPicture = std::move(pathPicture);
 }
 
-const QString & PictureWidget::getPathPicture()
-{
-   return myPathPicture;
+const QString &PictureWidget::getPathPicture() {
+  return myPathPicture;
 }
 
-void PictureWidget::displayPicture()
-{
-    QPixmap picture(getPathPicture());
-    myLabelPicture->setPixmap(picture);
-    myLabelPicture->show();
+void PictureWidget::displayPicture() {
+  myLabelPicture->setPixmap(QPixmap(getPathPicture()));
+  myLabelPicture->setScaledContents(true);
+  myLabelPicture->adjustSize();
+  myLabelPicture->show();
 }
 
 void PictureWidget::openPicture_on_clicked() {
 
-    QString pathPicture = QFileDialog::getOpenFileName(this,
-        tr("Open Image"), QDir::homePath().toStdString().c_str(), tr("Image Files (*.png *.jpg *.bmp)"));
-    if (!pathPicture.isEmpty())
-    {
-    setPathPicture(pathPicture);
-    displayPicture();
-    }
+  QString pathPicture = QFileDialog::getOpenFileName(this,
+													 tr("Open Image"),
+													 QDir::homePath().toStdString().c_str(),
+													 tr("Image Files (*.png *.jpg *.bmp)"));
+  if (!pathPicture.isEmpty())
+  {
+	setPathPicture(pathPicture);
+	displayPicture();
+  }
 }
 
+void PictureWidget::tabMenu_on_clicked() {
+  if (myIndexBarCamera == myTable->currentIndex())
+  {
+    myStack->setCurrentIndex(myIndexCamera);
+  }
+  else
+  {
+    myStack->setCurrentIndex(myIndexPicture);
+  }
+}
 
 PictureWidget::~PictureWidget() {
   delete myButtonStart;

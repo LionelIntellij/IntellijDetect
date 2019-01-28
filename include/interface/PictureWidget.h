@@ -36,6 +36,8 @@ class PictureWidget : public QWidget {
         QLabel * myLabelPicture;
         int myIndexCamera;
         int myIndexPicture;
+        int myIndexBarCamera;
+        int myIndexBarPicture;
 
         QTabWidget * myTable;
         QWidget * myPictureWidget;
@@ -65,7 +67,7 @@ class PictureWidget : public QWidget {
 
     private slots:
         void openPicture_on_clicked();
-
+        void tabMenu_on_clicked();
         //void setScene(const QString & filenamePicture);
 
     };
