@@ -63,7 +63,7 @@ void PictureWidget::createTablePhoto() {
   myPictureWidget = new QWidget;
   myPictureWidget->setLayout(mySelectLayout);
 
-  QObject::connect(myButtonOpen, SIGNAL(pressed()), this,
+  QObject::connect(myButtonOpen, SIGNAL(clicked()), this,
 				   SLOT(openPicture_on_clicked()));
 
 }
@@ -107,11 +107,15 @@ const QString &PictureWidget::getPathPicture() {
   return myPathPicture;
 }
 
+void PictureWidget::setPicture()
+{
+  
+}
 void PictureWidget::displayPicture() {
+  myLabelPicture->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
   myLabelPicture->setPixmap(QPixmap(getPathPicture()));
   myLabelPicture->setScaledContents(true);
   myLabelPicture->adjustSize();
-  myLabelPicture->show();
 }
 
 void PictureWidget::openPicture_on_clicked() {
@@ -130,11 +134,11 @@ void PictureWidget::openPicture_on_clicked() {
 void PictureWidget::tabMenu_on_clicked() {
   if (myIndexBarCamera == myTable->currentIndex())
   {
-    myStack->setCurrentIndex(myIndexCamera);
+	myStack->setCurrentIndex(myIndexCamera);
   }
   else
   {
-    myStack->setCurrentIndex(myIndexPicture);
+	myStack->setCurrentIndex(myIndexPicture);
   }
 }
 

@@ -4,6 +4,7 @@
 //QT include
 #include <QStackedWidget>
 #include <QtGui>
+#include <QDesktopWidget>
 #include <QMainWindow>
 #include <QPushButton>
 #include <QListWidget>
@@ -37,6 +38,7 @@
 
         void createStacked();
 
+        void centerAndResize();
         Statistics *myStatisticsWindow = nullptr;
         Settings *mySettingWindow = nullptr;
         Object *myObjectWindow = nullptr;
@@ -44,6 +46,7 @@
         Food *myFoodWindow = nullptr;
 
     private:
+        QDesktopWidget * myScreen;
         QStackedWidget *myStack = nullptr;
         ControlPanel *myPanel = nullptr;
         QHBoxLayout *myMainLayout = nullptr;
