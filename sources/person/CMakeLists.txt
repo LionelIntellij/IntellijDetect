@@ -8,7 +8,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/include/person
 add_library(Person SHARED
             ${SOURCES}
             ${HEADERS}
-	    ${CMAKE_SOURCE_DIR}/include/interface/PictureWidget.h
+	    ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
 	    ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
 	    ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h )
 
@@ -16,12 +16,12 @@ add_library(Person SHARED
 target_link_libraries(Person
                       Qt5::Widgets
                       Qt5::Core
-                      Qt5::Gui	             
-                      opencv_core
-                      opencv_objdetect
-                      opencv_imgproc
-                      opencv_imgcodecs
-                      opencv_highgui)
+                      Qt5::Gui)	             
+#                      opencv_core
+#                      opencv_objdetect
+#                      opencv_imgproc
+#                      opencv_imgcodecs
+#                      opencv_highgui)
 
 
 

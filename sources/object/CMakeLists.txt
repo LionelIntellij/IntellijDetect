@@ -12,7 +12,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/include/object
 add_library(Object SHARED
             ${SOURCES}
             ${HEADERS}
-	    ${CMAKE_SOURCE_DIR}/include/interface/PictureWidget.h
+	    ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
 	    ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
 	    ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h )
 

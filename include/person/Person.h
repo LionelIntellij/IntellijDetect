@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "PicturePerson.h"
+#include "ImagePerson.h"
 #include "StatsPerson.h"
 #include "TableWidget.h"
 #include "SearchWidget.h"
@@ -20,7 +20,7 @@
 
     private:
         //Attribute
-        PicturePerson *myPictureWindow;
+        ImagePerson *myImageWindow;
         StatsPerson *myStatisticalWindow;
         SearchWidget * mySearchWindow;
 

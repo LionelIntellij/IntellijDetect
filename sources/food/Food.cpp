@@ -4,10 +4,10 @@
 
     Food::Food() : TableWidget(){
 
-        myPictureWindow = new PictureFood;
+        myImageWindow = new ImageFood;
         myStatisticalWindow = new StatsFood ;
         mySearchWindow = new SearchWidget;
-        myTable->addTab(myPictureWindow ,tr("Picture"));
+        myTable->addTab(myImageWindow ,tr("Image"));
         myTable->addTab(myStatisticalWindow , tr("Statistical"));
         myTable->addTab(mySearchWindow ,tr("Search"));
         myCountIndex = myTable->count();
@@ -16,7 +16,7 @@
 
 
     Food::~Food() {
-        delete myPictureWindow;
+        delete myImageWindow;
         delete myStatisticalWindow;
         delete mySearchWindow;
 

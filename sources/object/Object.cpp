@@ -4,10 +4,10 @@
 
     Object::Object() : TableWidget() {
 
-        myPictureWindow = new PictureObject;
+        myImageWindow = new ImageObject;
         myStatisticalWindow = new StatsObject;
         mySearchWindow = new SearchWidget;
-        myTable->addTab(myPictureWindow, tr("Picture"));
+        myTable->addTab(myImageWindow, tr("Image"));
         myTable->addTab(myStatisticalWindow, tr("Statistical"));
         myTable->addTab(mySearchWindow ,tr("Search"));
         myCountIndex = myTable->count();
@@ -16,7 +16,7 @@
 
 
     Object::~Object() {
-        delete myPictureWindow;
+        delete myImageWindow;
         delete myStatisticalWindow;
         delete mySearchWindow;
 

@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QTableWidget>
 #include <QToolButton>
-#include "PictureFood.h"
+#include "ImageFood.h"
 #include "StatsFood.h"
 #include "TableWidget.h"
 #include "SearchWidget.h"
@@ -22,7 +22,7 @@
     private:
         //Attribute
 
-        PictureFood *myPictureWindow;
+        ImageFood *myImageWindow;
         StatsFood *myStatisticalWindow;
         SearchWidget *mySearchWindow;
 

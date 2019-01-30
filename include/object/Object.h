@@ -2,7 +2,7 @@
 #define OBJECT_H
 
 #include <QToolButton>
-#include "PictureObject.h"
+#include "ImageObject.h"
 #include "StatsObject.h"
 #include "TableWidget.h"
 #include "SearchWidget.h"
@@ -19,7 +19,7 @@
     private:
         //Attribute
 
-        PictureObject *myPictureWindow;
+        ImageObject *myImageWindow;
         StatsObject *myStatisticalWindow;
         SearchWidget * mySearchWindow;
 

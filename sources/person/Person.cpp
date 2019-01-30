@@ -4,10 +4,10 @@
 
     Person::Person() : TableWidget() {
 
-        myPictureWindow = new PicturePerson;
+        myImageWindow = new ImagePerson;
         myStatisticalWindow = new StatsPerson;
         mySearchWindow = new SearchWidget;
-        myTable->addTab(myPictureWindow, tr("Picture"));
+        myTable->addTab(myImageWindow, tr("Image"));
         myTable->addTab(myStatisticalWindow, tr("Statistical"));
         myTable->addTab(mySearchWindow ,tr("Search"));
         myCountIndex = myTable->count();
@@ -16,7 +16,7 @@
 
 
     Person::~Person() {
-        delete myPictureWindow;
+        delete myImageWindow;
         delete myStatisticalWindow;
         delete mySearchWindow;
 
