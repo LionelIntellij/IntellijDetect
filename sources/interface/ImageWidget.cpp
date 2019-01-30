@@ -8,6 +8,8 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QImageReader>
+#include <QImageWriter>
+#include <QMessageBox>
 
 ImageWidget::ImageWidget(QWidget *parent) : QWidget(parent) {
   createTableCamera();
@@ -34,6 +36,7 @@ void ImageWidget::createStacked() {
   myLabelImage = new QLabel;
   myLabelImage->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
   myLabelImage->setScaledContents(true);
+  myScrollArea = new QScrollArea;
   myScrollArea->setBackgroundRole(QPalette::Dark);
   myScrollArea->setWidget(myLabelImage);
   myScrollArea->setVisible(false);
@@ -41,7 +44,7 @@ void ImageWidget::createStacked() {
   //Stack
   myStack = new QStackedWidget;
   myIndexStackCamera = myStack->addWidget(myViewCamera);
-  myIndexStackImage = myStack->addWidget(myLabelImage);
+  myIndexStackImage = myStack->addWidget(myScrollArea);
 
 }
 
@@ -127,7 +130,7 @@ static void initializeImageFileDialog(QFileDialog &dialog, QFileDialog::AcceptMo
 
     if (firstDialog) {
         firstDialog = false;
-        const QStringList ImagesLocations = QStandardPaths::standardLocations(QStandardPaths::ImagesLocation);
+        const QStringList ImagesLocations = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
         dialog.setDirectory(ImagesLocations.isEmpty() ? QDir::currentPath() : ImagesLocations.last());
     }
 
@@ -148,20 +151,15 @@ bool ImageWidget::displayImage(const QString &fileName)
 {
     QImageReader reader(fileName);
     reader.setAutoTransform(true);
-    const QImage newImage = reader.read();
+    QImage newImage = reader.read();
     if (newImage.isNull()) {
-        QMessageBox::information(this, QGuiApplication::applicationDisplayName(),
+        QMessageBox::information(this,tr("Intellij Detect"),
                                  tr("Cannot load %1: %2")
                                  .arg(QDir::toNativeSeparators(fileName), reader.errorString()));
         return false;
     }
 
     setImage(newImage);
-    setWindowFilePath(fileName);
-
-    const QString message = tr("Opened \"%1\", %2x%3, Depth: %4")
-        .arg(QDir::toNativeSeparators(fileName)).arg(myImage.width()).arg(myImage.height()).arg(myImage.depth());
-    statusBar()->showMessage(message);
     return true;
 }
 
@@ -169,8 +167,10 @@ bool ImageWidget::displayImage(const QString &fileName)
 void ImageWidget::openImage_on_clicked() {
     QFileDialog dialog(this, tr("Open File"));
     initializeImageFileDialog(dialog, QFileDialog::AcceptOpen);
-
+    std::cout<<"je commane"<<std::endl;
     while (dialog.exec() == QDialog::Accepted && !displayImage(dialog.selectedFiles().first())) {}
+    std::cout<<"jai fini"<<std::endl;
+    dialog.close();
 }
 
 
