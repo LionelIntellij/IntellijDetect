@@ -14,9 +14,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Multimedia)
-find_package(Qt5MultimediaWidgets)
-find_package(Qt5OpenGL)
+find_package(Qt5Multimedia REQUIRED)
+find_package(Qt5MultimediaWidgets REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+
+find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra -fexceptions")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/lib)
@@ -24,10 +26,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/bin)
 
 
-include_directories(${EXTERNAL_PATH}/opencv/include/opencv4)
-link_directories(${EXTERNAL_PATH}/opencv/lib)
-include_directories(${EXTERNAL_PATH}/caffe/include)
-link_directories(${EXTERNAL_PATH}/caffe/lib)
+#include_directories(${EXTERNAL_PATH}/opencv/include/opencv4)
+#link_directories(${EXTERNAL_PATH}/opencv/lib)
+#include_directories(${EXTERNAL_PATH}/caffe/include)
+#link_directories(${EXTERNAL_PATH}/caffe/lib)
 
 
 
