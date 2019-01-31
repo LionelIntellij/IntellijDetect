@@ -13,7 +13,7 @@ namespace utils {
         CONTROL_BUTTON_WITDH = 100,
         ICONS_SIZE = 50
     };
-inline const std::string &pathFile(const char * envVariable) {
+static inline const std::string &pathFile(const char * envVariable) {
         try {
             const static std::string path = std::getenv(envVariable);
             std::cerr<<path<<std::endl;
@@ -26,11 +26,11 @@ inline const std::string &pathFile(const char * envVariable) {
     }
 
 
-  const std::string pathIntellij(pathFile("INTELLIJ_PATH"));
-  const  static std::string pathIcons(pathIntellij + "/data/icons/");
-
+const static std::string pathIntellij(pathFile("INTELLIJ_PATH"));
+const static std::string pathIcons(pathIntellij + "/data/icons/");
+const static std::string pathImage(pathIntellij + "/data/Image/"); 
 
 }
 
-
+	
 #endif // UTILS_INTERFACE_H

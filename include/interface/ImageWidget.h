@@ -57,19 +57,25 @@ class ImageWidget : public QWidget {
         QToolButton * myButtonOpen;
         QToolButton * myButtonSave;
         QToolButton * myButtonCancel;
+        QToolButton * myButtonRotate;
 
         QImage myImage;
 
         void createTableCamera();
         void createTablePhoto();
 
+
+        void rotate_on_cliked();
         void createStacked();
         void setImage(QImage &newImage);
         bool displayImage(const QString &fileName);
 
     private slots:
+
         void openImage_on_clicked();
         void tabMenu_on_clicked();
+        void cancel_on_clicked();
+        void rotate_on_clicked();
         //void setScene(const QString & filenameImage);
 
     };

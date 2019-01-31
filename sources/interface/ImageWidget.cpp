@@ -66,17 +66,45 @@ void ImageWidget::createTablePhoto() {
   myButtonSave->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
   myButtonSave->setIcon(QIcon((utils::pathIcons + "save.png").c_str()));
 
+  myButtonCancel->setText(tr("Cancel"));
+  myButtonCancel->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
+  myButtonCancel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+  myButtonCancel->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+  myButtonCancel->setIcon(QIcon((utils::pathIcons + "cancel.png").c_str()));
+
+  myButtonRotate = new QToolButton;
+  myButtonRotate->setText(tr("Rotate"));
+  myButtonRotate->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
+  myButtonRotate->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+  myButtonRotate->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+  myButtonRotate->setIcon(QIcon((utils::pathIcons + "rotate.png").c_str()));
+
+
   mySelectLayout = new QGridLayout;
   mySelectLayout->addWidget(myButtonOpen, 0, 0);
   mySelectLayout->addWidget(myButtonSelect, 1, 0);
   mySelectLayout->addWidget(myButtonSave, 2, 0);
-
+  mySelectLayout->addWidget(myButtonRotate ,3 ,0);
+  mySelectLayout->addWidget(myButtonCancel ,4 ,0);
+  
   myImageWidget = new QWidget;
   myImageWidget->setLayout(mySelectLayout);
 
   QObject::connect(myButtonOpen, SIGNAL(clicked()), this,
                    SLOT(openImage_on_clicked()));
+  QObject::connect(myButtonCancel, SIGNAL(clicked()), this,
+                   SLOT(openImage_on_clicked()));
+  QObject::connect(myButtonRotate, SIGNAL(clicked()), this,
+                   SLOT(openImage_on_clicked()));
+}
 
+void ImageWidget::cancel_on_clicked(){
+     displayImage(Utils::PathImage +"baseImage.png");
+}
+
+
+void ImageWidget::rotate_on_cliked(){
+     
 }
 
 void ImageWidget::createTableCamera() {
@@ -186,6 +214,8 @@ ImageWidget::~ImageWidget() {
   delete myButtonSelect;
   delete myButtonOpen;
   delete myButtonSave;
+  delete myButtonCancel;
+  delete myButtonRotate;
 
   delete myViewCamera;
   delete myLabelImage;
