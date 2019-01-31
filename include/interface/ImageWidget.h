@@ -59,7 +59,6 @@ class ImageWidget : public QWidget {
         QToolButton * myButtonCancel;
 
         QImage myImage;
-        QScrollArea *myScrollArea;
 
         void createTableCamera();
         void createTablePhoto();

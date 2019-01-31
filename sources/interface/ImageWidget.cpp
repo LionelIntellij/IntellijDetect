@@ -36,15 +36,11 @@ void ImageWidget::createStacked() {
   myLabelImage = new QLabel;
   myLabelImage->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
   myLabelImage->setScaledContents(true);
-  myScrollArea = new QScrollArea;
-  myScrollArea->setBackgroundRole(QPalette::Dark);
-  myScrollArea->setWidget(myLabelImage);
-  myScrollArea->setVisible(false);
 
   //Stack
   myStack = new QStackedWidget;
   myIndexStackCamera = myStack->addWidget(myViewCamera);
-  myIndexStackImage = myStack->addWidget(myScrollArea);
+  myIndexStackImage = myStack->addWidget(myLabelImage);
 
 }
 
@@ -119,7 +115,6 @@ void ImageWidget::setImage(QImage &newImage)
 {
     myImage = newImage;
     myLabelImage->setPixmap(QPixmap::fromImage(myImage));
-    myScrollArea->setVisible(true);
     myLabelImage->adjustSize();
 }
 
@@ -167,10 +162,7 @@ bool ImageWidget::displayImage(const QString &fileName)
 void ImageWidget::openImage_on_clicked() {
     QFileDialog dialog(this, tr("Open File"));
     initializeImageFileDialog(dialog, QFileDialog::AcceptOpen);
-    std::cout<<"je commane"<<std::endl;
     while (dialog.exec() == QDialog::Accepted && !displayImage(dialog.selectedFiles().first())) {}
-    std::cout<<"jai fini"<<std::endl;
-    dialog.close();
 }
 
 
@@ -197,7 +189,6 @@ ImageWidget::~ImageWidget() {
 
   delete myViewCamera;
   delete myLabelImage;
-  delete myScrollArea;
 
   delete myCameraLayout;
   delete mySelectLayout;
