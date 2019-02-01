@@ -28,7 +28,7 @@ static inline const std::string &pathFile(const char * envVariable) {
 
 const static std::string pathIntellij(pathFile("INTELLIJ_PATH"));
 const static std::string pathIcons(pathIntellij + "/data/icons/");
-const static std::string pathImage(pathIntellij + "/data/Image/"); 
+const static std::string pathImage(pathIntellij + "/data/image/");
 
 }
 

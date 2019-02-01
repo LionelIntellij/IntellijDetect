@@ -16,12 +16,12 @@ add_library(Person SHARED
 target_link_libraries(Person
                       Qt5::Widgets
                       Qt5::Core
-                      Qt5::Gui)	             
-#                      opencv_core
-#                      opencv_objdetect
-#                      opencv_imgproc
-#                      opencv_imgcodecs
-#                      opencv_highgui)
+                      Qt5::Gui
+                      opencv_core
+                      opencv_objdetect
+                      opencv_imgproc
+                      opencv_imgcodecs
+                      opencv_highgui)
 
 
 

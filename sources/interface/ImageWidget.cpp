@@ -24,7 +24,7 @@ ImageWidget::ImageWidget(QWidget *parent) : QWidget(parent) {
   myMainLayout->addWidget(myTable, 0, 5, 1, 2);
   setLayout(myMainLayout);
 
-  QObject::connect(myTable, SIGNAL(currentChanged(int)), this,
+  QObject::connect(myTable->, SIGNAL(currentChanged(int)), this,
 				   SLOT(tabMenu_on_clicked()));
 }
 
@@ -36,11 +36,12 @@ void ImageWidget::createStacked() {
   myLabelImage = new QLabel;
   myLabelImage->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
   myLabelImage->setScaledContents(true);
+  displayImage((utils::pathImage + "baseImage.jpeg").c_str());
 
   //Stack
   myStack = new QStackedWidget;
-  myIndexStackCamera = myStack->addWidget(myViewCamera);
   myIndexStackImage = myStack->addWidget(myLabelImage);
+  myIndexStackCamera = myStack->addWidget(myViewCamera);
 
 }
 
@@ -66,45 +67,41 @@ void ImageWidget::createTablePhoto() {
   myButtonSave->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
   myButtonSave->setIcon(QIcon((utils::pathIcons + "save.png").c_str()));
 
+  myButtonCancel = new QToolButton;
   myButtonCancel->setText(tr("Cancel"));
   myButtonCancel->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
   myButtonCancel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   myButtonCancel->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
   myButtonCancel->setIcon(QIcon((utils::pathIcons + "cancel.png").c_str()));
 
-  myButtonRotate = new QToolButton;
+  /*myButtonRotate = new QToolButton;
   myButtonRotate->setText(tr("Rotate"));
   myButtonRotate->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
   myButtonRotate->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   myButtonRotate->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-  myButtonRotate->setIcon(QIcon((utils::pathIcons + "rotate.png").c_str()));
+  myButtonRotate->setIcon(QIcon((utils::pathIcons + "rotate.png").c_str()));*/
 
 
   mySelectLayout = new QGridLayout;
   mySelectLayout->addWidget(myButtonOpen, 0, 0);
   mySelectLayout->addWidget(myButtonSelect, 1, 0);
   mySelectLayout->addWidget(myButtonSave, 2, 0);
-  mySelectLayout->addWidget(myButtonRotate ,3 ,0);
-  mySelectLayout->addWidget(myButtonCancel ,4 ,0);
-  
+  //mySelectLayout->addWidget(myButtonRotate ,3 ,0);
+  mySelectLayout->addWidget(myButtonCancel, 3, 0);
+
   myImageWidget = new QWidget;
   myImageWidget->setLayout(mySelectLayout);
 
   QObject::connect(myButtonOpen, SIGNAL(clicked()), this,
-                   SLOT(openImage_on_clicked()));
+				   SLOT(openImage_on_clicked()));
   QObject::connect(myButtonCancel, SIGNAL(clicked()), this,
-                   SLOT(openImage_on_clicked()));
-  QObject::connect(myButtonRotate, SIGNAL(clicked()), this,
-                   SLOT(openImage_on_clicked()));
+				   SLOT(cancelImage_on_clicked()));
+  //QObject::connect(myButtonRotate, SIGNAL(clicked()), this,
+  //                SLOT(rotateImage_on_clicked()));
 }
 
-void ImageWidget::cancel_on_clicked(){
-     displayImage(Utils::PathImage +"baseImage.png");
-}
-
-
-void ImageWidget::rotate_on_cliked(){
-     
+void ImageWidget::cancelImage_on_clicked() {
+  displayImage((utils::pathImage + "baseImage.jpeg").c_str());
 }
 
 void ImageWidget::createTableCamera() {
@@ -139,70 +136,60 @@ void ImageWidget::createTableCamera() {
 
 }
 
-void ImageWidget::setImage(QImage &newImage)
-{
-    myImage = newImage;
-    myLabelImage->setPixmap(QPixmap::fromImage(myImage));
-    myLabelImage->adjustSize();
+void ImageWidget::setImage(QImage &newImage) {
+  myImage = newImage;
+  myLabelImage->setPixmap(QPixmap::fromImage(myImage));
+  myLabelImage->adjustSize();
 }
 
+static void initializeImageFileDialog(QFileDialog &dialog, QFileDialog::AcceptMode acceptMode) {
+  static bool firstDialog = true;
 
-static void initializeImageFileDialog(QFileDialog &dialog, QFileDialog::AcceptMode acceptMode)
-{
-    static bool firstDialog = true;
+  if (firstDialog)
+  {
+	firstDialog = false;
+	const QStringList ImagesLocations = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+	dialog.setDirectory(ImagesLocations.isEmpty() ? QDir::currentPath() : ImagesLocations.last());
+  }
 
-    if (firstDialog) {
-        firstDialog = false;
-        const QStringList ImagesLocations = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
-        dialog.setDirectory(ImagesLocations.isEmpty() ? QDir::currentPath() : ImagesLocations.last());
-    }
-
-    QStringList mimeTypeFilters;
-    const QByteArrayList supportedMimeTypes = acceptMode == QFileDialog::AcceptOpen
-        ? QImageReader::supportedMimeTypes() : QImageWriter::supportedMimeTypes();
-    foreach (const QByteArray &mimeTypeName, supportedMimeTypes)
-        mimeTypeFilters.append(mimeTypeName);
-    mimeTypeFilters.sort();
-    dialog.setMimeTypeFilters(mimeTypeFilters);
-    dialog.selectMimeTypeFilter("image/jpeg");
-    if (acceptMode == QFileDialog::AcceptSave)
-        dialog.setDefaultSuffix("jpg");
+  QStringList mimeTypeFilters;
+  const QByteArrayList supportedMimeTypes = acceptMode == QFileDialog::AcceptOpen
+											? QImageReader::supportedMimeTypes() : QImageWriter::supportedMimeTypes();
+	  foreach (const QByteArray &mimeTypeName, supportedMimeTypes)mimeTypeFilters.append(mimeTypeName);
+  mimeTypeFilters.sort();
+  dialog.setMimeTypeFilters(mimeTypeFilters);
+  dialog.selectMimeTypeFilter("image/jpeg");
+  if (acceptMode == QFileDialog::AcceptSave)
+	dialog.setDefaultSuffix("jpg");
 }
 
+bool ImageWidget::displayImage(const QString &fileName) {
+  QImageReader reader(fileName);
+  reader.setAutoTransform(true);
+  QImage newImage = reader.read();
+  if (newImage.isNull())
+  {
+	QMessageBox::information(this, tr("Intellij Detect"),
+							 tr("Cannot load %1: %2")
+								 .arg(QDir::toNativeSeparators(fileName), reader.errorString()));
+	return false;
+  }
 
-bool ImageWidget::displayImage(const QString &fileName)
-{
-    QImageReader reader(fileName);
-    reader.setAutoTransform(true);
-    QImage newImage = reader.read();
-    if (newImage.isNull()) {
-        QMessageBox::information(this,tr("Intellij Detect"),
-                                 tr("Cannot load %1: %2")
-                                 .arg(QDir::toNativeSeparators(fileName), reader.errorString()));
-        return false;
-    }
-
-    setImage(newImage);
-    return true;
+  setImage(newImage);
+  return true;
 }
-
 
 void ImageWidget::openImage_on_clicked() {
-    QFileDialog dialog(this, tr("Open File"));
-    initializeImageFileDialog(dialog, QFileDialog::AcceptOpen);
-    while (dialog.exec() == QDialog::Accepted && !displayImage(dialog.selectedFiles().first())) {}
+  QFileDialog dialog(this, tr("Open File"));
+  initializeImageFileDialog(dialog, QFileDialog::AcceptOpen);
+  while (dialog.exec() == QDialog::Accepted && !displayImage(dialog.selectedFiles().first()))
+  {}
 }
 
-
-
 void ImageWidget::tabMenu_on_clicked() {
-  if (myIndexBarCamera == myTable->currentIndex())
+  if (myIndexBarImage == myTable->currentIndex())
   {
-    myStack->setCurrentIndex(myIndexStackCamera);
-  }
-  else
-  {
-    myStack->setCurrentIndex(myIndexStackImage);
+	displayImage((utils::pathImage + "baseImage.jpeg").c_str());
   }
 }
 
@@ -215,7 +202,7 @@ ImageWidget::~ImageWidget() {
   delete myButtonOpen;
   delete myButtonSave;
   delete myButtonCancel;
-  delete myButtonRotate;
+  // delete myButtonRotate;
 
   delete myViewCamera;
   delete myLabelImage;
