@@ -3,7 +3,7 @@
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
-
+#include "caffe/net.hpp"
 
 namespace person {
 
@@ -16,6 +16,7 @@ namespace person {
 
 
     private:
+        //
         cv::Mat myPersonImage;
     };
 }

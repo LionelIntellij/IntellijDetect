@@ -1,15 +1,19 @@
 
 #include "ImagePerson.h"
+#include "Image.h"
 
+ImagePerson::ImagePerson() : ImageWidget() {
 
-    ImagePerson::ImagePerson() : ImageWidget()
-    {
+  QObject::connect(myButtonSelect, SIGNAL(clicked()), this,
+				   SLOT(selectPerson_on_clicked()));
 
-    }
+}
 
-    void segmentImage()
-    {
+void ImagePerson::selectPerson_on_clicked() {
+  Image image(myImage);
 
-    }
+  setImage();
 
-    ImagePerson::~ImagePerson() = default;
+}
+
+ImagePerson::~ImagePerson() = default;

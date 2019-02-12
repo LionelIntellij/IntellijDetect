@@ -5,14 +5,15 @@
 #include <QGridLayout>
 #include "ImageWidget.h"
 
+class ImagePerson : public ImageWidget {
+ public:
+  explicit ImagePerson();
 
-    class ImagePerson : public ImageWidget {
-    public:
-        explicit ImagePerson();
+  ~ImagePerson() final;
 
-        ~ImagePerson() final;
+ private slots:
+  void selectPerson_on_clicked();
 
-
-    };
+};
 
 #endif

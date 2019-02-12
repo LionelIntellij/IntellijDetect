@@ -24,7 +24,7 @@ ImageWidget::ImageWidget(QWidget *parent) : QWidget(parent) {
   myMainLayout->addWidget(myTable, 0, 5, 1, 2);
   setLayout(myMainLayout);
 
-  QObject::connect(myTable->, SIGNAL(currentChanged(int)), this,
+  QObject::connect(myTable, SIGNAL(currentChanged(int)), this,
 				   SLOT(tabMenu_on_clicked()));
 }
 
@@ -74,19 +74,11 @@ void ImageWidget::createTablePhoto() {
   myButtonCancel->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
   myButtonCancel->setIcon(QIcon((utils::pathIcons + "cancel.png").c_str()));
 
-  /*myButtonRotate = new QToolButton;
-  myButtonRotate->setText(tr("Rotate"));
-  myButtonRotate->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
-  myButtonRotate->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-  myButtonRotate->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-  myButtonRotate->setIcon(QIcon((utils::pathIcons + "rotate.png").c_str()));*/
-
 
   mySelectLayout = new QGridLayout;
   mySelectLayout->addWidget(myButtonOpen, 0, 0);
   mySelectLayout->addWidget(myButtonSelect, 1, 0);
   mySelectLayout->addWidget(myButtonSave, 2, 0);
-  //mySelectLayout->addWidget(myButtonRotate ,3 ,0);
   mySelectLayout->addWidget(myButtonCancel, 3, 0);
 
   myImageWidget = new QWidget;
@@ -96,8 +88,6 @@ void ImageWidget::createTablePhoto() {
 				   SLOT(openImage_on_clicked()));
   QObject::connect(myButtonCancel, SIGNAL(clicked()), this,
 				   SLOT(cancelImage_on_clicked()));
-  //QObject::connect(myButtonRotate, SIGNAL(clicked()), this,
-  //                SLOT(rotateImage_on_clicked()));
 }
 
 void ImageWidget::cancelImage_on_clicked() {
@@ -202,7 +192,6 @@ ImageWidget::~ImageWidget() {
   delete myButtonOpen;
   delete myButtonSave;
   delete myButtonCancel;
-  // delete myButtonRotate;
 
   delete myViewCamera;
   delete myLabelImage;
