@@ -26,14 +26,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/bin)
 
 
-#include_directories(${EXTERNAL_PATH}/opencv/include/opencv4)
-#link_directories(${EXTERNAL_PATH}/opencv/lib)
-#include_directories(${EXTERNAL_PATH}/caffe/include)
-#link_directories(${EXTERNAL_PATH}/caffe/lib)
+include_directories(${EXTERNAL_PATH}/opencv/include/opencv4)
+link_directories(${EXTERNAL_PATH}/opencv/lib)
+include_directories(${EXTERNAL_PATH}/caffe/include)
+link_directories(${EXTERNAL_PATH}/caffe/lib)
 
 
 
-
+add_subdirectory(sources/image)
 add_subdirectory(sources/person)
 add_subdirectory(sources/food)
 add_subdirectory(sources/settings)

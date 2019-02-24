@@ -9,7 +9,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include/person
 add_library(Person SHARED
         ${SOURCES}
         ${HEADERS}
-        ${CMAKE_SOURCE_DIR}/include/image/Image.h
+        ${CMAKE_SOURCE_DIR}/include/image/InputImage.h
         ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
         ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
         ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h)
@@ -18,7 +18,6 @@ add_library(Person SHARED
 target_link_libraries(Person
         Qt5::Widgets
         Qt5::Core
-        Qt5::Gui
         opencv_core
         opencv_objdetect
         opencv_imgproc

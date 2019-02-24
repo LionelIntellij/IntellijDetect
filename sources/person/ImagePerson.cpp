@@ -1,8 +1,8 @@
 
 #include "ImagePerson.h"
 #include "Image.h"
-#include <QImage>
 #include "Detector.h"
+#include <QImage>
 
 ImagePerson::ImagePerson() : ImageWidget() {
 
