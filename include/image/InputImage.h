@@ -10,10 +10,14 @@ public:
 	~InputImage();
 	double operator();
 	double& operator();
-	void allocate();
-	void dealocate();
+	inline const int getHeight(){ return myHeight; }
+	inline const int getWidth(){ return myWidth; }
+	void fillImage(float value);
+	void freeImage();
 
- private:
+private:
+	void allocate();
+
 
 	//attribute
 	int myHeight;

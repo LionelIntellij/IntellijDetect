@@ -12,11 +12,15 @@ public:
 
 private:
 	//attributes
-	Image * myImage;
+	Image myImage;
 	cv::Mat myMatImage;
 
     //method
+	InputImage & resizeHorizontal(const int height , const InputImage & imageBase);
+	InputImage & resizeVertical(const int widht);
+
     QImage & convertToQImage();
-	cv::Mat & convertToMat(QImage &image);
+	void resizeImage(const int height , const int widht);
+	void convertToMat(const QImage &image);
 	void iplToImage(cv::Mat & Image);
 };

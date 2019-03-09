@@ -25,14 +25,20 @@ double InputImage::operator() (int indexChannel, int indexHeigth ,int indexWidth
 				indexWidth];
 }
 
+void InputImage::fillImage(float value)
+{
+for(int index = 0; index < height*width*channel; ++index)
+	myData[index] = value;
+}
+
 void InputImage::allocate()
 {
-	dealocate();
+	freeImage();
 	data = new double(myHeight*myWidth*myChannel);
 	memset(data,0,myHeight*myWidth*myChannel*sizeof(double));
 }
 
-void InputImage::dealocate()
+void InputImage::freeImage()
 {
 	if(myData)
 		delete myData;
@@ -40,7 +46,7 @@ void InputImage::dealocate()
 
 InputImage::~InputImage()
 {
-	deallocate()	;
+	freeImage();
 }
 
 
