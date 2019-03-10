@@ -1,141 +1,140 @@
 #include "BuilderImage.h"
+#include <opencv2/imgcodecs/imgcodecs_c.h>
+#include <opencv/highgui.h>
 
-BuilderImage::BuilderImage(const QImage & image)
+
+BuilderImage::BuilderImage(const QImage &image)
 {
 	convertToMat(image);
-	iplToImage(imageIpl);
+	iplToImage();
+	
 }
 
 
-BuilderImage::iplToImage(cv::Mat & image)
+void BuilderImage::iplToImage()
 {
-	IplImage * imageIpl = cvDecodeImage(&image);
-	myImage = Image(imageIpl.height ,imageIpl.width,imageIpl.nChannels);
-	unsigned char * data = (unsigned char *)imageIpl.imageData;
-	for(int indexHeight = 0; indexHeight < myHeight; ++indexHeight)
+	CvMat matAPI(myMatImage);
+	IplImage *imageIpl = cvDecodeImage(&matAPI, CV_LOAD_IMAGE_COLOR);
+	myImage = InputImage(imageIpl->height, imageIpl->width, imageIpl->nChannels);
+	auto data = (unsigned char *) imageIpl->imageData;
+	for (int indexHeight = 0; indexHeight < myImage.getHeight(); ++indexHeight)
 	{
-		for(int indexChannel = 0; indexChannel < myChannel ; ++indexChannel)
+		for (int indexChannel = 0; indexChannel < myImage.getChannel(); ++indexChannel)
 		{
-			for(int indexWidth = 0; indexWidth < myWidth ; ++indexWidth)
+			for (int indexWidth = 0; indexWidth < myImage.getWidth(); ++indexWidth)
 			{
-				myImage(indexChannel,indexHeight,indexWidth) = data[indexHeight*step
-																+ indexWidth*myChannel
-																+ indexChannel]/255.;
+				myImage(indexChannel, indexHeight, indexWidth) =
+					static_cast<float>(data[indexHeight * imageIpl->widthStep
+						+ indexWidth * myImage.getChannel()
+						+ indexChannel] / 255.);
 			}
 		}
 	}
-	cvRelease(&imageIpl);
+	cvReleaseImage(&imageIpl);
 }
 
-InputImage & BuilderImage::resizeVertical(const int width)
-{
-	int heightBase = myImage.getHeight();
-	int widthBase  = myImage.getWidth();
-	int channelBase = myImage.getChannel();
-	image resizedImage(heightBase , width , channelBase);
 
-	float widthScale = (float)(widthBase - 1) / (width - 1);
+void BuilderImage::resizeVertical(const int width, InputImage &resizedImage)
+{
+	float widthScale = (float) (myImage.getWidth() - 1) / (width - 1);
 	float value = 0;
-	for(int indexChannel = 0; indexChannel < channelBase; ++indexChannel)
+	for (int indexChannel = 0; indexChannel < myImage.getChannel(); ++indexChannel)
 	{
-		for(int indexHeight = 0; indexHeigth < heightBase; ++indexHeight)
+		for (int indexHeight = 0; indexHeight < myImage.getHeight(); ++indexHeight)
 		{
-			for(int indexWidth = 0; indexWidth < width; ++indexWidth)
+			for (int indexWidth = 0; indexWidth < width; ++indexWidth)
 			{
-				value = 0;
-				if(indexWidth == width - 1 || width == 1)
+				if (indexWidth == width - 1 || width == 1)
 				{
-					value = myImage(widthBase - 1,indexHeight ,indexWidth);
+					value = myImage(myImage.getWidth() - 1, indexHeight, indexWidth);
 				}
 				else
 				{
-					float scale = indexWidth*widthScale;
-					int scaleRounded = (int)pixelScale;
+					float scale = indexWidth * widthScale;
+					int scaleRounded = (int) scale;
 					float deltaScale = scale - scaleRounded;
-					value = (1 - deltaScale)* myImage(indexHeight, scaleRounded ,indexChannel);
-							+ deltaScale * myImage(indexHeight, scaleRounded, indexChannel);
+					value = (1 - deltaScale) * myImage(indexHeight, scaleRounded, indexChannel)
+						+ deltaScale * myImage(indexHeight, scaleRounded, indexChannel);
 				}
-				resizedImage( indexHeight, indexWidth, indexChannel) = value;
+				resizedImage(indexHeight, indexWidth, indexChannel) = value;
 			}
 		}
 	}
-	return resizedImage;
 }
 
 
-InputImage & BuilderImage::resizeHorizontal(const int height , const InputImage & imageBase)
+void BuilderImage::resizeHorizontal(const int height, const InputImage &imageBase, InputImage &resizedImage)
 {
-	int heightBase = myImage.getHeight();
-	int widthBase  = imageBase.getWidth();
-	int channelBase = myImage.getChannel();
-	float heigthScale = (float)(heightBase - 1) / (height - 1);
-	image resizedImage(height , widthBase , channelBase);
-	for(int indexChannel = 0; indexChannel < channelBase; ++indexChannel)
+	float heigthScale = (float) (myImage.getHeight() - 1) / (height - 1);
+	for (int indexChannel = 0; indexChannel < myImage.getChannel(); ++indexChannel)
 	{
-		for(int indexHeight = 0; indexHeight < height; ++indexHeight)
+		for (int indexHeight = 0; indexHeight < height; ++indexHeight)
 		{
 			float scale = indexHeight * heigthScale;
-			int scaleRounded = (int)scale;
+			int scaleRounded = (int) scale;
 			float deltaScale = scale - scaleRounded;
-			for( int indexWidth = 0 ; indexWidth < widthBase ; ++indexWidth)
+			for (int indexWidth = 0; indexWidth < imageBase.getWidth(); ++indexWidth)
 			{
-				float value = (1 - deltaScale) * ;
-				resizedImage(indexHeight,indexWidth,indexChannel)= value;
+				float value = (1 - deltaScale) * myImage(indexHeight, indexWidth, indexChannel);
+				resizedImage(indexHeight, indexWidth, indexChannel) = value;
 			}
-			if (indexHeight != height -1 && heightBase != 1)
+			if (indexHeight != height - 1 && myImage.getHeight() != 1)
 			{
-				for( int indexWidth = 0 ; indexWidth < widthBase ; ++indexWidth)
+				for (int indexWidth = 0; indexWidth < imageBase.getWidth(); ++indexWidth)
 				{
-					float value = deltaScale * resizedImage(indexHeight+1,indexWidth,indexChannel) ;
-					resizedImage(indexHeight,indexWidth,indexChannel) += value;
+					float value = deltaScale * myImage(indexHeight + 1, indexWidth, indexChannel);
+					resizedImage(indexHeight, indexWidth, indexChannel) += value;
 				}
 			}
 		}
 	}
-	return resizedImage;
 }
+
 
 void BuilderImage::resizeImage(const int height, const int width)
 {
-	InputImage resizedVertical = resizeVertical(width);
+	InputImage resizedVertical(myImage.getHeight(), width, myImage.getChannel());
+	resizeVertical(width, resizedVertical);
+	InputImage resizedImage(height, width, myImage.getChannel());
+	resizeHorizontal(height, resizedVertical, resizedImage);
 	myImage.freeImage();
-	myImage =resizeImage(height ,resizedVertical);
+	resizedVertical.freeImage();
+	myImage = resizedImage;
+	resizedImage.freeImage();
 }
 
-InputImage & BuilderImage::letterBox(const int height , const int width)
+
+void BuilderImage::letterBox(const int height, const int width, InputImage &imageBoxed)
 {
-	int heightBase = myImage.getHeight();
-	int widthBase = myImage.getWidth();
-	int channelBase = myImage.getChannel();
-	if (((float)width/widthBase) < ((float)height/heightBase))
+	imageBoxed.setImage(height, width, myImage.getChannel());
+	int widthResized;
+	int heightResized;
+	if (((float) width / myImage.getWidth()) < ((float) height / myImage.getHeight()))
 	{
-		int widthResized = width;
-		int heightResized = (heightBase * width)/widthBase;
+		heightResized = width;
+		widthResized = (myImage.getHeight() * width) / myImage.getWidth();
 	}
 	else
 	{
-		int heightResized = height;
-		int widthResized = (widthBase * height)/heightBase;
+		heightResized = height;
+		widthResized = (myImage.getWidth() * height) / myImage.getHeight();
 	}
 	resizeImage(heightResized, widthResized);
-	InputImage imageBoxed(height ,width ,channelBase);
 	imageBoxed.fillImage(0.5);
-	embedImage(boxed, (width - widthResized)/2, (height - heightResized)/2);
-	return boxed;
+	embedImage((width - widthResized) / 2, (height - heightResized) / 2, imageBoxed);
 }
 
 
-void BuilderImage::embedImage( InputImage & boxed ,const int deltaVertical, const int deltaHorizontal)
+void BuilderImage::embedImage(const int deltaVertical, const int deltaHorizontal, InputImage &boxed)
 {
-	for(int indexChannel = 0; indexChannel < channelBase; ++indexChannel)
+	for (int indexChannel = 0; indexChannel < myImage.getChannel(); ++indexChannel)
 	{
-		for(int indexHeight = 0; indexHeigth < heightBase; ++indexHeight)
+		for (int indexHeight = 0; indexHeight < myImage.getHeight(); ++indexHeight)
 		{
-			for(int indexWidth = 0; indexWidth < width; ++indexWidth)
+			for (int indexWidth = 0; indexWidth < myImage.getWidth(); ++indexWidth)
 			{
-				float value = myImage(indexHeight , indexWidth , indexChannel);
-				boxed(indexHeight+deltahorizontal , indexWidth+deltaVertical
-					  ,indexChannel) = value;
+				float value = myImage(indexHeight, indexWidth, indexChannel);
+				boxed(indexHeight + deltaHorizontal, indexWidth + deltaVertical, indexChannel) = value;
 			}
 		}
 	}
@@ -144,10 +143,8 @@ void BuilderImage::embedImage( InputImage & boxed ,const int deltaVertical, cons
 
 void BuilderImage::convertToMat(const QImage &image)
 {
-	myMatImage = cv::Mat(image.height(),image.width(),
-								CV_8UC3,image.bits(),
-								image.bytesPerLine());
-	cv::cvtColor(myMatImage, myMatImage, CV_RGB2BGR);
+	myMatImage = cv::Mat(image.height(), CV_8UC3, image.width(), const_cast<uchar*>(image.bits()));
+	cv::cvtColor(myMatImage, myMatImage, cv::COLOR_RGB2BGR);
 }
 
 

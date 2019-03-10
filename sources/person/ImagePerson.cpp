@@ -1,7 +1,8 @@
 
 #include "ImagePerson.h"
-#include "Image.h"
-#include "Detector.h"
+#include "BuilderImage.h"
+//#include "BuilderNetwork.h"
+//#include "Detector.h"
 #include <QImage>
 
 ImagePerson::ImagePerson() : ImageWidget() {
@@ -12,9 +13,7 @@ ImagePerson::ImagePerson() : ImageWidget() {
 }
 
 void ImagePerson::selectPerson_on_clicked() {
-  Image image(&myImage);
-  Detector detector(&image);
-  setImage((*detector.getSegmentedImage()));
+
 }
 
 ImagePerson::~ImagePerson() = default;
