@@ -13,6 +13,8 @@ ImagePerson::ImagePerson() : ImageWidget() {
 }
 
 void ImagePerson::selectPerson_on_clicked() {
+	BuilderImage BuildImage(myImage);
+	BuildImage.letterBox();:
 
 }
 
