@@ -11,11 +11,12 @@ add_library(Person SHARED
         ${HEADERS}
         ${CMAKE_SOURCE_DIR}/include/image/InputImage.h
         ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
-        ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
+        ${CMAKE_SOURCE_DIR}/include/utils/UtilsFilePath.h
         ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h)
 
 
 target_link_libraries(Person
+        Image
         Qt5::Widgets
         Qt5::Core
         opencv_core

@@ -1,8 +1,8 @@
 #ifndef STATISTICAL_FOOD
 #define STATISTICAL_FOOD
 
-#include <QWidget>
-#include <QGridLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 
 
 

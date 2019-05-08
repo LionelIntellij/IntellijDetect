@@ -32,7 +32,6 @@
 *.app
 
 bin/
-ToDelete/
 .idea/
 opencv4/
 lib/

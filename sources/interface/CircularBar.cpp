@@ -1,8 +1,8 @@
 #include "CircularBar.h"
-#include <QtGlobal>
-#include <QtGui>
-#include <QPainter>
-#include <QFont>
+#include <QtCore/QtGlobal>
+#include <QtGui/QtGui>
+#include <QtGui/QPainter>
+#include <QtGui/QFont>
 
 
 CircularBar::CircularBar(QWidget *parent)

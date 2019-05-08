@@ -1,10 +1,10 @@
 #ifndef PICTURE_OBJECT_H
 #define PICTURE_OBJECT_H
 
-#include <QWidget>
-#include <QGridLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 #include "ImageWidget.h"
-#include <QToolButton>
+#include <QtWidgets/QToolButton>
 
 
 class ImageObject : public ImageWidget{

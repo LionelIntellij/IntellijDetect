@@ -1,8 +1,8 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
-#include <QWidget>
-#include <QVBoxLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
 
 
 class Sensor : public QWidget

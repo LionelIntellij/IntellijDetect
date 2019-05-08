@@ -1,16 +1,16 @@
 #ifndef SEARCH_WIDGET_H
 #define SEARCH_WIDGET_H
 
-#include <QWidget>
-#include <QFormLayout>
-#include <QTextEdit>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QGraphicsView>
-#include <QLineEdit>
-#include <QCompleter>
-#include <QTextEdit>
-#include <QToolButton>
-#include <QVBoxLayout>
-#include <QGridLayout>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QCompleter>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QGridLayout>
 
 
 

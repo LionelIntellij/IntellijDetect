@@ -1,10 +1,10 @@
 #ifndef TABLE_WIDGET_H
 #define TABLE_WIDGET_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidget>
-#include <QToolButton>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolButton>
 
 
     class TableWidget : public QWidget {

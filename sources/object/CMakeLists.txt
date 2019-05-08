@@ -13,7 +13,7 @@ add_library(Object SHARED
             ${SOURCES}
             ${HEADERS}
 	    ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
-	    ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
+	    ${CMAKE_SOURCE_DIR}/include/utils/UtilsFilePath.h
 	    ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h )
 
 

@@ -1,8 +1,8 @@
 #ifndef PICTURE_FOOD_H
 #define PICTURE_FOOD_H
 
-#include <QWidget>
-#include <QGridLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 #include "ImageWidget.h"
 
 

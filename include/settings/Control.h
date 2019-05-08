@@ -1,8 +1,8 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include <QWidget>
-#include <QVBoxLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
 
 
 class Control : public QWidget

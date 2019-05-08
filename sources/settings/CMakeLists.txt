@@ -13,9 +13,9 @@ include_directories( ${CMAKE_SOURCE_DIR}/include/settings
 add_library(Settings SHARED
             ${SOURCES}
             ${HEADERS}
-	    ${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
-	    ${CMAKE_SOURCE_DIR}/include/utils/UtilsInterface.h
-	    ${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h )
+	    	${CMAKE_SOURCE_DIR}/include/interface/ImageWidget.h
+	    	${CMAKE_SOURCE_DIR}/include/utils/UtilsFilePath.h
+	    	${CMAKE_SOURCE_DIR}/include/interface/TableWidget.h )
 
 
 target_link_libraries(Settings 

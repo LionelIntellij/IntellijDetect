@@ -1,4 +1,5 @@
 #include "TableWidget.h"
+#include "UtilsFilePath.h"
 #include "UtilsInterface.h"
 
 
@@ -6,14 +7,20 @@
     TableWidget::TableWidget(QWidget *parent) : QWidget(parent) {
         myTable = new QTabWidget;
         myPreviousButton = new QToolButton;
-        myPreviousButton->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
-        myPreviousButton->setIcon(QIcon(std::string(utils::pathIcons + "left.png").c_str()));
-        myPreviousButton->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        UtilsFilePath path;
+        std::string pathIcons;
+        QSize maxSizeButton;
+        path.getPath(UtilsFilePath::ICONS,pathIcons);
+        myPreviousButton->setIcon(QIcon(std::string(pathIcons + "left.png").c_str()));
+        myPreviousButton->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+        maxSizeButton = myPreviousButton->minimumSizeHint();
 
         myNextButton = new QToolButton;
-        myNextButton->setMinimumSize(utils::CONTROL_BUTTON_WITDH, utils::CONTROL_BUTTON_HEIGHT);
-        myNextButton->setIcon(QIcon(std::string(utils::pathIcons + "right.png").c_str()));
-        myNextButton->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
+        myNextButton->setIcon(QIcon(std::string(pathIcons + "right.png").c_str()));
+        myNextButton->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+        setMaximumSizeButton(maxSizeButton, myNextButton->minimumSizeHint());
+        myPreviousButton->setMinimumSize(maxSizeButton);
+        myNextButton->setMinimumSize(maxSizeButton);
 
         myPanelLayout = new QHBoxLayout;
         myPanelLayout->addStretch();

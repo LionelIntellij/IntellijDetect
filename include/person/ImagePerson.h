@@ -1,8 +1,8 @@
 #ifndef PICTURE_PERSON_H
 #define PICTURE_PERSON_H
 
-#include <QWidget>
-#include <QGridLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 #include "ImageWidget.h"
 
 class ImagePerson : public ImageWidget {

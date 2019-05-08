@@ -1,12 +1,12 @@
 #ifndef CONTROLPANEL_H
 #define CONTROLPANEL_H
 
-#include <QToolButton>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include <QIcon>
-#include <QPixmap>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QGroupBox>
+#include <QtGui/QIcon>
+#include <QtGui/QPixmap>
 
 
     class ControlPanel : public QWidget {

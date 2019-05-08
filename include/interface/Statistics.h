@@ -2,11 +2,11 @@
 #define STATICTICS_H
 
 //QT include
-#include <QWidget>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QBoxLayout>
-#include <QGroupBox>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QGroupBox>
 
 #include "CircularBar.h"
 

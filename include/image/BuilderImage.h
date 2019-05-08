@@ -1,4 +1,4 @@
-#include <QImage>
+#include <QtGui/QImage>
 #include <opencv2/opencv.hpp>
 #include "InputImage.h"
 

@@ -1,5 +1,5 @@
-#ifndef DETECTOR_H
-#define  DETECTOR_H
+#ifndef YOLO_DETECTOR_H
+#define  YOLO_DETECTOR_H
 #include "InputImage.h"
 #include <opencv2/opencv.hpp>
 
@@ -11,12 +11,13 @@ public:
 	~Detector();
 
 private:
-	int batch;
-	int total;
-	int n, c, h, w;
-	int out_n, out_c, out_h, out_w;
+	int channel;
+	int width;
+	int height;
 	int classes;
-	int inputs, outputs;
+	std::unique_ptr<float> biases;
+	std::unique_ptr<int> mask;
+	
 	int *mask;
 	float *biases;
 	float *output;

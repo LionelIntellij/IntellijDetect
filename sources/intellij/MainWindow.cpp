@@ -1,10 +1,10 @@
 #include "MainWindow.h"
-#include <QStyleFactory>
+#include <QtWidgets/QStyleFactory>
+
 #include <iostream>
 
 /* The Constructor calls the subfunctions for creation of the sample application */
-MainWindow::MainWindow(QWidget *parent)
-	: QMainWindow(parent) {
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
   createGuiControlComponents();
 
   createStacked();

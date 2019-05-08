@@ -1,10 +1,10 @@
 #ifndef PERSON_H
 #define PERSON_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidget>
-#include <QToolButton>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolButton>
 #include "ImagePerson.h"
 #include "StatsPerson.h"
 #include "TableWidget.h"
