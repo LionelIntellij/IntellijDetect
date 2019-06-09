@@ -20,7 +20,6 @@ find_package(Qt5MultimediaWidgets REQUIRED)
 include_directories(${EXTERNAL_PATH}/opencv/include/opencv4)
 link_directories(${EXTERNAL_PATH}/opencv/lib)
 
-
 set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -fPIC -Wextra -fexceptions")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY  ${CMAKE_SOURCE_DIR}/lib)
