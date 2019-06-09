@@ -1,5 +1,5 @@
 #include "SearchWidget.h"
-#include <QPalette>
+#include <QtGui/QPalette>
 
 
     SearchWidget::SearchWidget(QWidget *parent) :

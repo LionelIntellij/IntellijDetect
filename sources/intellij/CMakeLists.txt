@@ -12,9 +12,8 @@ include_directories( ${CMAKE_SOURCE_DIR}/include/settings )
 add_executable(IntellijApp ${SOURCES}
                            ${HEADERS}) 
 
-target_link_libraries(IntellijApp
-                      Interface
-		      Person
-		      Food
-		      Settings
-		      Object)
+target_link_libraries(IntellijApp Interface
+				  Person 
+				  Food
+				  Settings 
+				  Object)

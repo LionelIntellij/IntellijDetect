@@ -1,7 +1,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include <QToolButton>
+#include <QtWidgets/QToolButton>
 #include "ImageObject.h"
 #include "StatsObject.h"
 #include "TableWidget.h"

@@ -16,6 +16,7 @@ add_library(Person SHARED
 
 
 target_link_libraries(Person
+        Image
         Qt5::Widgets
         Qt5::Core
         opencv_core

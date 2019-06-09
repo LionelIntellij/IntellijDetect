@@ -1,4 +1,5 @@
 #!/bin/bash
 echo "export INTELLIJ_PATH=$(pwd)
-      export EXTERNAL_PATH=/media/lionel/91a6e2ef-7032-49c5-bf80-b87f14f940ad/home/lionel/Projects/external">~/.bash_profile
+      export EXTERNAL_PATH=/home/lacroix/external
+      export PATH=/home/lacroix/external/qt5/lib/cmake/:/home/lacroix/external/opencv/lib/cmake/opencv4:$PATH">~/.bash_profile
 

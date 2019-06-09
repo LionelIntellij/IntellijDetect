@@ -1,8 +1,6 @@
-#ifndef STATISTICAL_PERSON
-#define STATISTICAL_PERSON
-
-#include <QWidget>
-#include <QGridLayout>
+#pragma once
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 
 
 
@@ -17,4 +15,3 @@
         QGridLayout *myMainLayout;
 
     };
-#endif

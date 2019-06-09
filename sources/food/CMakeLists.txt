@@ -4,9 +4,8 @@ file(GLOB HEADERS ${CMAKE_SOURCE_DIR}/include/food/*.h)
 
 include_directories( ${CMAKE_SOURCE_DIR}/include/food
                      ${CMAKE_SOURCE_DIR}/include/interface
-		     ${CMAKE_SOURCE_DIR}/include/utils )	
+					 ${CMAKE_SOURCE_DIR}/include/utils )
 
-	     
 add_library(Food SHARED
             ${SOURCES}
             ${HEADERS}

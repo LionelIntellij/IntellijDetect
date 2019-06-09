@@ -1,10 +1,10 @@
 #ifndef QCIRCULARBAR_H
 #define QCIRCULARBAR_H
 
-#include <Qt>
-#include <QWidget>
-#include <QLCDNumber>
-#include <QPropertyAnimation>
+#include <QtCore/Qt>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QLCDNumber>
+#include <QtCore/QPropertyAnimation>
 
 class CircularBar : public QWidget
 {

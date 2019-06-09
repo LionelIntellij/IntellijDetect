@@ -2,14 +2,14 @@
 #define MAINWINDOW_H
 
 //QT include
-#include <QStackedWidget>
-#include <QtGui>
-#include <QDesktopWidget>
-#include <QMainWindow>
-#include <QPushButton>
-#include <QListWidget>
-#include <QVBoxLayout>
-#include <QGroupBox>
+#include <QtWidgets/QStackedWidget>
+#include <QtGui/QtGui>
+#include <QtWidgets/QDesktopWidget>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QListWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QGroupBox>
 
 //class include
 #include "Statistics.h"
@@ -18,6 +18,7 @@
 #include "Object.h"
 #include "Person.h"
 #include "Food.h"
+
 
 
 

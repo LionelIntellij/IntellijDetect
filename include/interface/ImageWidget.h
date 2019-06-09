@@ -2,16 +2,15 @@
 #define Image_WIDGET_H
 
 //Qt
-#include <QWidget>
-#include <QGridLayout>
-#include <QToolButton>
-#include <QBoxLayout>
-#include <QTextEdit>
-#include <QTableWidget>
-#include <QStackedWidget>
-#include <QLabel>
-#include <QScrollArea>
-#include <QImage>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QToolButton>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QLabel>
+#include <QtGui/QImage>
 #include <QtMultimedia/QCameraInfo>
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>

@@ -1,10 +1,10 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidget>
-#include <QToolButton>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolButton>
 #include "Control.h"
 #include "Sensor.h"
 #include "TableWidget.h"

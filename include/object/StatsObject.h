@@ -1,8 +1,8 @@
 #ifndef STATISTICAL_OBJECT
 #define STATISTICAL_OBJECT
 
-#include <QWidget>
-#include <QGridLayout>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QGridLayout>
 
 
 

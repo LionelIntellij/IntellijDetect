@@ -3,7 +3,7 @@
 #include "BuilderImage.h"
 //#include "BuilderNetwork.h"
 //#include "Detector.h"
-#include <QImage>
+#include <QtGui/QImage>
 
 ImagePerson::ImagePerson() : ImageWidget() {
 
@@ -14,7 +14,7 @@ ImagePerson::ImagePerson() : ImageWidget() {
 
 void ImagePerson::selectPerson_on_clicked() {
 	BuilderImage BuildImage(myImage);
-	BuildImage.letterBox();:
+	//BuildImage.letterBox();:
 
 }
 

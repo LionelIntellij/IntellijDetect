@@ -1,10 +1,10 @@
 #ifndef FOOD_H
 #define FOOD_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QTableWidget>
-#include <QToolButton>
+#include <QtWidgets/QtWidgets>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolButton>
 #include "ImageFood.h"
 #include "StatsFood.h"
 #include "TableWidget.h"
