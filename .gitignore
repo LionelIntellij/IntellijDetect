@@ -38,3 +38,7 @@ lib/
 build/
 cmake-build-debug/
 documentation/
+data/network
+data/faceModel
+include/image/test
+sources/image/test

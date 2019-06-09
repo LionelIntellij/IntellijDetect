@@ -2,7 +2,6 @@
 
 #include "ImageWidget.h"
 #include "UtilsInterface.h"
-#include "UtilsFilePath.h"
 #include <QtGui/QIcon>
 #include <QtCore/QSize>
 #include <QtCore/QString>
@@ -13,6 +12,7 @@
 #include <QtWidgets/QMessageBox>
 
 ImageWidget::ImageWidget(QWidget *parent) : QWidget(parent) {
+    myPath = new UtilsFilePath();
     createTableCamera();
     createTablePhoto();
     myTable = new QTabWidget;
@@ -37,7 +37,9 @@ void ImageWidget::createStacked() {
     myLabelImage = new QLabel;
     myLabelImage->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     myLabelImage->setScaledContents(true);
-    displayImage((utils::pathImage + "baseImage.jpeg").c_str());
+    std::string pathImage;
+    myPath->getPath(UtilsFilePath::IMAGE,pathImage);
+    displayImage((pathImage+ "baseImage.jpeg").c_str());
 
     //Stack
     myStack = new QStackedWidget;
@@ -50,33 +52,35 @@ void ImageWidget::createStacked() {
 
 void ImageWidget::createTablePhoto() {
     QSize maxSizeButton;
+    std::string iconsPath;
+    myPath->getPath(UtilsFilePath::ICONS,iconsPath);
     myButtonOpen = new QToolButton;
     myButtonOpen->setText(tr("Open Photo"));
     myButtonOpen->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonOpen->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonOpen->setIcon(QIcon((utils::pathIcons + "open.png").c_str()));
+    myButtonOpen->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonOpen->setIcon(QIcon((iconsPath + "open.png").c_str()));
     maxSizeButton = myButtonOpen->minimumSizeHint();
 
     myButtonSelect = new QToolButton;
     myButtonSelect->setText(tr("Select"));
     myButtonSelect->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonSelect->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonSelect->setIcon(QIcon((utils::pathIcons + "detect.png").c_str()));
+    myButtonSelect->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonSelect->setIcon(QIcon((iconsPath+ "detect.png").c_str()));
     setMaximumSizeButton(maxSizeButton, myButtonSelect->minimumSizeHint());
 
     myButtonSave = new QToolButton;
     myButtonSave->setText(tr("Save"));
     myButtonSave->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonSave->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonSave->setIcon(QIcon((utils::pathIcons + "save.png").c_str()));
+    myButtonSave->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonSave->setIcon(QIcon((iconsPath + "save.png").c_str()));
     setMaximumSizeButton(maxSizeButton, myButtonSave->minimumSizeHint());
 
 
     myButtonCancel = new QToolButton;
     myButtonCancel->setText(tr("Cancel"));
     myButtonCancel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonCancel->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonCancel->setIcon(QIcon((utils::pathIcons + "cancel.png").c_str()));
+    myButtonCancel->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonCancel->setIcon(QIcon((iconsPath + "cancel.png").c_str()));
     setMaximumSizeButton(maxSizeButton, myButtonCancel->minimumSizeHint());
 
     myButtonOpen->setMinimumSize(maxSizeButton);
@@ -100,31 +104,36 @@ void ImageWidget::createTablePhoto() {
 }
 
 void ImageWidget::cancelImage_on_clicked() {
-    displayImage((utils::pathImage + "baseImage.jpeg").c_str());
+    std::string pathImage;
+    myPath->getPath(UtilsFilePath::IMAGE,pathImage);
+    displayImage((pathImage+ "baseImage.jpeg").c_str());
 }
 
 
 void ImageWidget::createTableCamera() {
+    std::string iconsPath;
+    myPath->getPath(UtilsFilePath::ICONS,iconsPath);
+    std::cout<<iconsPath<<std::endl;
     QSize maxSizeButton;
     myButtonStart = new QToolButton;
     myButtonStart->setText(tr("Start"));
     myButtonStart->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonStart->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonStart->setIcon(QIcon((utils::pathIcons + "start.png").c_str()));
+    myButtonStart->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonStart->setIcon(QIcon((iconsPath+ "start.png").c_str()));
     maxSizeButton = myButtonStart->minimumSizeHint();
 
     myButtonStop = new QToolButton;
     myButtonStop->setText(tr("Stop"));
     myButtonStop->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonStop->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonStop->setIcon(QIcon((utils::pathIcons + "stop.png").c_str()));
+    myButtonStop->setIconSize(QSize(ICONS_SIZE, ICONS_SIZE));
+    myButtonStop->setIcon(QIcon((iconsPath + "stop.png").c_str()));
     setMaximumSizeButton(maxSizeButton, myButtonStop->minimumSizeHint());
 
     myButtonCapture = new QToolButton;
     myButtonCapture->setText(tr("Capture"));
     myButtonCapture->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    myButtonCapture->setIconSize(QSize(utils::ICONS_SIZE, utils::ICONS_SIZE));
-    myButtonCapture->setIcon(QIcon((utils::pathIcons + "camera.png").c_str()));
+    myButtonCapture->setIconSize(QSize(ICONS_SIZE,ICONS_SIZE));
+    myButtonCapture->setIcon(QIcon((iconsPath + "camera.png").c_str()));
     setMaximumSizeButton(maxSizeButton, myButtonCapture->minimumSizeHint());
 
     myButtonStart->setMinimumSize(maxSizeButton);
@@ -189,7 +198,9 @@ void ImageWidget::openImage_on_clicked() {
 
 void ImageWidget::tabMenu_on_clicked() {
     if (myIndexBarImage == myTable->currentIndex()) {
-        displayImage((utils::pathImage + "baseImage.jpeg").c_str());
+        std::string pathImage;
+        myPath->getPath(UtilsFilePath::IMAGE,pathImage);
+        displayImage((pathImage + "baseImage.jpeg").c_str());
     }
 }
 
@@ -202,6 +213,7 @@ ImageWidget::~ImageWidget() {
     delete myButtonOpen;
     delete myButtonSave;
     delete myButtonCancel;
+    delete myPath;
 
     delete myViewCamera;
     delete myLabelImage;
@@ -214,5 +226,6 @@ ImageWidget::~ImageWidget() {
     delete myTable;
     delete myStack;
     delete myMainLayout;
+
 }
 

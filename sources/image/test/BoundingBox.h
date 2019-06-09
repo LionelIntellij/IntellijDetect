@@ -1,8 +1,0 @@
-
-
-class BoundingBox
-{
-public:
-
-private:
-};

@@ -15,6 +15,8 @@
 #include <QtMultimedia/QMediaMetaData>
 #include <QtMultimediaWidgets/QCameraViewfinder>
 
+#include "UtilsFilePath.h"
+
 class ImageWidget : public QWidget
 {
 Q_OBJECT
@@ -54,7 +56,8 @@ private:
 	QToolButton *myButtonOpen;
 	QToolButton *myButtonSave;
 	QToolButton *myButtonCancel;
-	
+
+	UtilsFilePath *myPath;
 	void createTableCamera();
 	void createTablePhoto();
 	void createStacked();
