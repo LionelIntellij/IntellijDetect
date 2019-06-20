@@ -22,7 +22,7 @@ target_link_libraries(Person
         opencv_core
         opencv_objdetect
         opencv_imgproc
-        opencv_imgcodecs
+        #opencv_imgcodecs
         opencv_highgui)
 
 

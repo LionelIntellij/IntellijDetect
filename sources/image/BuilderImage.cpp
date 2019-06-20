@@ -1,6 +1,6 @@
 #include "BuilderImage.h"
-#include <opencv2/imgcodecs/imgcodecs_c.h>
-#include <opencv2/highgui.hpp>
+//#include <opencv2/imgcodecs_c.h>
+#include <opencv2/highgui/highgui.hpp>
 
 
 BuilderImage::BuilderImage(const QImage &image)

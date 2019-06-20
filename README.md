@@ -37,7 +37,7 @@ Dependencies:
 Shared libraries necessary for the compilation are available here.
 
 In Debian and ubuntu you must install the following libraries:
-
+sudo apt-get install -y libopencv-dev qtbase-dev
 
 Installing:
 -----------
